@@ -1,0 +1,1 @@
+document.getElementById("inicio").style.color = "white";
