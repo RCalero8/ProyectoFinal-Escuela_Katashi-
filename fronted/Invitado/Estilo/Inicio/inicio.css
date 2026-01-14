@@ -243,7 +243,7 @@ body {
     /* BOTONES EN LA ESQUINA INFERIOR DERECHA */ }
     #hero #hero_content h1 {
       font-family: 'Kaushan Script', cursive;
-      color: #800000;
+      color: #f0f0f0;
       font-size: 86px;
       margin-bottom: 1rem; }
     #hero #hero_content p {
@@ -550,14 +550,91 @@ body {
     gap: 1.5rem; }
     #cta_final #cta_container #cta_valores .icono {
       font-size: 2.5rem; } }
+/* ============================= */
+/* SECCIÓN NUESTRA HISTORIA     */
+/* ============================= */
 #nuestra_historia {
   width: 100%;
   padding: 5rem 2rem;
-  font-family: 'Outfit'; }
+  font-family: 'Outfit', sans-serif;
+  /* ---------- BLOQUE GRANDE ---------- */
+  /* ---------- BLOQUE NOTICIAS ---------- */ }
   #nuestra_historia #historia_container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-    align-items: start; }
+    gap: 3rem; }
+  #nuestra_historia #historia_principal {
+    padding: 3rem; }
+    #nuestra_historia #historia_principal h2 {
+      font-family: 'Kaushan Script', cursive;
+      font-size: 4rem;
+      color: #B8860B;
+      margin-bottom: 1.5rem; }
+    #nuestra_historia #historia_principal p {
+      font-size: 1.5rem;
+      line-height: 1.7;
+      margin-bottom: 2.5rem; }
+    #nuestra_historia #historia_principal .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 0.8rem 2rem;
+      font-size: 1rem; }
+  #nuestra_historia .noticias {
+    background-color: #1f1f1f;
+    padding: 2.5rem;
+    border-radius: 12px; }
+    #nuestra_historia .noticias h3 {
+      font-size: 1.6rem;
+      color: white;
+      margin-bottom: 1.5rem; }
+    #nuestra_historia .noticias ul {
+      list-style: none;
+      margin-bottom: 2rem;
+      padding: 0; }
+      #nuestra_historia .noticias ul li {
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25); }
+        #nuestra_historia .noticias ul li:last-child {
+          border-bottom: none; }
+        #nuestra_historia .noticias ul li small {
+          display: block;
+          font-size: 0.75rem;
+          color: #FFBB01;
+          margin-bottom: 0.3rem;
+          text-transform: uppercase;
+          letter-spacing: 1px; }
+        #nuestra_historia .noticias ul li a {
+          text-decoration: none;
+          font-size: 0.95rem;
+          color: #EAEAEA;
+          transition: color 0.3s; }
+          #nuestra_historia .noticias ul li a:hover {
+            color: #B8860B; }
+    #nuestra_historia .noticias .btn {
+      display: block;
+      text-decoration: none;
+      width: 100%;
+      text-align: center;
+      font-size: 0.85rem; }
+
+/* ============================= */
+/* RESPONSIVE                   */
+/* ============================= */
+@media (max-width: 900px) {
+  #nuestra_historia #historia_container {
+    grid-template-columns: 1fr; }
+  #nuestra_historia #historia_principal h2 {
+    font-size: 3rem; } }
+@media (max-width: 480px) {
+  #nuestra_historia {
+    padding: 4rem 1.5rem; }
+    #nuestra_historia #historia_principal {
+      padding: 2rem; }
+      #nuestra_historia #historia_principal h2 {
+        font-size: 2.5rem; }
+    #nuestra_historia .noticias {
+      padding: 2rem; } }
 
 /*# sourceMappingURL=inicio.css.map */

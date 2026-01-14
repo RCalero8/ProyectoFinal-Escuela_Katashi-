@@ -1,5 +1,5 @@
-@import "../header.scss";
-@import "../footer.scss";
+@import "../../../Comun/header.scss";
+@import "../../../Comun/footer.scss";
 
 * {
   box-sizing: border-box;
@@ -500,16 +500,137 @@ body {
   }
 }
 
-//Nuestra Historia
-#nuestra_historia{
+/* ============================= */
+/* SECCIÓN NUESTRA HISTORIA     */
+/* ============================= */
+
+#nuestra_historia {
   width: 100%;
   padding: 5rem 2rem;
-  font-family: 'Outfit';
+  font-family: 'Outfit', sans-serif;
 
-  #historia_container{
+  #historia_container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 3rem;
-    align-items: start;
+  }
+
+  /* ---------- BLOQUE GRANDE ---------- */
+  #historia_principal {
+    padding: 3rem;
+
+    h2 {
+      font-family: 'Kaushan Script', cursive;
+      font-size: 4rem;
+      color: #B8860B;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn {
+      display: inline-block; // Para que el enlace se comporte como botón
+      text-decoration: none;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+    }
+  }
+
+  /* ---------- BLOQUE NOTICIAS ---------- */
+  .noticias {
+    background-color: #1f1f1f;
+    padding: 2.5rem;
+    border-radius: 12px;
+
+    h3 {
+      font-size: 1.6rem;
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      list-style: none;
+      margin-bottom: 2rem;
+      padding: 0;
+
+      li {
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        small {
+          display: block;
+          font-size: 0.75rem;
+          color: #FFBB01;
+          margin-bottom: 0.3rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        a {
+          text-decoration: none;
+          font-size: 0.95rem;
+          color: #EAEAEA;
+          transition: color 0.3s;
+
+          &:hover {
+            color: #B8860B;
+          }
+        }
+      }
+    }
+
+    .btn {
+      display: block; // Para que ocupe el ancho disponible
+      text-decoration: none;
+      width: 100%;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+  }
+}
+
+/* ============================= */
+/* RESPONSIVE                   */
+/* ============================= */
+
+@media (max-width: 900px) {
+  #nuestra_historia {
+    #historia_container {
+      grid-template-columns: 1fr;
+    }
+
+    #historia_principal {
+      h2 {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  #nuestra_historia {
+    padding: 4rem 1.5rem;
+
+    #historia_principal {
+      padding: 2rem;
+
+      h2 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .noticias {
+      padding: 2rem;
+    }
   }
 }
