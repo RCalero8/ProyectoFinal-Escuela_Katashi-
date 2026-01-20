@@ -1,15 +1,17 @@
-@import "../../../Comun/header.scss";
-@import "../../../Comun/footer.scss";
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
+html, body {
   width: 100%;
+  overflow-x: hidden; // Esto elimina cualquier corte o desplazamiento lateral raro
+  position: relative;
 }
+
+@import "../../../Comun/header.scss";
+@import "../../../Comun/footer.scss";
 
 
 //Hero Principal
@@ -87,30 +89,6 @@ body {
   }
 }
 
-/* RESPONSIVE Hero */
-@media (max-width: 768px) {
-  #hero {
-    height: 70vh;
-
-    #hero_content {
-      h1 {
-        font-size: 2rem;
-      }
-
-      p {
-        font-size: 1rem;
-      }
-
-      #hero_buttons {
-        position: static;
-        /* en móvil lo ponemos debajo del texto */
-        justify-content: center;
-        margin-top: 1rem;
-      }
-    }
-  }
-}
-
 //Nav Especial
 #nav_especial {
   background-color: #2e2e2e;
@@ -173,29 +151,6 @@ body {
         background-color: #B8860B;
         color: #956e0e;
       }
-    }
-  }
-}
-
-/* RESPONSIVE Nav*/
-@media (max-width: 768px) {
-  #nav_container {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.5rem;
-
-    #nav_text {
-      #nav_title {
-        font-size: 1.5rem;
-      }
-
-      p {
-        font-size: 0.9rem;
-      }
-    }
-
-    #nav_btn {
-      padding: 0.5rem 1rem;
     }
   }
 }
@@ -307,65 +262,6 @@ body {
   }
 }
 
-/* ----------------- RESPONSIVE ----------------- */
-@media (max-width: 768px) {
-  #que_ofrecemos, #por_que_elegirnos {
-    padding: 3rem 1rem;
-
-    h2 {
-      font-size: 3rem;
-    }
-
-    p {
-      font-size: 1rem;
-    }
-
-    .ofertas_grid {
-      gap: 1.5rem;
-
-      .oferta_item {
-        padding: 1.5rem 1rem;
-
-        img {
-          width: 50px;
-          height: 50px;
-        }
-
-        h3 {
-          font-size: 1.5rem;
-        }
-
-        p {
-          font-size: 0.9rem;
-        }
-      }
-    }
-
-    #por_que_elegirnos {
-      h3 {
-        font-size: 3rem;
-      }
-
-      .estadisticas {
-        flex-direction: column;
-        gap: 1rem;
-
-        .estadistica_item {
-          min-width: 100%;
-
-          h4 {
-            font-size: 1.5rem;
-          }
-
-          p {
-            font-size: 0.9rem;
-          }
-        }
-      }
-    }
-  }
-}
-
 //Llamada a la acción
 #cta_final {
   width: 100%;
@@ -381,8 +277,8 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;   // 👈 CENTRA TODO
-    text-align: center;    // 👈 TEXTO CENTRADO
+    align-items: center;   
+    text-align: center;   
 
     h2 {
       color: #B8860B;
@@ -466,39 +362,6 @@ body {
   }
 }
 
-/* ----------------- RESPONSIVE ----------------- */
-@media (max-width: 768px) {
-  #cta_final {
-
-    #cta_container {
-      h2 {
-        font-size: 2.3rem;
-      }
-
-      p {
-        font-size: 1rem;
-      }
-
-      .cta_buttons {
-        flex-direction: column;
-        width: 100%;
-
-        .btn {
-          width: 100%;
-        }
-      }
-
-      #cta_valores {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-
-        .icono {
-          font-size: 2.5rem;
-        }
-      }
-    }
-  }
-}
 
 /* ============================= */
 /* SECCIÓN NUESTRA HISTORIA     */
@@ -537,21 +400,26 @@ body {
     .btn {
       display: inline-block; // Para que el enlace se comporte como botón
       text-decoration: none;
+      background: #fb1010;
       padding: 0.8rem 2rem;
       font-size: 1rem;
+      color: white;
+      font-family: 'Inter';
     }
   }
 
   /* ---------- BLOQUE NOTICIAS ---------- */
   .noticias {
-    background-color: #1f1f1f;
+    background-color: #D9D9D9;
     padding: 2.5rem;
     border-radius: 12px;
+    border-left: solid 5px #B8860B;
 
     h3 {
-      font-size: 1.6rem;
-      color: white;
-      margin-bottom: 1.5rem;
+        font-family: 'Kaushan Script', cursive;
+        font-size: 4rem;
+        color: #B8860B;
+        margin-bottom: 1.5rem;
     }
 
     ul {
@@ -561,7 +429,7 @@ body {
 
       li {
         padding: 1rem 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+        border-bottom: 1px solid rgba(48, 37, 37, 0.25);
 
         &:last-child {
           border-bottom: none;
@@ -569,17 +437,16 @@ body {
 
         small {
           display: block;
-          font-size: 0.75rem;
-          color: #FFBB01;
+          font-size: 0.99rem;
+          color: #4B4949;
           margin-bottom: 0.3rem;
-          text-transform: uppercase;
           letter-spacing: 1px;
         }
 
         a {
           text-decoration: none;
-          font-size: 0.95rem;
-          color: #EAEAEA;
+          font-size: 1rem;
+          color: #000000;
           transition: color 0.3s;
 
           &:hover {
@@ -592,45 +459,167 @@ body {
     .btn {
       display: block; // Para que ocupe el ancho disponible
       text-decoration: none;
-      width: 100%;
+      background: #2E2E2E;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      color: white;
+      font-family: 'Inter';
       text-align: center;
-      font-size: 0.85rem;
     }
   }
 }
 
-/* ============================= */
-/* RESPONSIVE                   */
-/* ============================= */
+/* =======================================================
+   RESPONSIVE DESIGN 
+   ======================================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
+
+  /* 1. Reset de Seguridad */
+  body {
+    overflow-x: hidden; // Evita el scroll horizontal accidental
+  }
+
+  /* 2. Header & Nav (Importante para el menú hamburguesa) */
+  #header_container {
+    padding: 0.8rem 1.2rem;
+  }
+
+  .header_nav {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100%;
+    background-color: #2E2E2E;
+    flex-direction: column;
+    padding: 2rem 0;
+    display: none; // Se activa con JS (clase .active)
+    z-index: 1000;
+    border-bottom: 2px solid #B8860B;
+
+    &.active {
+      display: flex;
+    }
+
+    #header_list {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    #header_buttons {
+      flex-direction: column;
+      width: 80%;
+      align-items: center;
+      .btn { width: 100%; text-align: center; }
+    }
+  }
+
+  /* 3. Hero Section */
+  #hero {
+    height: auto; // Deja que el contenido dicte la altura en móvil
+    min-height: 85vh;
+    padding: 4rem 1rem;
+
+    #hero_content {
+      h1 {
+        font-size: 2.8rem; // Más legible en móvil
+        margin-bottom: 1.5rem;
+      }
+      p {
+        font-size: 1.1rem;
+        line-height: 1.4;
+      }
+      
+      #hero_buttons {
+        position: static; 
+        margin-top: 3rem;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        
+        .btn--primary, .btn--secondary {
+          width: 100%;
+          padding: 1.2rem;
+        }
+      }
+    }
+  }
+
+  /* 4. Nav Especial (Barra secundaria) */
+  #nav_especial {
+    padding: 2rem 1rem;
+    #nav_container {
+      flex-direction: column;
+      text-align: center;
+      
+      #nav_text {
+        margin: 1rem 0;
+        #nav_title { font-size: 1.6rem; }
+      }
+      #nav_btn { width: 100%; }
+    }
+  }
+
+  /* 5. Que Ofrecemos (Grid) */
+  #que_ofrecemos {
+    padding: 3rem 1.5rem;
+    h2 { font-size: 2.5rem; }
+    
+    .ofertas_grid {
+      grid-template-columns: 1fr; // Una sola columna en móviles pequeños
+      gap: 1.5rem;
+    }
+  }
+
+  /* 6. Estadísticas (Por qué elegirnos) */
+  #por_que_elegirnos {
+    h3 { font-size: 2.2rem; }
+    .estadisticas {
+      display: grid;
+      grid-template-columns: 1fr 1fr; // Dos columnas para que no sea eterno el scroll
+      gap: 1rem;
+      
+      .estadistica_item {
+        min-width: unset;
+        padding: 1rem;
+        h4 { font-size: 1.4rem; }
+      }
+    }
+  }
+
+  /* 7. Nuestra Historia & Noticias */
   #nuestra_historia {
+    padding: 3rem 1rem;
     #historia_container {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr; 
     }
-
     #historia_principal {
-      h2 {
-        font-size: 3rem;
-      }
+      padding: 1rem 0;
+      h2 { font-size: 2.2rem; }
+      p { font-size: 1.05rem; text-align: justify; }
+    }
+    .noticias {
+      margin-top: 2rem;
+      padding: 1.5rem;
     }
   }
-}
 
-@media (max-width: 480px) {
-  #nuestra_historia {
-    padding: 4rem 1.5rem;
-
-    #historia_principal {
-      padding: 2rem;
-
-      h2 {
-        font-size: 2.5rem;
+  /* 8. CTA Final (Llamada a la acción) */
+  #cta_final {
+    padding: 3rem 1rem;
+    #cta_container {
+      h2 { font-size: 2.2rem; }
+      .cta_buttons {
+        flex-direction: column;
+        width: 100%;
+        .btn { width: 100%; }
       }
-    }
-
-    .noticias {
-      padding: 2rem;
+      #cta_valores {
+        grid-template-columns: 1fr 1fr; // 2x2 en móvil
+        gap: 1.5rem;
+      }
     }
   }
 }
