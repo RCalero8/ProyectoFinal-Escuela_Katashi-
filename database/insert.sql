@@ -1,16 +1,16 @@
-//Usuarios
+--Usuarios
 INSERT INTO USUARIO (nombre, apellido, email, contrasena, tipo_usuario)
 value ('Roberto', 'Diaz', 'roberto@email.com', '1234', 'CLIENTE');
 INSERT INTO USUARIO (nombre, apellido, email, contrasena, tipo_usuario)
 value ('Sensei', 'Fran', 'admin@dojo.com', 'admin_secure', 'ADMINISTRADOR');
 
-//Alumnos
+--Alumnos
 INSERT INTO ALUMNO (dni, nombre, apellido, f_nacimiento, nivel, id_usuario)
 value('12345678Z','Roberto','Diaz','1973-05-20','Blanco','1');
 INSERT INTO ALUMNO (dni, nombre, apellido, f_nacimiento, nivel, id_usuario)
 value('65004204V','Daniel','Diaz','2015-05-15','Blanco-Amarillo','1');
 
-//Cursos
+--Cursos
 INSERT INTO CURSO (nombre, descripcion, f_inicio, f_fin, precio) VALUES
 ('Infantil', 'Introducción al Karate mediante juegos, coordinación y disciplina inicial.','2025-09-18','2026-02-12','25'),
 ('Niños', 'Mejora técnica, fuerza y disciplina con ejercicios adaptados.','2025-09-18','2026-02-12','30'),
@@ -19,7 +19,7 @@ INSERT INTO CURSO (nombre, descripcion, f_inicio, f_fin, precio) VALUES
 ('Cpmpetición', 'Entrenamiento intensivo para alumnos federados orientado a campeonatos.','2025-09-18','2026-02-12','15'),
 ('Preparación Física', 'Mejora de fuerza, agilidad y resistencia para complementar el karate.','2025-09-18','2026-02-12','10');
 
-//Clases
+--Clases
 INSERT INTO CLASE (grado, duracion_min, id_curso) VALUES 
 ('4-6 años', 60, 1), 
 ('7-9 años', 60, 2), 
@@ -28,12 +28,12 @@ INSERT INTO CLASE (grado, duracion_min, id_curso) VALUES
 ('Solo los alumnos que el sensei diga', 90, 5),          
 ('Solo los alumnos que el sensei diga', 60, 6); 
 
-//Federación
+--Federación
 INSERT INTO FEDERACION (n_licencia, categoria, f_alta, f_renovacion, id_alumno) VALUES 
 ('FED-2024-001', 'Senior', '2025-01-15', '2026-01-15', 1),
 ('FED-2024-002', 'Infantil', '2025-01-20', '2026-01-20', 2);
 
-//Inscripción
+--Inscripción
 INSERT INTO INSCRIPCION (f_inscripcion, estado, id_alumno, id_curso, id_usuario) VALUES 
 -- Matrícula del padre (Alumno 1) - Usuario 1 es el titular
 (CURRENT_TIMESTAMP, 'ACTIVA', 1, 4, 1), 
@@ -41,7 +41,7 @@ INSERT INTO INSCRIPCION (f_inscripcion, estado, id_alumno, id_curso, id_usuario)
 -- Matrícula del hijo (Alumno 2) - Usuario 1 es su padre/tutor
 (CURRENT_TIMESTAMP, 'ACTIVA', 2, 1, 1);
 
-//Material
+--Material
 INSERT INTO MATERIAL (nombre, descripcion, precio, stock) VALUES 
 ('Karategi Entrenamiento', 'Uniforme de algodón resistente, ideal para principiantes. Incluye cinturón blanco.', 39.95, 20),
 ('Karategi Kumite Profesional', 'Tejido ultra ligero con tecnología de secado rápido. Corte de competición.', 89.00, 10),
@@ -50,7 +50,7 @@ INSERT INTO MATERIAL (nombre, descripcion, precio, stock) VALUES
 ('Cinturón de Color', 'Cinturones de algodón 100% disponibles en todos los colores de grado.', 9.00, 50),
 ('Saco de Pared (Makiwara)', 'Accesorio tradicional para el entrenamiento de precisión y endurecimiento.', 45.00, 5);
 
-//Pagos
+--Pagos
 INSERT INTO PAGOS (f_pago, tipo, precio, estado, id_usuario, id_material) 
 VALUES (CURRENT_TIMESTAMP, 'CUOTA', 70.00, 'COMPLETADO', 1, NULL);
 
