@@ -1,0 +1,101 @@
+@use 'variables' as v;
+
+//  HEADER 100% ANCHO
+.main-header {
+    background-color: v.$negro-fondo;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 40px; // Espaciado en los bordes internos
+    }
+}
+
+// 3. ELEMENTOS INTERNOS
+.logo-section {
+    .nav-logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: block;
+    }
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+
+    a {
+        text-decoration: none;
+        font-family: v.$fuente-cursiva;
+        font-size: 1.7rem;
+        transition: transform 0.3s;
+
+        &.item-white { color: v.$blanco; }
+        &.item-gold { color: v.$dorado; }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+// 4. BOTONES
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+
+    button {
+        font-family: v.$fuente-cursiva;
+        font-size: 1.4rem;
+        padding: 6px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &.btn-session {
+            background: transparent;
+            color: v.$rojo-logo;
+            border: 2px solid v.$rojo-logo;
+            &:hover {
+                background: v.$rojo-logo;
+                color: #fff;
+            }
+        }
+
+        &.btn-register {
+            background-color: v.$verde-registro;
+            color: #fff;
+            border: none;
+            &:hover {
+                filter: brightness(1.2);
+            }
+        }
+    }
+}
+
+// 5. RESPONSIVE (Ajuste para tablets y móviles)
+@media (max-width: 1024px) {
+    .nav-menu {
+        gap: 15px;
+        a { font-size: 1.3rem; }
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column; // Apila los elementos en vertical
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
