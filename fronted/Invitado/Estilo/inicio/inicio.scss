@@ -3,7 +3,7 @@
 @import 'botones.scss';
 @import 'hero.scss';
 @import 'nav_especial.scss';
-@import 'que_ofrecemos.scss';
+@import 'Beneficio.scss';
 @import 'cta_final.scss';
 @import 'nuestraHistoria_noticias.scss';
 @import 'clases.scss';
@@ -14,11 +14,8 @@
 /* ============================= */
 
 /* ================= HEADER / MENÚ HAMBURGUESA ================= */
-@media (max-width: $bp-tablet) {
-
-  #header_container {
-    position: relative;
-  }
+/* ================= MOBILE MENU ================= */
+@media (max-width: 768px) {
 
   .header_nav {
     position: absolute;
@@ -26,7 +23,7 @@
     right: 0;
     background-color: #1f1f1f;
     width: 100%;
-    flex-direction: column;
+    flex-direction: column; /* vertical */
     align-items: center;
     gap: 1.5rem;
     padding: 2rem 0;
@@ -44,123 +41,248 @@
   }
 
   #header_list {
-    flex-direction: column;
+    display: flex;
+    flex-direction: column; /* vertical */
     gap: 1.2rem;
+    width: 100%;
+    text-align: center;
   }
 
   #header_buttons {
     flex-direction: column;
-    width: 80%;
+    width: 100%;
+    gap: 1rem;
+    text-align: center;
   }
 
-  .header_burger {
-    display: flex;
+  .header_list li a {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
   }
 }
+
 
 /* ================= HERO PRINCIPAL ================= */
-@media (max-width: $bp-tablet) {
+@media (max-width: 768px) {
+  .hero {
+    height: auto;              // evitamos problemas en móviles
+    min-height: 100vh;
+    padding: 3rem 1.5rem;
 
-  #hero {
-    height: 80vh;
-  }
+    .hero_content {
+      max-width: 100%;
 
-  #hero h1 {
-    font-size: 2.5rem;
-    top: 25%;
-  }
+      h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+      }
 
-  #hero p {
-    font-size: 1rem;
-    top: 40%;
-    max-width: 90%;
-  }
+      p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
 
-  .hero_buttons {
-    right: 50%;
-    transform: translateX(50%);
-    bottom: 2rem;
-    flex-direction: column;
-  }
-}
+      .hero_buttons {
+        flex-direction: column; // botones en columna
+        gap: 0.75rem;
 
-@media (max-width: $bp-mobile) {
-
-  #hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero_buttons {
-    width: 100%;
-    align-items: center;
+        .btn {
+          width: 100%;          // botones grandes y cómodos
+          padding: 0.9rem;
+          font-size: 1rem;
+        }
+      }
+    }
   }
 }
+
 
 /* ================= NAV ESPECIAL ================= */
-@media (max-width: $bp-tablet) {
+@media (max-width: 768px) {
+  .nav_especial {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
 
-  #nav_container {
-    padding: 1.5rem 1rem;
-  }
+    .nav_izq {
+      flex-direction: row;
+      align-items: center;
 
-  #nav_title {
-    font-size: 2.2rem;
-  }
+      .logo {
+        width: 50px;
+      }
 
-  #nav_logo img {
-    width: 55px;
-  }
-}
+      .nav_text {
+        h1 {
+          font-size: 1.2rem;
+        }
 
-/* ================= QUÉ OFRECEMOS ================= */
-@media (max-width: $bp-tablet) {
+        p {
+          font-size: 0.85rem;
+        }
+      }
+    }
 
-  #que_ofrecemos h2 {
-    font-size: 3rem;
-  }
+    .nav_der {
+      width: 100%;
 
-  .ofertas_grid {
-    gap: 1.5rem;
-  }
-
-  .oferta_item h3 {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: $bp-mobile) {
-
-  #que_ofrecemos h2 {
-    font-size: 2.5rem;
-  }
-
-  #que_ofrecemos > p {
-    font-size: 1rem;
+        .btn {
+        width: auto;          // ya no ocupa todo
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        align-self: flex-start; // queda alineado a la izquierda
+      }
+    }
   }
 }
 
-/* ================= POR QUÉ ELEGIRNOS ================= */
-@media (max-width: $bp-tablet) {
 
-  #por_que_elegirnos h3 {
-    font-size: 2.5rem;
-  }
 
-  .estadisticas {
-    gap: 1.5rem;
+/* ================= Beneficios ================= */
+@media (max-width: 1024px) {
+  .beneficios {
+    .beneficios_intro {
+      h2 {
+        font-size: 2rem; // más pequeño en tablet
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .beneficios_grid {
+      gap: 1.5rem; // un poco menos de espacio
+    }
+
+    .beneficio {
+      img {
+        width: 70px;
+        height: 70px;
+      }
+
+      h3 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+    }
   }
 }
 
-@media (max-width: $bp-mobile) {
+@media (max-width: 768px) {
+  .beneficios {
+    padding: 3rem 1.5rem;
 
-  #por_que_elegirnos h3 {
-    font-size: 2rem;
-  }
+    .beneficios_intro {
+      h2 {
+        font-size: 1.8rem;
+      }
 
-  .estadistica_item h4 {
-    font-size: 1.6rem;
+      p {
+        font-size: 0.95rem;
+        text-align: left; // mantengo alineado a la izquierda
+      }
+    }
+
+    .beneficios_grid {
+      flex-direction: column; // apilamos los beneficios
+      gap: 1.5rem;
+    }
+
+    .beneficio {
+      margin: 0;
+
+      img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0.75rem;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
   }
 }
+@media (max-width: 1024px) {
+  .porque {
+    .porque_intro {
+      h2 {
+        font-size: 1.8rem; // título más pequeño
+      }
+
+      p {
+        font-size: 0.95rem; // párrafo más pequeño
+      }
+    }
+
+    .porque_grid {
+      flex-direction: column; // apilar los divs uno debajo del otro
+      gap: 1.5rem;
+
+      .razon {
+        width: 100%; // ocupar todo el ancho
+        padding: 1.5rem 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .porque {
+    .porque_intro {
+      h2 {
+        font-size: 1.8rem; // título más pequeño
+      }
+
+      p {
+        font-size: 0.95rem; // párrafo más pequeño
+      }
+    }
+
+    .porque_grid {
+      flex-direction: column; // apilar los divs uno debajo del otro
+      gap: 1.5rem;
+
+      .razon {
+        width: 100%; // ocupar todo el ancho
+        padding: 1.5rem 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .porque {
+    .porque_intro {
+      h2 {
+        font-size: 1.5rem; // título aún más pequeño
+      }
+
+      p {
+        font-size: 0.9rem; // párrafo aún más pequeño
+      }
+    }
+
+    .porque_grid {
+      gap: 1rem;
+
+      .razon {
+        padding: 1rem;
+      }
+    }
+  }
+}
+
+
 
 /* ================= CTA FINAL ================= */
 @media (max-width: $bp-tablet) {
@@ -224,13 +346,19 @@
 }
 
 /* ================= FOOTER ================= */
-@media (max-width: $bp-tablet) {
+@media (max-width: $bp-mobile) {
+  footer {
+    padding: 2rem 1rem;
 
-  #footer_container {
-    text-align: center;
-  }
+    .footer_container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2rem;
+    }
 
-  #footer_logo img {
-    margin: 0 auto;
+    .footer_socials {
+      justify-content: center;
+    }
   }
 }

@@ -8,7 +8,7 @@
     transition: all 0.3s ease;
 }
 
-.btn-primary {
+.btn--registro {
     background-color: #0E6A08;
     color: #04ff19;
 
@@ -17,46 +17,48 @@
     }
 }
 
-.btn-secondary {
+.btn--inicio {
     background-color: transparent;
     color: #ff0404;
     border: 5px solid #ff0808;
 
     &:hover {
         background-color: #ff0808;
-        color: #ffffff;
+        color: $color-white;
     }
 }
 
-.btn--conocido {
+.conocenos {
     @extend .btn;
     background-color: transparent;
-    color: #ffffff;
-    border: 5px solid #ffffff;
+    font-size: 26px;
+    font-family: $font-ui;
+    color: $color-white;
+    border: 5px solid $color-white;
 
     &:hover {
-        background-color: #ffffff;
-        color: black;
+        background-color: $color-white;
+        color: $color-black;
     }
 }
 
-.btn--clases {
+.ver_clases {
     @extend .btn;
     background-color: #FF0419;
     color: white;
-  
+    font-size: 26px;
+    font-family: $font-ui;
+    color: white;
 
     &:hover {
         background-color: darken(#FF0419, 10%);
     }
 }
 
-.btn--conocer{
+#btn_conocenos{
     @extend .btn;
-    background-color: #956E0E;
-    color: #B8860B;
-
-    &:hover {
-        background-color: darken(#956E0E, 10%);
-    }
+    background: $color-accent;
+    font-family: $font-ui;
+    font-size: 36px;
+    color: #956e0e;
 }

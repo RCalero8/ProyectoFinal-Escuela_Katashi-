@@ -1,39 +1,30 @@
 @import '../variables.scss';
 
-#hero {
+.hero {
   width: 100%;
-  height: 90vh;
-  background: url("../Imagenes/Inicio/hero.jpg") center/cover no-repeat;
-  position: relative;
+  height: 600px;
+  background: url("../../Imagenes/Inicio/Principal.jpeg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  padding: 1rem;
 
   .hero_content {
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 100%;
-    padding: 0 2rem;
-    position: relative;
-  }
-
-  h1 {
-    font-family: $font-titulo;
-    font-size: 4rem;
-    color: #800000;
-    position: absolute;
-    top: 35%;
-  }
-
-  p {
-    position: absolute;
-    top: 48%;
-    font-size: 1.2rem;
-    max-width: 500px;
-  }
-
-  .hero_buttons {
-    position: absolute;
-    bottom: 4rem;
-    right: 2rem;
-    display: flex;
-    gap: 1rem;
+    max-width: 800px;
+    h1 {
+      font-family: $font-titulo;
+      font-size: 60px;
+      color: #800000;
+    }
+    p {
+      font-family: $font-ui;
+      font-size: 30px;
+      color: white;
+    }
+    .hero_buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
   }
 }

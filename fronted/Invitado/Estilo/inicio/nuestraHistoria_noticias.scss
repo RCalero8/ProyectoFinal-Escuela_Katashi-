@@ -22,7 +22,7 @@
   h2 {
     font-family: 'Kaushan Script';
     font-size: 4rem;
-    color:  #B8860B;
+    color: $color-accent;
     margin-bottom: 1.5rem;
   }
 
@@ -39,7 +39,7 @@
 /* ============================= */
 
 .historia_noticias {
-  background-color: #1f1f1f;
+  background-color: $color-dark;
   padding: 2.5rem;
   border-radius: 12px;
 
@@ -65,7 +65,7 @@
       .fecha {
         display: block;
         font-size: 0.75rem;
-        color:#B8860B;
+        color: $color-accent;
         margin-bottom: 0.3rem;
         letter-spacing: 1px;
         text-transform: uppercase;

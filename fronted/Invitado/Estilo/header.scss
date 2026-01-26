@@ -1,5 +1,5 @@
 @import 'variables.scss';
-
+@import 'inicio/botones.scss';
 #header {
     width: 100%;
     background-color: #2e2e2e;
@@ -26,7 +26,8 @@
     display: flex;
     gap: 1.5rem;
     li a {
-      font-size: 0.9rem;
+      font-family: $font-titulo;
+      font-size: 2rem;
       transition: color 0.3s;
       color: #B8860B;
 
@@ -39,5 +40,21 @@
    #header_buttons {
     display: flex;
     gap: 1rem;
+  }
+}
+
+.header_burger {
+  display: none; /* por defecto oculto en desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+
+  span {
+    display: block;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
   }
 }

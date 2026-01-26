@@ -45,3 +45,31 @@ async function renderCursos() {
 // Ejecutar cuando el HTML esté totalmente cargado
 document.addEventListener('DOMContentLoaded', renderCursos);
 
+//Boton Hamburguesa
+const burger = document.getElementById('burger');
+const nav = document.getElementById('menu');
+
+burger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
+
+
+//Scroll suave 
+const enlaces = document.querySelectorAll('a[href^="#"]');
+
+enlaces.forEach(enlace => {
+  enlace.addEventListener('click', e => {
+    e.preventDefault();
+    const targetId = enlace.getAttribute('href').substring(1);
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // cerrar menú en móvil al hacer click
+    if (nav.classList.contains('active')) {
+      nav.classList.remove('active');
+      burger.classList.remove('active');
+    }
+  });
+});
