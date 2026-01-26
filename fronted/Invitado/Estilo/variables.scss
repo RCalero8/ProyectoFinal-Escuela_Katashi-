@@ -1,11 +1,45 @@
-// Colores principales
-$bg-header: #212121;
-$bg-body: #1a1a1a;
-$color-gold: #c5a059;
-$color-white: #ffffff;
-$color-red: #ff0000;
-$color-green: #008000;
+/* ============================= */
+/* VARIABLES                     */
+/* ============================= */
 
-// Fuentes
-$font-cursive: 'Kaushan Script', cursive;
-$font-main: 'Outfit', sans-serif;
+$font-titulo: 'Kaushan Script';
+$font-texto: 'Outfit';
+$font-ui: 'Inter';
+
+// Breakpoints
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+
+/* ============================= */
+/* RESET + BASE                  */
+/* ============================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  font-family: $font-texto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}

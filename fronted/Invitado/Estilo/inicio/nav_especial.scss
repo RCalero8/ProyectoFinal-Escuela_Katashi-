@@ -1,0 +1,32 @@
+#nav_especial {
+  background-color: #2E2E2E;
+  padding: 2rem;
+
+  #nav_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #nav_logo img {
+    width: 70px;
+    margin: 0 auto 1rem;
+  }
+
+  #nav_title {
+    font-family: $font-titulo;
+    font-size: 3rem;
+    color: white;
+  }
+
+  p {
+    margin-top: 0.3rem;
+    font-size: 1rem;
+    color: #b8860b;
+  }
+
+  #nav_btn {
+    margin-top: 1.5rem;
+    display: inline-block;
+  }
+}

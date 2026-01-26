@@ -1,0 +1,86 @@
+/* ============================= */
+/* NUESTRA HISTORIA + NOTICIAS   */
+/* ============================= */
+
+.historia_container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+}
+
+/* ============================= */
+/* BLOQUE PRINCIPAL HISTORIA     */
+/* ============================= */
+
+.historia_principal {
+
+  h2 {
+    font-family: 'Kaushan Script';
+    font-size: 4rem;
+    color:  #B8860B;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-family: 'Outfit';
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+}
+
+/* ============================= */
+/* BLOQUE NOTICIAS               */
+/* ============================= */
+
+.historia_noticias {
+  background-color: #1f1f1f;
+  padding: 2.5rem;
+  border-radius: 12px;
+
+  h3 {
+    font-family: 'Inter';
+    font-size: 1.4rem;
+    color: white;
+    margin-bottom: 2rem;
+  }
+
+  .lista_noticias {
+    list-style: none;
+    margin-bottom: 2rem;
+
+    li {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .fecha {
+        display: block;
+        font-size: 0.75rem;
+        color:#B8860B;
+        margin-bottom: 0.3rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: white;
+      }
+    }
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}

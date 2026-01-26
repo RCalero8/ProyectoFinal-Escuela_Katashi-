@@ -1,0 +1,62 @@
+@import '../variables.scss';
+.btn {
+    padding: 0.7rem 1.8rem;
+    border-radius: 30px;
+    border: none;
+    font-family: $font-ui;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #0E6A08;
+    color: #04ff19;
+
+    &:hover {
+        background-color: darken(#0E6A08, 10%);
+    }
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ff0404;
+    border: 5px solid #ff0808;
+
+    &:hover {
+        background-color: #ff0808;
+        color: #ffffff;
+    }
+}
+
+.btn--conocido {
+    @extend .btn;
+    background-color: transparent;
+    color: #ffffff;
+    border: 5px solid #ffffff;
+
+    &:hover {
+        background-color: #ffffff;
+        color: black;
+    }
+}
+
+.btn--clases {
+    @extend .btn;
+    background-color: #FF0419;
+    color: white;
+  
+
+    &:hover {
+        background-color: darken(#FF0419, 10%);
+    }
+}
+
+.btn--conocer{
+    @extend .btn;
+    background-color: #956E0E;
+    color: #B8860B;
+
+    &:hover {
+        background-color: darken(#956E0E, 10%);
+    }
+}

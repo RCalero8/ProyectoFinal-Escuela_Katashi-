@@ -1,20 +1,27 @@
 const express = require('express');
-const cors = require('cors'); //
+const cors = require('cors'); // Asegúrate de ejecutar: npm install cors
+const db = require('./db');
+require('dotenv').config();
+
 const app = express();
 
-app.use(cors()); // Esto permite que el frontend se conecte
+// 1. IMPORTAR RUTAS
+const cursosRoutes = require('./routes/cursos');
+
+// 2. MIDDLEWARES (CORS debe ir siempre antes que las rutas)
+app.use(cors()); 
 app.use(express.json());
 
-// Todas las rutas dentro de cursos.js funcionarán bajo /api/cursos
+// 3. DEFINIR RUTAS
 app.use('/api/cursos', cursosRoutes);
 
-// Tu ruta de prueba se mantiene igual
+// Ruta de prueba para verificar la base de datos
 app.get('/prueba-db', async (req, res) => {
     try {
         const [rows] = await db.query('SELECT 1');
         res.json({ mensaje: "Conexión exitosa a MySQL", data: rows });
     } catch (error) {
-        res.status(500).json({ error: "Error de conexión" });
+        res.status(500).json({ error: "Error de conexión a la base de datos" });
     }
 });
 
