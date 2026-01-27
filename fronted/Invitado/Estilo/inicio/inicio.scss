@@ -4,9 +4,9 @@
 @import 'hero.scss';
 @import 'nav_especial.scss';
 @import 'Beneficio.scss';
-@import 'cta_final.scss';
+@import 'Seccion_final.scss';
 @import 'nuestraHistoria_noticias.scss';
-@import 'clases.scss';
+@import 'cursos.scss';
 @import '../footer.scss';
 
 /* ============================= */
@@ -285,29 +285,66 @@
 
 
 /* ================= CTA FINAL ================= */
-@media (max-width: $bp-tablet) {
+@media (max-width: 1024px) {
+  .seccion_roja {
+    padding: 4rem 1.5rem;
 
-  #cta_final h2 {
-    font-size: 2.5rem;
-  }
+    h2 {
+      font-size: 2.2rem;
+    }
 
-  .cta_buttons {
-    flex-direction: column;
-  }
+    .descripcion {
+      max-width: 90%;
+      font-size: 1rem;
+    }
 
-  #cta_valores {
-    gap: 2rem;
+    .botones {
+      flex-direction: column;   // botones uno debajo del otro
+      align-items: center;
+      gap: 1rem;
+
+      .btn {
+        width: 60%;
+      }
+    }
+
+    .iconos_info {
+      flex-wrap: wrap;          // permite salto de línea
+      justify-content: center;
+
+      .icono {
+        flex: 0 0 45%;           // 2 por fila
+      }
+    }
   }
 }
+@media (max-width: 768px) {
+  .seccion_roja {
+    padding: 3rem 1rem;
 
-@media (max-width: $bp-mobile) {
+    h2 {
+      font-size: 1.8rem;
+    }
 
-  #cta_final h2 {
-    font-size: 2rem;
-  }
+    .descripcion {
+      max-width: 100%;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
 
-  #cta_valores {
-    flex-direction: column;
+    .botones {
+      .btn {
+        width: 100%;            // botones a ancho completo
+      }
+    }
+
+    .iconos_info {
+      flex-direction: column;  // iconos uno debajo del otro
+
+      .icono {
+        width: 100%;
+      }
+    }
   }
 }
 

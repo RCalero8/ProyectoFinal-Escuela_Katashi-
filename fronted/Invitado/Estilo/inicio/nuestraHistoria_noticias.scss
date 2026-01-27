@@ -1,3 +1,4 @@
+@import '../variables.scss';
 /* ============================= */
 /* NUESTRA HISTORIA + NOTICIAS   */
 /* ============================= */
@@ -20,15 +21,15 @@
 .historia_principal {
 
   h2 {
-    font-family: 'Kaushan Script';
-    font-size: 4rem;
+    font-family: $font-titulo;
+    font-size: 60px;
     color: $color-accent;
     margin-bottom: 1.5rem;
   }
 
   p {
-    font-family: 'Outfit';
-    font-size: 1.1rem;
+    font-family: $font-texto;
+    font-size: 30px;
     line-height: 1.7;
     margin-bottom: 2.5rem;
   }
@@ -39,15 +40,16 @@
 /* ============================= */
 
 .historia_noticias {
-  background-color: $color-dark;
+  background-color: #d9d9d9;
   padding: 2.5rem;
   border-radius: 12px;
+  border-left: 20px solid $color-accent;
 
   h3 {
-    font-family: 'Inter';
-    font-size: 1.4rem;
-    color: white;
-    margin-bottom: 2rem;
+    font-family: $font-titulo;
+    font-size: 40px;
+    color: $color-accent;
+    margin-bottom: 1rem;
   }
 
   .lista_noticias {
@@ -56,7 +58,7 @@
 
     li {
       padding: 1rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 
       &:last-child {
         border-bottom: none;
@@ -65,7 +67,7 @@
       .fecha {
         display: block;
         font-size: 0.75rem;
-        color: $color-accent;
+        color: #4b4949;
         margin-bottom: 0.3rem;
         letter-spacing: 1px;
         text-transform: uppercase;
@@ -74,7 +76,7 @@
       p {
         margin: 0;
         font-size: 0.95rem;
-        color: white;
+        color: black;
       }
     }
   }

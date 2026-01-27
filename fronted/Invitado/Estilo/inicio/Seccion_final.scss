@@ -1,0 +1,59 @@
+.seccion_final {
+  background: 
+    linear-gradient(rgba(120, 0, 0, 0.7), rgba(120, 0, 0, 0.7)),
+    url('../../Imagenes/Inicio/Principal.jpeg') center/cover no-repeat;
+  color: #fff;
+  padding: 5rem 2rem;
+
+  .seccion_contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-family: $font-titulo;
+    color: $color-accent;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 1.5rem;
+  }
+
+  .descripcion {
+    text-align: justify;
+    font-family: $font-texto;
+    color: $color-white;
+    font-size: 30px;
+    max-width: 1000px;
+    margin-bottom: 2rem;
+  }
+
+  .botones {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .iconos_info {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    .icono {
+      flex: 1;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 2rem 1rem;
+      border-radius: 10px;
+      text-align: center;
+
+      h4 {
+        font-size: 40px; // emojis grandes
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+}
