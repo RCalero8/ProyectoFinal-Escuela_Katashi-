@@ -762,10 +762,16 @@ ul {
   #footer h4 {
     color: #fff9f9;
     margin-bottom: 1rem; }
+  #footer p {
+    color: wheat; }
+  #footer li {
+    color: wheat; }
   #footer #footer_copy {
     text-align: center;
     margin-top: 2rem;
     font-size: 0.8rem; }
+    #footer #footer_copy p {
+      color: wheat; }
 
 /* ============================= */
 /* RESPONSIVE GLOBAL             */
