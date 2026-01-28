@@ -1,75 +1,155 @@
-// Función principal para obtener y mostrar cursos
-async function renderCursos() {
-    const contenedor = document.getElementById('cursos-container');
-    
+// inicio.js
+document.addEventListener("DOMContentLoaded", () => {
+
+  // ================= HEADER BURGER =================
+  const burger = document.getElementById("burger");
+  const menu = document.getElementById("menu");
+
+  if (burger && menu) {
+    burger.addEventListener("click", () => {
+      menu.classList.toggle("active");
+      burger.classList.toggle("active");
+    });
+  }
+
+  // ================= CONFIGURACIÓN EXTRA DE CURSOS =================
+  const extrasCursos = {
+    Infantil: {
+      emoji: "🧒",
+      age: "4-6 años",
+      schedule: "L-X-V 17:00-18:00",
+      image: "https://images.unsplash.com/photo-1516684991026-4c3032a2b4fd",
+      color: "#00c853"
+    },
+    Niños: {
+      emoji: "👦",
+      age: "7-9 años",
+      schedule: "L-X-V 18:00-19:00",
+      image: "https://images.unsplash.com/photo-1516684991026-4c3032a2b4fd",
+      color: "#c62828"
+    },
+    Prejuvenil: {
+      emoji: "👦👧",
+      age: "10-13 años",
+      schedule: "M-J 18:00-19:30",
+      image: "https://images.unsplash.com/photo-1579331844418-fcd67e29b3d6",
+      color: "#ffb300"
+    },
+    Adultos: {
+      emoji: "🧑",
+      age: "+14 años",
+      schedule: "L-X-V 19:30-21:00",
+      image: "https://images.unsplash.com/photo-1579331844418-fcd67e29b3d6",
+      color: "#333333"
+    },
+    Competición: {
+      emoji: "🥋",
+      age: "Todos",
+      schedule: "M-J 19:30-21:00",
+      image: "https://images.unsplash.com/photo-1576149146095-caa19d4de102",
+      color: "#c62828"
+    },
+    "Preparación Física": {
+      emoji: "💪",
+      age: "Todos",
+      schedule: "S 10:00-11:30",
+      image: "https://images.unsplash.com/photo-1725813961320-151288b4c4db",
+      color: "#00c853"
+    }
+  };
+
+  // ================= RENDER CURSOS =================
+  async function renderCursos() {
+    const contenedor = document.getElementById("cursos-container");
     if (!contenedor) return;
 
     try {
-        // Petición al servidor de Node.js
-        const response = await fetch('http://localhost:3000/api/cursos');
-        
-        if (!response.ok) throw new Error("No se pudo obtener la información");
+      const response = await fetch("http://localhost:3000/api/cursos");
+      if (!response.ok) throw new Error("No se pudo obtener la información");
+      const cursosBD = await response.json();
 
-        const cursos = await response.json();
+      contenedor.innerHTML = cursosBD.map(curso => {
+        const clave = curso.nombre.trim();
+        const extra = extrasCursos[clave] || {};
 
-        // Configuración de colores según tu diseño
-        const configCursos = {
-            'Infantil': '#00c853',
-            'Niños': '#c62828',
-            'Prejuvenil': '#ffb300',
-            'Adultos': '#333333',
-            'Competición': '#c62828',
-            'Preparación Física': '#00c853'
-        };
-
-        // Limpiar el contenedor antes de añadir
-        contenedor.innerHTML = cursos.map(curso => `
-            <div class="curso-card">
-                <div class="curso-info">
-                    <h3>${curso.nombre.toUpperCase()}</h3>
-                    <p class="grado">${curso.grado || 'Consultar edad'}</p>
-                    <p class="precio">${curso.precio}€ / mes</p>
-                </div>
-                <button class="btn-mas-info" style="background-color: ${configCursos[curso.nombre] || '#333'}">
-                    Mas información
-                </button>
+        return `
+          <div class="curso-card">
+            <div class="curso-img-wrapper">
+              <img src="${extra.image || ''}" alt="${curso.nombre}" class="curso-img" />
+              <div class="curso-overlay"></div>
+              <div class="curso-emoji">${extra.emoji || ''}</div>
+              <div class="curso-text-img">
+                <h3>${curso.nombre.toUpperCase()}</h3>
+                <p class="grado">${curso.grado || extra.age || 'Consultar edad'}</p>
+              </div>
             </div>
-        `).join('');
+            <div class="curso-content">
+              <p class="curso-horario">${extra.schedule || ''}</p>
+              <p class="precio">${curso.precio ? curso.precio + '€ / mes' : ''}</p>
+              <button class="btn-mas-info" style="background-color: ${extra.color || '#333'}">
+                Más información
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
 
     } catch (error) {
-        console.error("Error detectado:", error);
-        contenedor.innerHTML = `<p class="error-msg">Error: El servidor no responde. Revisa que el backend esté encendido.</p>`;
+      console.error("Error al cargar cursos:", error);
+      contenedor.innerHTML = `<p class="error-msg">Error: No se pudo cargar la información de cursos.</p>`;
     }
-}
+  }
 
-// Ejecutar cuando el HTML esté totalmente cargado
-document.addEventListener('DOMContentLoaded', renderCursos);
+  renderCursos();
 
-//Boton Hamburguesa
-const burger = document.getElementById('burger');
-const nav = document.getElementById('menu');
+  // ================= BOTONES HERO =================
+  const btnConocenos = document.querySelector(".hero_buttons .conocenos");
+  const btnVerClases = document.querySelector(".hero_buttons .ver_clases");
 
-burger.addEventListener('click', () => {
-  nav.classList.toggle('active');
+  if (btnConocenos) {
+    btnConocenos.addEventListener("click", () => {
+      const seccionHistoria = document.getElementById("contenido");
+      if (seccionHistoria) {
+        seccionHistoria.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  }
+
+  if (btnVerClases) {
+    btnVerClases.addEventListener("click", () => {
+      const seccionCursos = document.getElementById("cursos-container");
+      if (seccionCursos) {
+        seccionCursos.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  }
+
+  // ================= BOTÓN NAV ESPECIAL =================
+  const btnNavConocenos = document.getElementById("btn_conocenos");
+  if (btnNavConocenos) {
+    btnNavConocenos.addEventListener("click", () => {
+      const seccionHistoria = document.getElementById("contenido");
+      if (seccionHistoria) {
+        seccionHistoria.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  }
+
+  // ================= BOTONES SECCIÓN FINAL =================
+  const btnRegistro = document.querySelector(".seccion_final .registro");
+  const btnInicio = document.querySelector(".seccion_final .inicio");
+
+  if (btnRegistro) {
+    btnRegistro.addEventListener("click", () => {
+      window.location.href = "registro.html";
+    });
+  }
+
+  if (btnInicio) {
+    btnInicio.addEventListener("click", () => {
+      window.location.href = "inicio_sesion.html";
+    });
+  }
+
 });
 
-
-//Scroll suave 
-const enlaces = document.querySelectorAll('a[href^="#"]');
-
-enlaces.forEach(enlace => {
-  enlace.addEventListener('click', e => {
-    e.preventDefault();
-    const targetId = enlace.getAttribute('href').substring(1);
-    const target = document.getElementById(targetId);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    // cerrar menú en móvil al hacer click
-    if (nav.classList.contains('active')) {
-      nav.classList.remove('active');
-      burger.classList.remove('active');
-    }
-  });
-});
