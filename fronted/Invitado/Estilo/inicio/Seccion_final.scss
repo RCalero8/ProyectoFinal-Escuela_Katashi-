@@ -14,7 +14,7 @@
     font-family: $font-titulo;
     color: $color-accent;
     text-align: center;
-    font-size: 50px;
+    font-size: 2rem;
     margin-bottom: 1.5rem;
   }
 
@@ -22,7 +22,7 @@
     text-align: justify;
     font-family: $font-texto;
     color: $color-white;
-    font-size: 30px;
+    font-size: 1rem;
     max-width: 1000px;
     margin-bottom: 2rem;
   }
@@ -47,7 +47,7 @@
       text-align: center;
 
       h4 {
-        font-size: 40px; // emojis grandes
+        font-size: 1.5rem; // emojis grandes
         margin-bottom: 0.5rem;
       }
 

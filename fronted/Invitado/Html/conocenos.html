@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katashi Karate - Escuela Tradicional</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Inter:wght@400;600&family=Inder&family=Kaushan+Script&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../Estilo/conocenos/conocenos.css">
+</head>
+
+<body>
+
+  <header id="header">
+    <div id="header_container">
+
+      <!-- IZQUIERDA: LOGO + MENÚ -->
+      <div class="header_left">
+        <div id="header_logo">
+          <img src="../Imagenes/Logo.png" alt="Logo Katashi">
+        </div>
+
+        <nav class="header_nav" id="menu">
+          <ul class="header_list">
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="conocenos.html" id="conocenos">Conócenos</a></li>
+            <li><a href="clases.html">Clases</a></li>
+            <li><a href="noticias.html">Noticias</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- DERECHA: BOTONES -->
+      <div class="header_buttons">
+        <button class="btn iniciar_sesion">Iniciar sesión</button>
+        <button class="btn registro">Registrarse</button>
+      </div>
+
+      <!-- HAMBURGUESA (solo visible en móvil) -->
+      <div class="header_burger" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero_content">
+      <h1>Bienvenido a la Escuela Karate Katashi</h1>
+      <p>Descubre nuestro espiritu historia y valores</p>
+    </div>
+  </section>
+
+  <section id="nuestra_historia">
+    <div id="historia_container">
+      <h2>Nuestra Historia</h2>
+
+      <div class="historia_grid">
+
+        <!-- DIV 1: Historia con párrafos -->
+        <div class="historia_item">
+          <p class="historia_parrafo">
+            La Escuela de Karate Katasho nació con el objetivo de transmitir los valores del karate tradicional:
+            disciplina, respeto y superación.
+          </p>
+          <p class="historia_parrafo">
+            Desde nuestros inicios, hemos formado a decenas de alumnos de todas las edades, creando una comunidad unida
+            por la pasión por las artes marciales.
+          </p>
+          <p class="historia_parrafo">
+            Nuestro dojo es un espacio donde niños y adultos desarrollan no solo sus habilidades físicas, sino también
+            su carácter y autoconfianza.
+          </p>
+          <!-- Párrafos ocultos -->
+          <p class="historia_parrafo extra">Bajo la guía de senseis certificados y con años de experiencia, cada alumno
+            encuentra su propio camino en el karate.</p>
+          <p class="historia_parrafo extra">Nos enorgullece ser parte de la comunidad de Camas, ofreciendo un entorno
+            seguro y motivador donde el aprendizaje y el crecimiento personal son nuestra prioridad.</p>
+          <!-- Botón -->
+          <button id="btn_leer_historia">Leer historia completa</button>
+        </div>
+
+        <!-- DIV 2: Imagen de fondo + subgrid -->
+        <div class="historia_item historia_imagen">
+          <div id="historia_subgrid">
+            <div class="sub_item">
+              <h4>15+</h4>
+              <p>Años</p>
+            </div>
+            <div class="sub_item">
+              <h4>200+</h4>
+              <p>Alumnos</p>
+            </div>
+            <div class="sub_item">
+              <h4>50+</h4>
+              <p>Torneos</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="nuestrosValores">
+    <div id="nuestrosValore_intro">
+      <h2>Nuestros Valores</h2>
+      <p>Los pilares que sustentan nuestra filosofía de enseñanza</p>
+    </div>
+    <div class="nuestrosValores_grid">
+      <div class="beneficio" id="karate">
+        <h3>🥋</h3>
+        <h3>Karate tradicional</h3>
+        <p>Enseñanza de técnicas y valores tradicionales del karate-do auténtico.</p>
+      </div>
+      <div class="beneficio" id="Competicion">
+        <h3>🏆</h3>
+        <h3>Competición y superación</h3>
+        <p>Participación en torneos locales y provinciales. Fomentamos el espíritu competitivo sano.</p>
+      </div>
+      <div class="beneficio" id="Desarrollo">
+        <h3>🧘</h3>
+        <h3>Desarrollo Físico y Mental</h3>
+        <p>Para niños, jovenes y adultos. Mejora tu condición física y fortalece tu mente.</p>
+      </div>
+      <div class="beneficio" id="Senseis">
+        <h3>👨‍🏫</h3>
+        <h3>Instructores Certificados</h3>
+        <p>Senseis con amplia experiencia y titulos oficiales. Profesionales dedicados a tu progreso.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer_container">
+
+      <!-- FILA SUPERIOR (4 columnas) -->
+      <div class="footer_top">
+        <!--Columna 1-->
+        <div class="footer_col">
+          <div class="footer_logo">
+            <img src="../Imagenes/Logo.png" alt="Logo Katashi">
+            <div class="footer_logo_text">
+              <span id="escuela">Escuela de Karate</span>
+              <span id="katashi">Katashi</span>
+            </div>
+          </div>
+          <p>Formando karatekas desde 2010. Disciplina, respeto y superación.</p>
+        </div>
+
+        <div class="footer_col">
+          <h4>Enlaces Rapidos</h4>
+          <ul>
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="conocenos.html">Conócenos</a></li>
+            <li><a href="clases.html">Clases</a></li>
+            <li><a href="noticias.html">Noticias</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="footer_col">
+          <h4>Contacto</h4>
+          <p>📍 C/ Nombre, 123, Camas</p>
+          <p>📞 +34 955 123 456</p>
+          <p>✉️ info@karatecamas.es</p>
+        </div>
+
+        <!-- COLUMNA 4 -->
+        <div class="footer_col footer_social">
+          <h4>Síguenos</h4>
+
+          <!-- ICONOS REALES -->
+          <div class="social_icons">
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+
+          <p class="footer_social_text">
+            Recibe nuestras noticias </p>
+
+          <div class="footer_newsletter">
+            <input type="email" placeholder="Tu email">
+            <button aria-label="Enviar">➜</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- LÍNEA -->
+      <hr class="footer_line">
+
+      <!-- FILA INFERIOR -->
+      <div class="footer_bottom">
+        <p>© 2025 Escuela de Karate Katashi · Todos los derechos reservados</p>
+      </div>
+
+    </div>
+  </footer>
+  <script src="../Js/conocenos.js"></script>
+</body>
+
+</html>

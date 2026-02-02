@@ -1,16 +1,17 @@
 // inicio.js
 document.addEventListener("DOMContentLoaded", () => {
+  const inicioLink = document.getElementById("inicio");
+inicioLink.style.color = "white";
 
   // ================= HEADER BURGER =================
   const burger = document.getElementById("burger");
-  const menu = document.getElementById("menu");
+const menu = document.getElementById("menu");
 
-  if (burger && menu) {
-    burger.addEventListener("click", () => {
-      menu.classList.toggle("active");
-      burger.classList.toggle("active");
-    });
-  }
+burger.addEventListener("click", () => {
+  menu.classList.toggle("active");
+  burger.classList.toggle("active");
+});
+
 
   // ================= CONFIGURACIÓN EXTRA DE CURSOS =================
   const extrasCursos = {
@@ -18,42 +19,42 @@ document.addEventListener("DOMContentLoaded", () => {
       emoji: "🧒",
       age: "4-6 años",
       schedule: "L-X-V 17:00-18:00",
-      image: "https://images.unsplash.com/photo-1516684991026-4c3032a2b4fd",
+      image: "../Imagenes/Inicio/Clases/Infantiles.jpg",
       color: "#00c853"
     },
     Niños: {
       emoji: "👦",
       age: "7-9 años",
       schedule: "L-X-V 18:00-19:00",
-      image: "https://images.unsplash.com/photo-1516684991026-4c3032a2b4fd",
+      image: "../Imagenes/Inicio/Clases/Niños.jpg",
       color: "#c62828"
     },
     Prejuvenil: {
       emoji: "👦👧",
       age: "10-13 años",
       schedule: "M-J 18:00-19:30",
-      image: "https://images.unsplash.com/photo-1579331844418-fcd67e29b3d6",
+      image: "../Imagenes/Inicio/Clases/Prejuvenil.jpg",
       color: "#ffb300"
     },
     Adultos: {
       emoji: "🧑",
       age: "+14 años",
       schedule: "L-X-V 19:30-21:00",
-      image: "https://images.unsplash.com/photo-1579331844418-fcd67e29b3d6",
+      image: "../Imagenes/Inicio/Clases/Adultos.jpg",
       color: "#333333"
     },
     Competición: {
       emoji: "🥋",
       age: "Todos",
       schedule: "M-J 19:30-21:00",
-      image: "https://images.unsplash.com/photo-1576149146095-caa19d4de102",
+      image: "../Imagenes/Inicio/Clases/Competicion.jpg",
       color: "#c62828"
     },
     "Preparación Física": {
       emoji: "💪",
       age: "Todos",
       schedule: "S 10:00-11:30",
-      image: "https://images.unsplash.com/photo-1725813961320-151288b4c4db",
+      image: "../Imagenes/Inicio/Clases/Preparacion_Fisico.jpg",
       color: "#00c853"
     }
   };

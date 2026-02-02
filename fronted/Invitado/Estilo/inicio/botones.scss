@@ -10,21 +10,23 @@
     background-color: #0E6A08;
     color: #04ff19;
     font-family: $font-titulo;
-    font-size: 36px;
+    font-size: 1rem;
     &:hover {
         background-color: darken(#0E6A08, 10%);
     }
 }
 
-.btn--inicio {
+
+.iniciar_sesion {
     background-color: transparent;
     color: #ff0404;
     border: 5px solid #ff0808;
     font-family: $font-titulo;
-
+    font-size: 1rem;
     &:hover {
         background-color: #ff0808;
         color: $color-white;
+        border: none;
     }
 }
 

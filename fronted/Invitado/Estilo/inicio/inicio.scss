@@ -8,60 +8,9 @@
 @import 'nuestraHistoria_noticias.scss';
 @import 'cursos.scss';
 @import '../footer.scss';
-
 /* ============================= */
 /* RESPONSIVE GLOBAL             */
 /* ============================= */
-
-/* ================= HEADER / MENÚ HAMBURGUESA ================= */
-/* ================= MOBILE MENU ================= */
-@media (max-width: 768px) {
-
-  .header_nav {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #1f1f1f;
-    width: 100%;
-    flex-direction: column; /* vertical */
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2rem 0;
-
-    transform: translateY(-20px);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-  }
-
-  .header_nav.active {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  #header_list {
-    display: flex;
-    flex-direction: column; /* vertical */
-    gap: 1.2rem;
-    width: 100%;
-    text-align: center;
-  }
-
-  #header_buttons {
-    flex-direction: column;
-    width: 100%;
-    gap: 1rem;
-    text-align: center;
-  }
-
-  .header_list li a {
-    display: block;
-    width: 100%;
-    padding: 0.5rem 0;
-  }
-}
-
 
 /* ================= HERO PRINCIPAL ================= */
 @media (max-width: 768px) {
