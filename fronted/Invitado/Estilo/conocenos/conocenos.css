@@ -8,31 +8,25 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 html {
-  scroll-behavior: smooth;
-}
+  scroll-behavior: smooth; }
 
 body {
   width: 100%;
-  font-family: "Outfit";
-}
+  font-family: "Outfit"; }
 
 img {
   max-width: 100%;
-  display: block;
-}
+  display: block; }
 
 a {
   text-decoration: none;
-  color: inherit;
-}
+  color: inherit; }
 
 ul {
-  list-style: none;
-}
+  list-style: none; }
 
 /* ============================= */
 /* VARIABLES                     */
@@ -43,31 +37,25 @@ ul {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 html {
-  scroll-behavior: smooth;
-}
+  scroll-behavior: smooth; }
 
 body {
   width: 100%;
-  font-family: "Outfit";
-}
+  font-family: "Outfit"; }
 
 img {
   max-width: 100%;
-  display: block;
-}
+  display: block; }
 
 a {
   text-decoration: none;
-  color: inherit;
-}
+  color: inherit; }
 
 ul {
-  list-style: none;
-}
+  list-style: none; }
 
 /* ============================= */
 /* VARIABLES                     */
@@ -78,124 +66,102 @@ ul {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 html {
-  scroll-behavior: smooth;
-}
+  scroll-behavior: smooth; }
 
 body {
   width: 100%;
-  font-family: "Outfit";
-}
+  font-family: "Outfit"; }
 
 img {
   max-width: 100%;
-  display: block;
-}
+  display: block; }
 
 a {
   text-decoration: none;
-  color: inherit;
-}
+  color: inherit; }
 
 ul {
-  list-style: none;
-}
+  list-style: none; }
 
-.btn, .noticias, .historia, .inicio, #btn_conocenos, .ver_clases, .conocenos {
+.btn, .conocenos, .ver_clases, #btn_conocenos, .inicio, .historia, .noticias {
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 6px;
   font-size: 1rem;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .registro {
   background-color: #0E6A08;
   color: #04ff19;
   font-family: "Kaushan Script";
-  font-size: 1rem;
-}
-.registro:hover {
-  background-color: rgb(7.7368421053, 58.5789473684, 4.4210526316);
-}
+  font-size: 1rem; }
+  .registro:hover {
+    background-color: #083b04; }
 
 .iniciar_sesion {
   background-color: transparent;
   color: #ff0404;
   border: 5px solid #ff0808;
   font-family: "Kaushan Script";
-  font-size: 1rem;
-}
-.iniciar_sesion:hover {
-  background-color: #ff0808;
-  color: #ffffff;
-  border: none;
-}
+  font-size: 1rem; }
+  .iniciar_sesion:hover {
+    background-color: #ff0808;
+    color: #ffffff;
+    border: none; }
 
 .conocenos {
   background-color: transparent;
   font-size: 26px;
   font-family: "Inter";
   color: #ffffff;
-  border: 5px solid #ffffff;
-}
-.conocenos:hover {
-  background-color: #ffffff;
-  color: #000000;
-}
+  border: 5px solid #ffffff; }
+  .conocenos:hover {
+    background-color: #ffffff;
+    color: #000000; }
 
 .ver_clases {
   background-color: #FF0419;
   color: white;
   font-size: 26px;
   font-family: "Inter";
-  color: white;
-}
-.ver_clases:hover {
-  background-color: rgb(208, 0, 17.4023904382);
-}
+  color: white; }
+  .ver_clases:hover {
+    background-color: #d00011; }
 
 #btn_conocenos {
   background: #B8860B;
   font-family: "Inter";
   font-size: 36px;
-  color: #956e0e;
-}
+  color: #956e0e; }
 
 .inicio {
   background-color: transparent;
   color: #ffffff;
   border: 5px solid white;
   font-family: "Kaushan Script";
-  font-size: 36px;
-}
-.inicio:hover {
-  background-color: #ffffff;
-  color: #000000;
-}
+  font-size: 36px; }
+  .inicio:hover {
+    background-color: #ffffff;
+    color: #000000; }
 
 .historia {
   background-color: #fb1010;
   color: white;
   font-family: "Inter";
-  font-size: 26px;
-}
-.historia:hover {
-  background-color: rgb(212.4444444444, 3.5555555556, 3.5555555556);
-}
+  font-size: 26px; }
+  .historia:hover {
+    background-color: #d40404; }
 
 .noticias {
   background-color: #2E2E2E;
   color: white;
   font-family: "Inter";
-  font-size: 26px;
-}
-.noticias:hover {
-  background-color: rgb(20.5, 20.5, 20.5);
-}
+  font-size: 26px; }
+  .noticias:hover {
+    background-color: #151515; }
 
 #header {
   width: 100%;
@@ -203,8 +169,7 @@ ul {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
-}
+  z-index: 1000; }
 
 #header_container {
   max-width: 1300px;
@@ -212,77 +177,67 @@ ul {
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
+  justify-content: space-between; }
 
 /* ===== IZQUIERDA ===== */
 .header_left {
   display: flex;
   align-items: center;
-  gap: 2rem;
-}
+  gap: 2rem; }
 
 #header_logo img {
   height: 70px;
-  object-fit: contain;
-}
+  object-fit: contain; }
 
 .header_nav .header_list {
   display: flex;
   gap: 1.8rem;
-  list-style: none;
-}
-.header_nav .header_list a {
-  color: #B8860B;
-  font-size: 1rem;
-  text-decoration: none;
-  font-weight: 500;
-  font-family: "Kaushan Script";
-  position: relative;
-}
-.header_nav .header_list a::after {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: #c62828;
-  transition: width 0.3s ease;
-}
-.header_nav .header_list a:hover::after {
-  width: 100%;
-}
+  list-style: none; }
+  .header_nav .header_list a {
+    color: #B8860B;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: "Kaushan Script";
+    position: relative; }
+    .header_nav .header_list a::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #c62828;
+      transition: width 0.3s ease; }
+    .header_nav .header_list a:hover::after {
+      width: 100%; }
 
 /* ===== DERECHA BOTONES ===== */
 .header_buttons {
   display: flex;
-  gap: 1rem;
-}
+  gap: 1rem; }
 
 /* ===== HAMBURGUESA ===== */
 .header_burger {
   display: none;
   flex-direction: column;
   gap: 5px;
-  cursor: pointer;
-}
-.header_burger span {
-  width: 25px;
-  height: 3px;
-  background: #fff;
-  border-radius: 3px;
-  transition: all 0.3s ease;
-}
+  cursor: pointer; }
+  .header_burger span {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    border-radius: 3px;
+    transition: all 0.3s ease; }
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 900px) {
   .header_buttons {
-    display: none;
-  }
+    display: none; }
+
   .header_burger {
-    display: flex;
-  }
+    display: flex; }
+
   .header_nav {
     position: absolute;
     top: 75px;
@@ -292,37 +247,34 @@ ul {
     flex-direction: column;
     align-items: center;
     display: none;
-    padding: 1.5rem 0;
-  }
+    padding: 1.5rem 0; }
+
   .header_nav.active {
-    display: flex;
-  }
+    display: flex; }
+
   .header_list {
     flex-direction: column;
-    gap: 1rem;
-  }
+    gap: 1rem; }
+
   .menu_buttons {
     margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    width: 80%;
-  }
-  .menu_buttons .btn, .menu_buttons .conocenos, .menu_buttons .ver_clases, .menu_buttons #btn_conocenos, .menu_buttons .inicio, .menu_buttons .historia, .menu_buttons .noticias {
-    width: 100%;
-    text-align: center;
-  }
+    width: 80%; }
+    .menu_buttons .btn, .menu_buttons .conocenos, .menu_buttons .ver_clases, .menu_buttons #btn_conocenos, .menu_buttons .inicio, .menu_buttons .historia, .menu_buttons .noticias {
+      width: 100%;
+      text-align: center; }
+
   /* Animación hamburguesa */
   .header_burger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
+    transform: rotate(45deg) translate(5px, 5px); }
+
   .header_burger.active span:nth-child(2) {
-    opacity: 0;
-  }
+    opacity: 0; }
+
   .header_burger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
-}
+    transform: rotate(-45deg) translate(6px, -6px); } }
 /* ============================= */
 /* VARIABLES                     */
 /* ============================= */
@@ -332,31 +284,25 @@ ul {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 html {
-  scroll-behavior: smooth;
-}
+  scroll-behavior: smooth; }
 
 body {
   width: 100%;
-  font-family: "Outfit";
-}
+  font-family: "Outfit"; }
 
 img {
   max-width: 100%;
-  display: block;
-}
+  display: block; }
 
 a {
   text-decoration: none;
-  color: inherit;
-}
+  color: inherit; }
 
 ul {
-  list-style: none;
-}
+  list-style: none; }
 
 .hero {
   width: 100%;
@@ -365,27 +311,22 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
-}
-.hero .hero_content {
-  max-width: 800px;
-}
-.hero .hero_content h1 {
-  font-family: "Kaushan Script";
-  font-size: 3rem;
-  color: #800000;
-}
-.hero .hero_content p {
-  font-family: "Inter";
-  font-size: 1.5rem;
-  color: white;
-  text-align: center;
-}
-.hero .hero_content .hero_buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
+  padding: 1rem; }
+  .hero .hero_content {
+    max-width: 800px; }
+    .hero .hero_content h1 {
+      font-family: "Kaushan Script";
+      font-size: 3rem;
+      color: #800000; }
+    .hero .hero_content p {
+      font-family: "Inter";
+      font-size: 1.5rem;
+      color: white;
+      text-align: center; }
+    .hero .hero_content .hero_buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem; }
 
 /* ============================= */
 /* VARIABLES                     */
@@ -396,115 +337,95 @@ ul {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 html {
-  scroll-behavior: smooth;
-}
+  scroll-behavior: smooth; }
 
 body {
   width: 100%;
-  font-family: "Outfit";
-}
+  font-family: "Outfit"; }
 
 img {
   max-width: 100%;
-  display: block;
-}
+  display: block; }
 
 a {
   text-decoration: none;
-  color: inherit;
-}
+  color: inherit; }
 
 ul {
-  list-style: none;
-}
+  list-style: none; }
 
 #nuestra_historia {
   padding: 4rem 1.5rem;
   background: #f9f9f9;
   font-family: "Inter";
-  color: #111;
-}
-#nuestra_historia #historia_container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-#nuestra_historia h2 {
-  text-align: left;
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  color: #B8860B;
-  font-family: "Kaushan Script";
-}
-#nuestra_historia .historia_grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-#nuestra_historia .historia_grid .historia_item {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-}
-#nuestra_historia .historia_grid .historia_item .historia_parrafo {
-  margin-bottom: 1rem;
-  line-height: 1.5;
-}
-#nuestra_historia .historia_grid .historia_item #btn_leer_historia {
-  margin-top: auto;
-  padding: 0.5rem 1rem;
-  background-color: #c62828;
-  color: white;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-#nuestra_historia .historia_grid .historia_item #btn_leer_historia:hover {
-  background-color: #910909;
-}
-#nuestra_historia .historia_grid {
-  /* DIV2: Imagen de fondo */
-}
-#nuestra_historia .historia_grid .historia_imagen {
-  position: relative;
-  height: 300px;
-  border-radius: 12px;
-  background-image: url("../../Imagenes/Conocenos/NuestraHistoria.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-#nuestra_historia .historia_grid .historia_imagen #historia_subgrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  position: absolute;
-  bottom: 1rem;
-  left: 0;
-  width: 100%;
-  padding: 0 1rem;
-  color: #B8860B;
-  text-align: center;
-}
-#nuestra_historia .historia_grid .historia_imagen #historia_subgrid .sub_item h4 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-}
-#nuestra_historia .historia_grid .historia_imagen #historia_subgrid .sub_item p {
-  font-size: 0.9rem;
-  margin: 0;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-}
+  color: #111; }
+  #nuestra_historia #historia_container {
+    max-width: 1200px;
+    margin: 0 auto; }
+  #nuestra_historia h2 {
+    text-align: left;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #B8860B;
+    font-family: "Kaushan Script"; }
+  #nuestra_historia .historia_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    /* DIV2: Imagen de fondo */ }
+    #nuestra_historia .historia_grid .historia_item {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      padding: 1rem; }
+      #nuestra_historia .historia_grid .historia_item .historia_parrafo {
+        margin-bottom: 1rem;
+        line-height: 1.5; }
+      #nuestra_historia .historia_grid .historia_item #btn_leer_historia {
+        margin-top: auto;
+        padding: 0.5rem 1rem;
+        background-color: #c62828;
+        color: white;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s; }
+        #nuestra_historia .historia_grid .historia_item #btn_leer_historia:hover {
+          background-color: #910909; }
+    #nuestra_historia .historia_grid .historia_imagen {
+      position: relative;
+      height: 300px;
+      border-radius: 12px;
+      background-image: url("../../Imagenes/Conocenos/NuestraHistoria.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+      #nuestra_historia .historia_grid .historia_imagen #historia_subgrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        position: absolute;
+        bottom: 1rem;
+        left: 0;
+        width: 100%;
+        padding: 0 1rem;
+        color: #B8860B;
+        text-align: center; }
+        #nuestra_historia .historia_grid .historia_imagen #historia_subgrid .sub_item h4 {
+          font-size: 1.5rem;
+          margin-bottom: 0.5rem;
+          text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); }
+        #nuestra_historia .historia_grid .historia_imagen #historia_subgrid .sub_item p {
+          font-size: 0.9rem;
+          margin: 0;
+          text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); }
 
 /* ============================= */
 /* VARIABLES                     */
@@ -515,90 +436,72 @@ ul {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 html {
-  scroll-behavior: smooth;
-}
+  scroll-behavior: smooth; }
 
 body {
   width: 100%;
-  font-family: "Outfit";
-}
+  font-family: "Outfit"; }
 
 img {
   max-width: 100%;
-  display: block;
-}
+  display: block; }
 
 a {
   text-decoration: none;
-  color: inherit;
-}
+  color: inherit; }
 
 ul {
-  list-style: none;
-}
+  list-style: none; }
 
 #nuestrosValores {
-  padding: 4rem 2rem;
-}
-#nuestrosValores #nuestrosValore_intro {
-  margin-bottom: 3rem;
-}
-#nuestrosValores #nuestrosValore_intro h2 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  color: #B8860B;
-  font-family: "Kaushan Script";
-}
-#nuestrosValores #nuestrosValore_intro p {
-  font-size: 1.5rem;
-  color: #1f1f1f;
-  max-width: 700px;
-  margin: 0;
-  text-align: left;
-  font-family: "Outfit";
-}
-#nuestrosValores .nuestrosValores_grid {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-}
-#nuestrosValores .nuestrosValores_grid .beneficio {
-  flex: 1;
-  background-color: #fff;
-  padding: 2rem 1rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin: 0 0.5rem;
-}
-#nuestrosValores .nuestrosValores_grid .beneficio h3 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #fffdfd;
-  font-family: "Outfit";
-}
-#nuestrosValores .nuestrosValores_grid .beneficio p {
-  font-size: 1rem;
-  color: #f1e2e2;
-  font-family: "Outfit";
-}
-#nuestrosValores .nuestrosValores_grid #karate {
-  background-color: #dc2626;
-}
-#nuestrosValores .nuestrosValores_grid #Competicion {
-  background-color: #d4af37;
-}
-#nuestrosValores .nuestrosValores_grid #Desarrollo {
-  background-color: #059669;
-}
-#nuestrosValores .nuestrosValores_grid #Senseis {
-  background-color: #1f1f1f;
-}
+  padding: 4rem 2rem; }
+  #nuestrosValores #nuestrosValore_intro {
+    margin-bottom: 3rem; }
+    #nuestrosValores #nuestrosValore_intro h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #B8860B;
+      font-family: "Kaushan Script"; }
+    #nuestrosValores #nuestrosValore_intro p {
+      font-size: 1.5rem;
+      color: #1f1f1f;
+      max-width: 700px;
+      margin: 0;
+      text-align: left;
+      font-family: "Outfit"; }
+  #nuestrosValores .nuestrosValores_grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem; }
+    #nuestrosValores .nuestrosValores_grid .beneficio {
+      flex: 1;
+      background-color: #fff;
+      padding: 2rem 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin: 0 0.5rem; }
+      #nuestrosValores .nuestrosValores_grid .beneficio h3 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        color: #fffdfd;
+        font-family: "Outfit"; }
+      #nuestrosValores .nuestrosValores_grid .beneficio p {
+        font-size: 1rem;
+        color: #f1e2e2;
+        font-family: "Outfit"; }
+    #nuestrosValores .nuestrosValores_grid #karate {
+      background-color: #dc2626; }
+    #nuestrosValores .nuestrosValores_grid #Competicion {
+      background-color: #d4af37; }
+    #nuestrosValores .nuestrosValores_grid #Desarrollo {
+      background-color: #059669; }
+    #nuestrosValores .nuestrosValores_grid #Senseis {
+      background-color: #1f1f1f; }
 
 /* ============================= */
 /* VARIABLES                     */
@@ -609,123 +512,215 @@ ul {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 html {
-  scroll-behavior: smooth;
-}
+  scroll-behavior: smooth; }
 
 body {
   width: 100%;
-  font-family: "Outfit";
-}
+  font-family: "Outfit"; }
 
 img {
   max-width: 100%;
-  display: block;
-}
+  display: block; }
 
 a {
   text-decoration: none;
-  color: inherit;
-}
+  color: inherit; }
 
 ul {
-  list-style: none;
-}
+  list-style: none; }
+
+senseis-section {
+  padding: 50px 20px; }
+  senseis-section .titulo-container {
+    text-align: center;
+    margin-bottom: 40px; }
+    senseis-section .titulo-container .titulo-dorado {
+      color: #fbc02d;
+      text-transform: uppercase;
+      font-size: 2.5rem; }
+  senseis-section .senseis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto; }
+
+.sensei-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column; }
+  .sensei-card:hover {
+    transform: translateY(-5px); }
+  .sensei-card .sensei-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px; }
+    .sensei-card .sensei-img-wrapper .sensei-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+    .sensei-card .sensei-img-wrapper .dan-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: #fbc02d;
+      color: #000;
+      padding: 5px 12px;
+      font-weight: bold;
+      border-radius: 4px;
+      font-size: 0.9rem; }
+  .sensei-card .sensei-content {
+    padding: 20px; }
+    .sensei-card .sensei-content .sensei-nombre {
+      margin: 0;
+      font-size: 1.4rem;
+      color: #333; }
+    .sensei-card .sensei-content .sensei-rol {
+      color: #fbc02d;
+      font-weight: 700;
+      margin: 5px 0;
+      font-size: 0.85rem;
+      letter-spacing: 1px; }
+    .sensei-card .sensei-content .separator {
+      height: 2px;
+      background-color: #eee;
+      margin: 15px 0; }
+    .sensei-card .sensei-content .sensei-categoria {
+      margin: 10px 0; }
+    .sensei-card .sensei-content .sensei-bio {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden; }
+    .sensei-card .sensei-content .btn-perfil {
+      width: 100%;
+      padding: 12px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s; }
+      .sensei-card .sensei-content .btn-perfil:hover {
+        background-color: #fbc02d;
+        color: #000; }
+
+/* ============================= */
+/* VARIABLES                     */
+/* ============================= */
+/* ============================= */
+/* RESET + BASE                  */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth; }
+
+body {
+  width: 100%;
+  font-family: "Outfit"; }
+
+img {
+  max-width: 100%;
+  display: block; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+ul {
+  list-style: none; }
 
 .footer {
   background: #111;
   color: #fff;
-  padding: 3rem 1.5rem 1.5rem;
-}
+  padding: 3rem 1.5rem 1.5rem; }
 
 .footer_container {
   max-width: 1300px;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 /* ===== FILA SUPERIOR ===== */
 .footer_top {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-}
+  gap: 2rem; }
 
 /* ===== COLUMNAS ===== */
 .footer_col h4 {
   margin-bottom: 1rem;
-  color: #fff9ff;
-}
+  color: #fff9ff; }
 
 .footer_col p,
 .footer_col li,
 .footer_col a {
   font-size: 0.95rem;
   color: #8f8989;
-  line-height: 1.6;
-}
+  line-height: 1.6; }
 
 .footer_col ul {
   list-style: none;
-  padding: 0;
-}
+  padding: 0; }
 
 .footer_col a {
-  text-decoration: none;
-}
-.footer_col a:hover {
-  color: #fff;
-}
+  text-decoration: none; }
+  .footer_col a:hover {
+    color: #fff; }
 
 /* ===== COLUMNA LOGO ===== */
 .footer_brand {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-}
+  gap: 1rem; }
 
 .footer_logo {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-}
+  gap: 0.8rem; }
 
 .footer_logo img {
-  width: 55px;
-}
+  width: 55px; }
 
 .footer_logo_text {
   display: flex;
   flex-direction: column;
-  line-height: 1.1;
-}
+  line-height: 1.1; }
 
 .footer_logo_text .escuela {
   font-size: 0.9rem;
-  color: #fff9f9;
-}
+  color: #fff9f9; }
 
 .footer_logo_text .katashi {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #b8860b;
-}
+  color: #b8860b; }
 
 .footer_frase {
   font-size: 0.9rem;
   color: #8f8989;
   line-height: 1.5;
-  max-width: 260px;
-}
+  max-width: 260px; }
 
 input {
   background: none;
   border: 1px solid #8f8989;
   color: #655e5e;
-  border-radius: 20px;
-}
+  border-radius: 20px; }
 
 button {
   background-color: #da2121;
@@ -733,37 +728,30 @@ button {
   border: none;
   border-radius: 20px;
   padding: 0.5rem 1rem;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 /* ===== LÍNEA ===== */
 .footer_line {
   margin: 2rem 0 1.5rem;
   border: none;
   height: 1px;
-  background: #333;
-}
+  background: #333; }
 
 /* ===== FILA INFERIOR ===== */
 .footer_bottom {
   text-align: center;
   font-size: 0.85rem;
-  color: #aaa;
-}
+  color: #aaa; }
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 900px) {
   .footer_top {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+    grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 500px) {
   .footer_top {
-    grid-template-columns: 1fr;
-  }
+    grid-template-columns: 1fr; }
+
   .footer_frase {
-    max-width: 100%;
-  }
-}
+    max-width: 100%; } }
 
 /*# sourceMappingURL=conocenos.css.map */

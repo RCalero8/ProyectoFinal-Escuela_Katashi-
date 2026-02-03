@@ -1,0 +1,121 @@
+@import '../variables.scss';
+
+senseis-section {
+    padding: 50px 20px;
+
+    .titulo-container {
+        text-align: center;
+        margin-bottom: 40px;
+
+        .titulo-dorado {
+            color: $color-oro;
+            text-transform: uppercase;
+            font-size: 2.5rem;
+        }
+    }
+
+    .senseis-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+.sensei-card {
+    background: $bg-card;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: $sombra;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+
+    .sensei-img-wrapper {
+        position: relative;
+        width: 100%;
+        height: 250px;
+
+        .sensei-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dan-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: $color-oro;
+            color: #000;
+            padding: 5px 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+    }
+
+    .sensei-content {
+        padding: 20px;
+
+        .sensei-nombre {
+            margin: 0;
+            font-size: 1.4rem;
+            color: $color-texto-oscuro;
+        }
+
+        .sensei-rol {
+            color: $color-oro;
+            font-weight: 700;
+            margin: 5px 0;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .separator {
+            height: 2px;
+            background-color: #eee;
+            margin: 15px 0;
+        }
+
+        .sensei-categoria {
+            margin: 10px 0;
+            // El color se hereda del style inline que pusimos en el JS (extra.color)
+        }
+
+        .sensei-bio {
+            color: $color-texto-suave;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            
+            // Truncar texto a 3 líneas
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .btn-perfil {
+            width: 100%;
+            padding: 12px;
+            background-color: $color-texto-oscuro;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+
+            &:hover {
+                background-color: $color-oro;
+                color: #000;
+            }
+        }
+    }
+}
