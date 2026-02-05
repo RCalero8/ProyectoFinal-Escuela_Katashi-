@@ -1,0 +1,131 @@
+@import '../variables.scss';
+
+#equipo_instructores {
+  padding: 5rem 1.5rem;
+  font-family: $font-texto;
+
+  .equipo_container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: $color-accent;
+      font-family: $font-titulo;
+    }
+
+    .equipo_descripcion {
+      max-width: 700px;
+      margin-bottom: 3rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .equipo_grid {
+      display: grid;
+      // Esto crea columnas de mínimo 280px y máximo 1fr (reparto equitativo)
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+
+      .sensei-card {
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateY(-8px);
+        }
+
+        // Eliminamos los selectores nth-child que forzaban el ancho y el centrado
+
+        .sensei-img-wrapper {
+          position: relative;
+          width: 100%;
+          height: 220px; 
+          overflow: hidden;
+
+          .sensei-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+          }
+
+          &:hover .sensei-img {
+            transform: scale(1.05);
+          }
+
+          .dan-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: $color-accent;
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+          }
+        }
+
+        .sensei-content {
+          padding: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1; // Para que todas las cards tengan la misma altura interna
+          gap: 0.6rem;
+
+          .sensei-nombre {
+            font-size: 1.2rem;
+            font-family: $font-titulo;
+            color: #111;
+          }
+
+          .sensei-rol {
+            font-size: 0.85rem;
+            color: $color-accent;
+            letter-spacing: 1px;
+          }
+
+          .separator {
+            width: 40px;
+            height: 3px;
+            background: $color-accent;
+            margin: 0.5rem 0;
+            border-radius: 2px;
+          }
+
+          .sensei-bio {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #444;
+            flex-grow: 1; // Empuja el botón hacia abajo
+          }
+
+          .btn-perfil {
+            margin-top: 1rem;
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            border: none;
+            background: $color-accent;
+            color: #fff;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s;
+
+            &:hover {
+              background: darken($color-accent, 10%);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -532,90 +532,97 @@ a {
 ul {
   list-style: none; }
 
-senseis-section {
-  padding: 50px 20px; }
-  senseis-section .titulo-container {
-    text-align: center;
-    margin-bottom: 40px; }
-    senseis-section .titulo-container .titulo-dorado {
-      color: #fbc02d;
-      text-transform: uppercase;
-      font-size: 2.5rem; }
-  senseis-section .senseis-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+#equipo_instructores {
+  padding: 5rem 1.5rem;
+  font-family: "Outfit"; }
+  #equipo_instructores .equipo_container {
     max-width: 1200px;
     margin: 0 auto; }
-
-.sensei-card {
-  background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column; }
-  .sensei-card:hover {
-    transform: translateY(-5px); }
-  .sensei-card .sensei-img-wrapper {
-    position: relative;
-    width: 100%;
-    height: 250px; }
-    .sensei-card .sensei-img-wrapper .sensei-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; }
-    .sensei-card .sensei-img-wrapper .dan-badge {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background-color: #fbc02d;
-      color: #000;
-      padding: 5px 12px;
-      font-weight: bold;
-      border-radius: 4px;
-      font-size: 0.9rem; }
-  .sensei-card .sensei-content {
-    padding: 20px; }
-    .sensei-card .sensei-content .sensei-nombre {
-      margin: 0;
-      font-size: 1.4rem;
-      color: #333; }
-    .sensei-card .sensei-content .sensei-rol {
-      color: #fbc02d;
-      font-weight: 700;
-      margin: 5px 0;
-      font-size: 0.85rem;
-      letter-spacing: 1px; }
-    .sensei-card .sensei-content .separator {
-      height: 2px;
-      background-color: #eee;
-      margin: 15px 0; }
-    .sensei-card .sensei-content .sensei-categoria {
-      margin: 10px 0; }
-    .sensei-card .sensei-content .sensei-bio {
-      color: #666;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      margin-bottom: 20px;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden; }
-    .sensei-card .sensei-content .btn-perfil {
-      width: 100%;
-      padding: 12px;
-      background-color: #333;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: all 0.3s; }
-      .sensei-card .sensei-content .btn-perfil:hover {
-        background-color: #fbc02d;
-        color: #000; }
+    #equipo_instructores .equipo_container h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: #B8860B;
+      font-family: "Kaushan Script"; }
+    #equipo_instructores .equipo_container .equipo_descripcion {
+      max-width: 700px;
+      margin-bottom: 3rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: left; }
+    #equipo_instructores .equipo_container .equipo_grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem; }
+      #equipo_instructores .equipo_container .equipo_grid .sensei-card {
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease; }
+        #equipo_instructores .equipo_container .equipo_grid .sensei-card:hover {
+          transform: translateY(-8px); }
+        #equipo_instructores .equipo_container .equipo_grid .sensei-card .sensei-img-wrapper {
+          position: relative;
+          width: 100%;
+          height: 220px;
+          overflow: hidden; }
+          #equipo_instructores .equipo_container .equipo_grid .sensei-card .sensei-img-wrapper .sensei-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease; }
+          #equipo_instructores .equipo_container .equipo_grid .sensei-card .sensei-img-wrapper:hover .sensei-img {
+            transform: scale(1.05); }
+          #equipo_instructores .equipo_container .equipo_grid .sensei-card .sensei-img-wrapper .dan-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #B8860B;
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold; }
+        #equipo_instructores .equipo_container .equipo_grid .sensei-card .sensei-content {
+          padding: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          gap: 0.6rem; }
+          #equipo_instructores .equipo_container .equipo_grid .sensei-card .sensei-content .sensei-nombre {
+            font-size: 1.2rem;
+            font-family: "Kaushan Script";
+            color: #111; }
+          #equipo_instructores .equipo_container .equipo_grid .sensei-card .sensei-content .sensei-rol {
+            font-size: 0.85rem;
+            color: #B8860B;
+            letter-spacing: 1px; }
+          #equipo_instructores .equipo_container .equipo_grid .sensei-card .sensei-content .separator {
+            width: 40px;
+            height: 3px;
+            background: #B8860B;
+            margin: 0.5rem 0;
+            border-radius: 2px; }
+          #equipo_instructores .equipo_container .equipo_grid .sensei-card .sensei-content .sensei-bio {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #444;
+            flex-grow: 1; }
+          #equipo_instructores .equipo_container .equipo_grid .sensei-card .sensei-content .btn-perfil {
+            margin-top: 1rem;
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            border: none;
+            background: #B8860B;
+            color: #fff;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s; }
+            #equipo_instructores .equipo_container .equipo_grid .sensei-card .sensei-content .btn-perfil:hover {
+              background: #886308; }
 
 /* ============================= */
 /* VARIABLES                     */
