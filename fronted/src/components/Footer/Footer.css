@@ -1,0 +1,108 @@
+/* Footer general */
+.footer {
+  width: 100%;
+  background-color: #2E2E2E;
+  color: white;
+  padding: 24px 32px;
+  box-sizing: border-box;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap; /* Permite que se ajusten en móvil */
+}
+
+.footer-box {
+  flex: 1 1 200px;
+  padding: 16px;
+}
+
+/* Sección 1 específica */
+.footer-logo-section {
+  background-color: transparent;
+  text-align: left;
+}
+
+.logo-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.footer-logo {
+  height: 60px;
+}
+
+.textos h4 {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+}
+
+.textos .katashi {
+  display: block; /* Hace que "Katashi" vaya a otra línea */
+  font-size: 22px;
+  color: #b8860b;
+}
+
+.textos p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Sección 2 específica */
+.footer-links {
+  list-style: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+
+.footer-links li {
+  margin-bottom: 6px;
+}
+
+.footer-links li a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-links li a:hover {
+  color: #f39c12;
+}
+/* Footer inferior */
+.footer-bottom {
+  margin-top: 24px;
+  text-align: center;
+  padding: 16px 0;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-box {
+    flex: 1 1 100%;
+  }
+
+  .logo-text {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .textos h4 {
+    font-size: 18px;
+  }
+
+  .textos .katashi {
+    font-size: 20px;
+  }
+}

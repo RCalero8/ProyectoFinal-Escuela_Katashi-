@@ -1,0 +1,160 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #2e2e2e;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    align-items: center;
+}
+
+.header-left{
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.logo_header{
+    height: 40px;
+    width: auto;
+}
+
+.nav{
+    display: block;
+}
+
+.nav ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li a{
+    text-decoration: none;
+    color: #b8860b;
+    font-weight: 500;
+    font-family: 'Kaushan Script', cursive;
+}
+
+.nav li a:hover{
+    color: #ffffff;
+}
+
+.nav li a.active{
+    color: #ffffff;
+}
+
+.header-right{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #b8860b;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.btn{
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.inicio{
+    font-family: 'Kaushan Script', cursive;
+    border: solid 5px #ff0808;
+    background-color: transparent;
+    color: #ff0808;
+}
+
+.inicio:hover{
+    background-color: #ff0808;
+    color: #fff;
+    border: none;
+}
+
+.registro{
+    font-family: 'Kaushan Script', cursive;
+    background-color: #0e6a08;
+    color: #04ff19;
+}
+
+.registro:hover{
+    background-color: #0b5b06;
+    color: #02e215;
+}
+
+.nav.mobile {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: #2e2e2e;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.nav.mobile.open {
+    display: flex;
+}
+
+.nav.mobile ul {
+    flex-direction: column;
+    gap: 15px;
+}
+
+/*Responsive*/
+@media (max-width: 768px) {
+    .header {
+        justify-content: space-between;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .header-left {
+        gap: 0;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .header-right {
+        justify-content: center;
+        gap: 10px;
+    }
+}
