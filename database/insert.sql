@@ -61,3 +61,5 @@ VALUES (CURRENT_TIMESTAMP, 'MATERIAL', 39.95, 'COMPLETADO', 1, 1);
 -- Caso 3: El padre compra protecciones pero el pago está pendiente (id_material = 3)
 INSERT INTO PAGOS (f_pago, tipo, precio, estado, id_usuario, id_material) 
 VALUES (CURRENT_TIMESTAMP, 'MATERIAL', 25.50, 'PENDIENTE', 1, 3);
+
+--Senseis

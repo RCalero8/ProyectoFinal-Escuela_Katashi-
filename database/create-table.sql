@@ -110,3 +110,15 @@ CREATE TABLE PAGOS (
         FOREIGN KEY (id_material) 
         REFERENCES MATERIAL(id_material)
 ) ENGINE=InnoDB;
+
+CREATE TABLE INFO_SENSEI (
+    id_info INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,      -- Relación con tu tabla USUARIO
+    dan VARCHAR(20),              -- '6° Dan'
+    rol_web VARCHAR(100),         -- 'Instructor de Competición'
+    biografia TEXT,               -- El texto largo
+    CONSTRAINT fk_info_usuario 
+        FOREIGN KEY (id_usuario) 
+        REFERENCES USUARIO(id_usuario) 
+        ON DELETE CASCADE
+) ENGINE=InnoDB;

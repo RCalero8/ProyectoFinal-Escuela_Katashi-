@@ -7,13 +7,14 @@ const app = express();
 
 // 1. IMPORTAR RUTAS
 const cursosRoutes = require('./routes/cursos');
-
+const senseisRoutes = require('./routes/senseis');
 // 2. MIDDLEWARES (CORS debe ir siempre antes que las rutas)
 app.use(cors()); 
 app.use(express.json());
 
 // 3. DEFINIR RUTAS
 app.use('/api/cursos', cursosRoutes);
+app.use('/api/senseis', senseisRoutes);
 
 // Ruta de prueba para verificar la base de datos
 app.get('/prueba-db', async (req, res) => {

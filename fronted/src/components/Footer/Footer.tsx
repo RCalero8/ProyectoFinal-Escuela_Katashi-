@@ -1,5 +1,5 @@
 import "./Footer.css";
-import {Link, useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export function Footer() {
     const location = useLocation();
@@ -46,8 +46,32 @@ export function Footer() {
                         </li>
                     </ul>
                 </div>
-                <div className="footer-box">3</div>
-                <div className="footer-box">4</div>
+                <div className="footer-box">
+                    <h4>Contacto</h4>
+                    <p>📍  C/ Nombre, 123, Camas</p>
+                    <p>📞  +34 955 123 456</p>
+                    <p>📧  info@karatecamas.es</p>
+                </div>
+                <div className="footer-box">
+                    <h4>Síguenos</h4>
+                    <div className="social-icons">
+                        <a href="https://facebook.com" target="_blank">
+                            <img src="/Imagenes_Invitado/Facebook.png" alt="Facebook" />
+                        </a>
+                        <a href="https://instagram.com" target="_blank">
+                            <img src="/Imagenes_Invitado/Instagram.png" alt="Instagram" />
+                        </a>
+                        <a href="https://x.com" target="_blank">
+                            <img src="/Imagenes_Invitado/X.png" alt="X" />
+                        </a>
+                    </div>
+                    <p className="newsletter">Recibe nuestras noticias</p>
+                    <form method="POST" className="newsletter-form">
+                        <input type="email" placeholder="Tu correo electrónico" required />
+                        <button type="submit">→</button>
+                    </form>
+
+                </div>
             </div>
             <div className="footer-bottom">
                 <p>&copy; 2026 Escuela de Karate Katashi. Todos los derechos reservados.</p>

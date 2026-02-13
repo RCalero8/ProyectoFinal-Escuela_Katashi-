@@ -1,0 +1,1156 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  font-family: "Outfit";
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================= */
+/* VARIABLES                     */
+/* ============================= */
+/* ============================= */
+/* RESET + BASE                  */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  font-family: "Outfit";
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.btn, .noticias, .historia, .inicio, #btn_conocenos, .ver_clases, .conocenos {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.registro {
+  background-color: #0E6A08;
+  color: #04ff19;
+  font-family: "Kaushan Script";
+  font-size: 1rem;
+}
+.registro:hover {
+  background-color: rgb(7.7368421053, 58.5789473684, 4.4210526316);
+}
+
+.iniciar_sesion {
+  background-color: transparent;
+  color: #ff0404;
+  border: 5px solid #ff0808;
+  font-family: "Kaushan Script";
+  font-size: 1rem;
+}
+.iniciar_sesion:hover {
+  background-color: #ff0808;
+  color: #ffffff;
+  border: none;
+}
+
+.conocenos {
+  background-color: transparent;
+  font-size: 26px;
+  font-family: "Inter";
+  color: #ffffff;
+  border: 5px solid #ffffff;
+}
+.conocenos:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.ver_clases {
+  background-color: #FF0419;
+  color: white;
+  font-size: 26px;
+  font-family: "Inter";
+  color: white;
+}
+.ver_clases:hover {
+  background-color: rgb(208, 0, 17.4023904382);
+}
+
+#btn_conocenos {
+  background: #B8860B;
+  font-family: "Inter";
+  font-size: 36px;
+  color: #956e0e;
+}
+
+.inicio {
+  background-color: transparent;
+  color: #ffffff;
+  border: 5px solid white;
+  font-family: "Kaushan Script";
+  font-size: 36px;
+}
+.inicio:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.historia {
+  background-color: #fb1010;
+  color: white;
+  font-family: "Inter";
+  font-size: 26px;
+}
+.historia:hover {
+  background-color: rgb(212.4444444444, 3.5555555556, 3.5555555556);
+}
+
+.noticias {
+  background-color: #2E2E2E;
+  color: white;
+  font-family: "Inter";
+  font-size: 26px;
+}
+.noticias:hover {
+  background-color: rgb(20.5, 20.5, 20.5);
+}
+
+/* ============================= */
+/* VARIABLES                     */
+/* ============================= */
+/* ============================= */
+/* RESET + BASE                  */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  font-family: "Outfit";
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================= */
+/* VARIABLES                     */
+/* ============================= */
+/* ============================= */
+/* RESET + BASE                  */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  font-family: "Outfit";
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.btn, .conocenos, .ver_clases, #btn_conocenos, .inicio, .historia, .noticias {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.registro {
+  background-color: #0E6A08;
+  color: #04ff19;
+  font-family: "Kaushan Script";
+  font-size: 1rem;
+}
+.registro:hover {
+  background-color: rgb(7.7368421053, 58.5789473684, 4.4210526316);
+}
+
+.iniciar_sesion {
+  background-color: transparent;
+  color: #ff0404;
+  border: 5px solid #ff0808;
+  font-family: "Kaushan Script";
+  font-size: 1rem;
+}
+.iniciar_sesion:hover {
+  background-color: #ff0808;
+  color: #ffffff;
+  border: none;
+}
+
+.conocenos {
+  background-color: transparent;
+  font-size: 26px;
+  font-family: "Inter";
+  color: #ffffff;
+  border: 5px solid #ffffff;
+}
+.conocenos:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.ver_clases {
+  background-color: #FF0419;
+  color: white;
+  font-size: 26px;
+  font-family: "Inter";
+  color: white;
+}
+.ver_clases:hover {
+  background-color: rgb(208, 0, 17.4023904382);
+}
+
+#btn_conocenos {
+  background: #B8860B;
+  font-family: "Inter";
+  font-size: 36px;
+  color: #956e0e;
+}
+
+.inicio {
+  background-color: transparent;
+  color: #ffffff;
+  border: 5px solid white;
+  font-family: "Kaushan Script";
+  font-size: 36px;
+}
+.inicio:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.historia {
+  background-color: #fb1010;
+  color: white;
+  font-family: "Inter";
+  font-size: 26px;
+}
+.historia:hover {
+  background-color: rgb(212.4444444444, 3.5555555556, 3.5555555556);
+}
+
+.noticias {
+  background-color: #2E2E2E;
+  color: white;
+  font-family: "Inter";
+  font-size: 26px;
+}
+.noticias:hover {
+  background-color: rgb(20.5, 20.5, 20.5);
+}
+
+/* ============================= */
+/* VARIABLES                     */
+/* ============================= */
+/* ============================= */
+/* RESET + BASE                  */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  font-family: "Outfit";
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/Imagenes_Invitado/Inicio/Principal.jpeg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.55);
+  padding: 60px 30px;
+  border-radius: 10px;
+  color: white;
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btn-primary {
+  background-color: #c40000;
+  color: white;
+  padding: 12px 26px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  padding: 12px 26px;
+  border: 2px solid white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Hero responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
+
+.especial-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  background-color: #2E2E2E;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.especial-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.especial-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #B8860B;
+}
+
+.especial-text h3 {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 24px;
+  margin: 0;
+  color: white;
+}
+
+.especial-text h4 {
+  font-family: 'Outlet', sans-serif;
+  font-size: 18px;
+  margin: 4px 0 0 0;
+  color: #B8860B;
+}
+
+.especial-right #conocenos {
+  padding: 12px 26px;
+  font-size: 16px;
+  background-color: #d4af37;
+  color: #B8860B;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.especial-right #conocenos:hover {
+  background-color: #B8860B;
+  color: #956e0e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .especial-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .especial-right {
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .especial-right .btn-especial {
+    width: 100%;
+  }
+}
+
+/* ============================= */
+/* VARIABLES                     */
+/* ============================= */
+/* ============================= */
+/* RESET + BASE                  */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  font-family: "Outfit";
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.beneficios {
+  padding: 4rem 2rem;
+  background-color: #2E2E2E;
+}
+.beneficios .beneficios_intro {
+  margin-bottom: 3rem;
+}
+.beneficios .beneficios_intro h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #B8860B;
+  font-family: "Kaushan Script";
+}
+.beneficios .beneficios_intro p {
+  font-size: 1rem;
+  color: #d9d9d9;
+  max-width: 700px;
+  margin: 0;
+  text-align: left;
+  font-family: "Outfit";
+}
+.beneficios .beneficios_grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.beneficios .beneficios_grid .beneficio {
+  flex: 1;
+  background-color: #fff;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 0 0.5rem;
+}
+.beneficios .beneficios_grid .beneficio img {
+  display: block;
+  margin: 0 auto 1rem;
+  width: 80px;
+  height: 80px;
+}
+.beneficios .beneficios_grid .beneficio h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #fffdfd;
+  font-family: "Outfit";
+}
+.beneficios .beneficios_grid .beneficio p {
+  font-size: 1rem;
+  color: #f1e2e2;
+  font-family: "Outfit";
+}
+.beneficios .beneficios_grid #karate {
+  background-color: #dc2626;
+}
+.beneficios .beneficios_grid #Participación {
+  background-color: #d4af37;
+}
+.beneficios .beneficios_grid #Desarrollo {
+  background-color: #059669;
+}
+.beneficios .beneficios_grid #Senseis {
+  background-color: #1f1f1f;
+}
+
+.porque {
+  padding: 4rem 2rem;
+  background-color: #ff0c0c;
+  border-radius: 30px;
+}
+.porque .porque_intro {
+  margin-bottom: 3rem;
+}
+.porque .porque_intro h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #fdf8f8;
+  font-family: "Outfit";
+  text-transform: uppercase;
+}
+.porque .porque_intro p {
+  font-size: 1rem;
+  width: 100vw;
+  color: white;
+  margin: 0;
+  font-family: "Outfit";
+}
+.porque .porque_grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.porque .porque_grid .razon {
+  flex: 1;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.porque .porque_grid .razon h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #ffbb01;
+  font-family: "Outfit";
+}
+.porque .porque_grid .razon p {
+  font-size: 1rem;
+  color: white;
+  font-family: "Outfit";
+}
+
+.seccion_final {
+  background: linear-gradient(rgba(120, 0, 0, 0.7), rgba(120, 0, 0, 0.7)), url("/Imagenes_Invitado/Inicio/Principal.jpeg") center/cover no-repeat;
+  color: #fff;
+  padding: 5rem 2rem;
+}
+.seccion_final .seccion_contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.seccion_final h2 {
+  font-family: "Kaushan Script";
+  color: #B8860B;
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 1.5rem;
+}
+.seccion_final .descripcion {
+  text-align: justify;
+  font-family: "Outfit";
+  color: #ffffff;
+  font-size: 30px;
+  max-width: 1000px;
+  margin-bottom: 2rem;
+}
+.seccion_final .botones {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+.seccion_final .iconos_info {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.seccion_final .iconos_info .icono {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+.seccion_final .iconos_info .icono h4 {
+  font-size: 40px;
+  margin-bottom: 0.5rem;
+}
+.seccion_final .iconos_info .icono p {
+  font-size: 15px;
+}
+
+/* ============================= */
+/* VARIABLES                     */
+/* ============================= */
+/* ============================= */
+/* RESET + BASE                  */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  font-family: "Outfit";
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================= */
+/* NUESTRA HISTORIA + NOTICIAS   */
+/* ============================= */
+.historia_container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+}
+
+/* ============================= */
+/* BLOQUE PRINCIPAL HISTORIA     */
+/* ============================= */
+.historia_principal h2 {
+  font-family: "Kaushan Script";
+  font-size: 60px;
+  color: #B8860B;
+  margin-bottom: 1.5rem;
+}
+.historia_principal p {
+  font-family: "Outfit";
+  font-size: 30px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  color: #000000;
+}
+
+/* ============================= */
+/* BLOQUE NOTICIAS               */
+/* ============================= */
+.historia_noticias {
+  background-color: #d9d9d9;
+  padding: 2.5rem;
+  border-radius: 12px;
+  border-left: 20px solid #B8860B;
+}
+.historia_noticias h3 {
+  font-family: "Kaushan Script";
+  font-size: 40px;
+  color: #B8860B;
+  margin-bottom: 1rem;
+}
+.historia_noticias .lista_noticias {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+.historia_noticias .lista_noticias li {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+.historia_noticias .lista_noticias li:last-child {
+  border-bottom: none;
+}
+.historia_noticias .lista_noticias li .fecha {
+  display: block;
+  font-size: 0.75rem;
+  color: #4b4949;
+  margin-bottom: 0.3rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.historia_noticias .lista_noticias li p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: black;
+}
+.ver-todas{
+    background-color: red;
+    border-radius: 15px;
+}
+.historia_noticias .btn, .historia_noticias .conocenos, .historia_noticias .ver_clases, .historia_noticias #btn_conocenos, .historia_noticias .inicio, .historia_noticias .historia, .historia_noticias .noticias {
+  width: 100%;
+  text-align: center;
+}
+
+/* ============================= */
+/* VARIABLES                     */
+/* ============================= */
+/* ============================= */
+/* RESET + BASE                  */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  font-family: "Outfit";
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================= */
+.cursos-section .titulo-container h2 {
+  font-family: "Kaushan Script";
+  font-size: 2rem;
+  color: #B8860B;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.cursos-section .titulo-container p {
+  font-family: "Outfit";
+  font-size: 1rem;
+  color: black;
+  width: 100vw;
+  margin: 0 auto 4rem auto;
+}
+.cursos-section .cursos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+@media (max-width: 900px) {
+  .cursos-section .cursos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .cursos-section .cursos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.cursos-section .curso-card {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.cursos-section .curso-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+}
+.cursos-section .curso-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cursos-section .curso-emoji {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  z-index: 2;
+}
+.cursos-section .curso-text-img {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  z-index: 2;
+  color: white;
+}
+.cursos-section .curso-text-img h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.cursos-section .curso-text-img .grado {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+.cursos-section .curso-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  z-index: 1;
+}
+.cursos-section .curso-content {
+  padding: 1rem 1.5rem;
+}
+.cursos-section .curso-content .curso-horario {
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+.cursos-section .curso-content .precio {
+  margin-bottom: 1rem;
+  color: #555;
+  font-weight: 500;
+}
+.cursos-section .curso-content .btn-mas-info {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+/* ============================= */
+/* VARIABLES                     */
+/* ============================= */
+/* ============================= */
+/* RESET + BASE                  */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  font-family: "Outfit";
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* ============================= */
+/* RESPONSIVE GLOBAL             */
+/* ============================= */
+
+
+/* ================= Beneficios ================= */
+@media (max-width: 1024px) {
+  .beneficios .beneficios_intro h2 {
+    font-size: 2rem;
+  }
+  .beneficios .beneficios_intro p {
+    font-size: 1rem;
+  }
+  .beneficios .beneficios_grid {
+    gap: 1.5rem;
+  }
+  .beneficios .beneficio img {
+    width: 70px;
+    height: 70px;
+  }
+  .beneficios .beneficio h3 {
+    font-size: 1.3rem;
+  }
+  .beneficios .beneficio p {
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 768px) {
+  .beneficios {
+    padding: 3rem 1.5rem;
+  }
+  .beneficios .beneficios_intro h2 {
+    font-size: 1.8rem;
+  }
+  .beneficios .beneficios_intro p {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+  .beneficios .beneficios_grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .beneficios .beneficio {
+    margin: 0;
+  }
+  .beneficios .beneficio img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.75rem;
+  }
+  .beneficios .beneficio h3 {
+    font-size: 1.2rem;
+  }
+  .beneficios .beneficio p {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 1024px) {
+  .porque .porque_intro h2 {
+    font-size: 1.8rem;
+  }
+  .porque .porque_intro p {
+    font-size: 0.95rem;
+  }
+  .porque .porque_grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .porque .porque_grid .razon {
+    width: 100%;
+    padding: 1.5rem 1rem;
+  }
+}
+@media (max-width: 1024px) {
+  .porque .porque_intro h2 {
+    font-size: 1.8rem;
+  }
+  .porque .porque_intro p {
+    font-size: 0.95rem;
+  }
+  .porque .porque_grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .porque .porque_grid .razon {
+    width: 100%;
+    padding: 1.5rem 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .porque .porque_intro h2 {
+    font-size: 1.5rem;
+  }
+  .porque .porque_intro p {
+    font-size: 0.9rem;
+  }
+  .porque .porque_grid {
+    gap: 1rem;
+  }
+  .porque .porque_grid .razon {
+    padding: 1rem;
+  }
+}
+/* ================= CTA FINAL ================= */
+@media (max-width: 1024px) {
+  .seccion_roja {
+    padding: 4rem 1.5rem;
+  }
+  .seccion_roja h2 {
+    font-size: 2.2rem;
+  }
+  .seccion_roja .descripcion {
+    max-width: 90%;
+    font-size: 1rem;
+  }
+  .seccion_roja .botones {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .seccion_roja .botones .btn, .seccion_roja .botones .conocenos, .seccion_roja .botones .ver_clases, .seccion_roja .botones #btn_conocenos, .seccion_roja .botones .inicio, .seccion_roja .botones .historia, .seccion_roja .botones .noticias {
+    width: 60%;
+  }
+  .seccion_roja .iconos_info {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .seccion_roja .iconos_info .icono {
+    flex: 0 0 45%;
+  }
+}
+@media (max-width: 768px) {
+  .seccion_roja {
+    padding: 3rem 1rem;
+  }
+  .seccion_roja h2 {
+    font-size: 1.8rem;
+  }
+  .seccion_roja .descripcion {
+    max-width: 100%;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .seccion_roja .botones .btn, .seccion_roja .botones .conocenos, .seccion_roja .botones .ver_clases, .seccion_roja .botones #btn_conocenos, .seccion_roja .botones .inicio, .seccion_roja .botones .historia, .seccion_roja .botones .noticias {
+    width: 100%;
+  }
+  .seccion_roja .iconos_info {
+    flex-direction: column;
+  }
+  .seccion_roja .iconos_info .icono {
+    width: 100%;
+  }
+}
+/* ================= NUESTRA HISTORIA + NOTICIAS ================= */
+@media (max-width: 768px) {
+  .historia_container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 4rem 1.5rem;
+  }
+  .historia_principal h2 {
+    font-size: 3rem;
+    text-align: center;
+  }
+  .historia_principal p {
+    text-align: center;
+  }
+  .historia_noticias {
+    padding: 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .historia_principal h2 {
+    font-size: 2.4rem;
+  }
+  .historia_noticias h3 {
+    font-size: 1.2rem;
+  }
+}
