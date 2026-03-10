@@ -7,6 +7,13 @@
   box-sizing: border-box;
 }
 
+.footer ul,
+.footer ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .footer-top {
   display: flex;
   justify-content: space-between;
@@ -19,11 +26,74 @@
   padding: 16px;
 }
 
-/* Sección 1 específica */
-.footer-logo-section {
-  background-color: transparent;
-  text-align: left;
+/* Social icons (div 4) */
+.footer-box:last-child {
+  /* vertical stack: title above icons */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.footer-box:last-child h4 {
+  margin-bottom: 8px;
+}
+
+.footer-box:last-child .social-icons {
+  display: flex;
+  gap: 8px;
+}
+
+.footer-box:last-child .social-icons a img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* newsletter form styling */
+.footer-box:last-child .formulario {
+  margin-top: 12px;
+  width: 100%;
+  text-align: center;
+}
+
+.footer-box:last-child .formulario p {
+  color: #ccc; /* same as other paragraph text */
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.footer-box:last-child .formulario form {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.footer-box:last-child .formulario input,
+.footer-box:last-child .formulario button {
+  flex: 1;
+  height: 32px;
+  padding: 0 6px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #444;
+  color: #eee;
+}
+
+.footer-box:last-child .formulario input {
+  background-color: #333;
+  color: #ddd;
+}
+
+.footer-box:last-child .formulario button {
+  background-color: #555;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.footer-box:last-child .formulario button:hover {
+  background-color: #666;
+}
+ 
 
 .logo-text {
   display: flex;
@@ -42,12 +112,12 @@
 }
 
 .textos .katashi {
-  display: block; /* Hace que "Katashi" vaya a otra línea */
+  display: block; 
   font-size: 22px;
   color: #b8860b;
 }
 
-p, li{
+.textos p {
   margin-top: 8px;
   font-size: 14px;
   color: #ccc;
@@ -62,92 +132,18 @@ p, li{
 
 .footer-links li {
   margin-bottom: 6px;
+  text-decoration: none;
 
 }
 
 .footer-links li a {
   text-decoration: none;
-  color: #ccc;
+  color: white;
 }
 
 .footer-links li a:hover {
   color: #f39c12;
 }
-
-/*Seccion 4*/
-/* Redes sociales */
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
-
-.social-icons img {
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.social-icons img:hover {
-  transform: scale(1.1);
-}
-
-.social-text {
-  font-size: 14px;
-  color: #ccc;
-  margin-bottom: 12px;
-}
-
-/* Mini formulario */
-.newsletter-form {
-  display: flex;
-  width: 100%;
-  max-width: 320px;
-}
-
-.newsletter-form input {
-  flex: 1;
-  height: 42px;
-  padding: 0 12px;
-  border: none;
-  outline: none;
-}
-
-.newsletter-form button {
-  height: 42px;
-  padding: 0 16px;
-  background-color: #c40000; /* rojo */
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.newsletter-form button:hover {
-  background-color: #a00000;
-}
-.newsletter-form input {
-  border-radius: 6px 0 0 6px;
-}
-
-.newsletter-form button {
-  border-radius: 0 6px 6px 0;
-}
-
-
-
-/* Responsive */
-@media (max-width: 768px) {
-  .newsletter {
-    flex-direction: column;
-  }
-
-  .newsletter button {
-    width: 100%;
-  }
-}
-
-
 /* Footer inferior */
 .footer-bottom {
   margin-top: 24px;
@@ -179,5 +175,50 @@ p, li{
 
   .textos .katashi {
     font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 16px 12px;
+  }
+
+  .footer-top {
+    gap: 16px;
+  }
+
+  .footer-box {
+    flex: 1 1 auto;
+    padding: 12px;
+  }
+
+  .textos h4 {
+    font-size: clamp(1rem, 4vw, 20px);
+  }
+
+  .textos .katashi {
+    font-size: clamp(1.1rem, 4vw, 22px);
+  }
+
+  .textos p {
+    font-size: clamp(0.75rem, 3vw, 14px);
+  }
+
+  .footer-links li {
+    margin-bottom: 4px;
+  }
+
+  .footer-bottom {
+    font-size: clamp(0.75rem, 3vw, 14px);
+    padding: 12px 0;
+  }
+
+  .footer-logo {
+    height: 50px;
+  }
+
+  .footer-box:last-child .social-icons a img {
+    width: 28px;
+    height: 28px;
   }
 }

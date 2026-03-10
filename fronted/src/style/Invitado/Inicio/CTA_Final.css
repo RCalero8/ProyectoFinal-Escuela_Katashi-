@@ -1,0 +1,108 @@
+.contenedor-principal {
+    position: relative;
+    width: 100%;
+    min-height: 340px;
+    background-image: url('Imagenes_Invitado/Inicio/Foto_cta_final.png');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.titulo-principal {
+    font-family: 'Kaushan Script', cursive;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    font-weight: 900;
+    font-style: italic;
+    color: #b8860b;
+    margin: 0;
+    line-height: 1.25;
+}
+
+.subtitulo {
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-weight: 400;
+    color: white;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.fila-botones {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+    align-items: center;
+    justify-content: center;
+}
+.boton-registro {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #16a34a;
+  background: #16a34a22;
+  border: 2px solid #16a34a;
+  padding: 10px 22px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.boton-registro:hover {
+  background: #16a34a;
+  color: white;
+}
+.boton-sesion {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-style: italic;
+  color: white;
+  background: transparent;
+  border: 2px solid white;
+  padding: 10px 22px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.boton-sesion:hover {
+  background: white;
+  color: #0d0d1a;
+}
+
+.fila-valores {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(24px, 5vw, 64px);
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.elemento-valor {
+  display: flex;
+  flex-direction: row;  /* era column, ahora row */
+  align-items: center;
+  gap: 6px;
+}
+
+.emoji-valor {
+  font-size: 2rem;
+}
+
+.texto-valor {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: white;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+}

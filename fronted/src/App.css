@@ -35,3 +35,20 @@ main {
   margin: 0;
   box-sizing: border-box;
 }
+
+/* Media queries para responsive */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; /* Previene zoom en iOS */
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+}
