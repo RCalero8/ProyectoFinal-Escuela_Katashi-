@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+
 import '../../../style/Invitado/Inicio/Beneficios.css';
 
 interface  Caracteristica {
