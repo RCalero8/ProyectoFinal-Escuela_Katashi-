@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     min-height: 340px;
-    background-image: url('Imagenes_Invitado/Inicio/Foto_cta_final.png');
+    background-image: url('/Imagenes_Invitado/Inicio/Foto_cta_final.png');
     background-size: cover;
     display: flex;
     align-items: center;
