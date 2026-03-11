@@ -66,9 +66,10 @@
    SECCIÓN NOTICIAS (derecha)
 ════════════════════════════ */
 
+/* ahora las dos secciones comparten el mismo ancho mediante flex:1 */
 .seccion-noticias {
-  width: 340px;
-  flex-shrink: 0;
+  flex: 1;             /* ocupa el mismo espacio que .seccion-historia */
+  min-width: 0;        /* permite que el contenido se reduzca dentro del flex */
   border: 2px solid #b8860b;
   border-left: 6px solid #b8860b;
   background: #f5f5f5;
