@@ -1,7 +1,8 @@
-import '../../../style/Invitado/Inicio/Historia.css';
 import { useState, useEffect } from "react";
+import "../../../style/Invitado/Inicio/Historia.css";
 
-// ─── Tipos ───────────────────────────────────────────────
+const API_URL = "https://proyectofinal-escuelakatashi-production.up.railway.app";
+
 interface Noticia {
   id:     number;
   titulo: string;
@@ -9,19 +10,14 @@ interface Noticia {
   enlace: string;
 }
 
-// ─── Componente ──────────────────────────────────────────
 export default function HistoriaNoticias() {
-
-  // ─── Estado ────────────────────────────────────────────
   const [noticias,  setNoticias]  = useState<Noticia[]>([]);
   const [cargando,  setCargando]  = useState<boolean>(true);
   const [error,     setError]     = useState<string | null>(null);
 
-  // ─── Petición al backend ────────────────────────────────
   useEffect(() => {
-    fetch("http://localhost:3000/api/noticias?limite=3")
+    fetch(`${API_URL}/api/noticias?limite=3`)
       .then((respuesta) => {
-        // Si el servidor devuelve un error HTTP lo lanzamos
         if (!respuesta.ok) {
           throw new Error("Error al obtener las noticias");
         }
@@ -37,7 +33,6 @@ export default function HistoriaNoticias() {
       });
   }, []);
 
-  // ─── Render ─────────────────────────────────────────────
   return (
     <div className="contenedor-pagina">
 
