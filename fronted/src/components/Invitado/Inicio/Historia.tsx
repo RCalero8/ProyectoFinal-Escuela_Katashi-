@@ -37,7 +37,7 @@ export default function HistoriaNoticias() {
     <div className="contenedor-pagina">
 
       {/* ── Sección Historia ── */}
-      <section className="seccion-historia">
+      <section className="seccion-historia" id="historia">
 
         <h2 className="titulo-historia">Nuestra Historia</h2>
 

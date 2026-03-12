@@ -15,7 +15,9 @@ const Especial_Nav = () => {
         </div>
       </div>
 
-      <button id="btn-especial">
+      <button id="btn-especial" onClick={() => {
+        document.getElementById("historia")?.scrollIntoView({ behavior: "smooth" });
+      }}>
         Conocenos
       </button>
     </section>
