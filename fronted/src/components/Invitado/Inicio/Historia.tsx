@@ -10,8 +10,9 @@ interface Noticia {
   fecha:  string;
   enlace: string;
 }
-const navegar = useNavigate();
 export default function HistoriaNoticias() {
+  const navegar = useNavigate();
+
   const [noticias,  setNoticias]  = useState<Noticia[]>([]);
   const [cargando,  setCargando]  = useState<boolean>(true);
   const [error,     setError]     = useState<string | null>(null);

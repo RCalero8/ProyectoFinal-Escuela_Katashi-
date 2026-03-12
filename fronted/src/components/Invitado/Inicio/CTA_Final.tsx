@@ -12,9 +12,9 @@ const valores:Valor [] = [
     { emoji: '🧘', etiqueta: "Disciplina"},
     { emoji: '🏆', etiqueta: "Exito"},
 ];
-const navegar = useNavigate();
 
 export default function CTA_Final() {
+    const navegar = useNavigate();
     return (
         <div className="contenedor-principal">
             <div className="capa-oscura">
