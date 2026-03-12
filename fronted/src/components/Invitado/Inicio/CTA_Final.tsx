@@ -1,4 +1,5 @@
 import '../../../style/Invitado/Inicio/CTA_Final.css';
+import { useNavigate } from "react-router-dom";
 
 interface Valor {
     emoji: string;
@@ -11,6 +12,7 @@ const valores:Valor [] = [
     { emoji: '🧘', etiqueta: "Disciplina"},
     { emoji: '🏆', etiqueta: "Exito"},
 ];
+const navegar = useNavigate();
 
 export default function CTA_Final() {
     return (
@@ -21,8 +23,8 @@ export default function CTA_Final() {
                     <p className="subtitulo">Únete a nuestra comunidad y comienza tu transformación física y mental hoy mismo</p>
                     {/*Botone*/}
                     <div className='fila-botones'>
-                        <button className="boton-registro">🧑 Registrarse</button>
-                        <button className="boton-sesion">🏯 Inicio Sesion</button>
+                        <button className="boton-registro" onClick={() => navegar("/registro")}>🧑 Registrarse</button>
+                        <button className="boton-sesion" onClick={() => navegar("/login")}>🏯 Inicio Sesion</button>
                     </div>
                     {/*Valores*/}
                     <div className="fila-valores">

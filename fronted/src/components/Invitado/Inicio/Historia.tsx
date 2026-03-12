@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../../../style/Invitado/Inicio/Historia.css";
+import { useNavigate } from "react-router-dom";
 
 const API_URL = "https://proyectofinal-escuelakatashi-production.up.railway.app";
 
@@ -9,7 +10,7 @@ interface Noticia {
   fecha:  string;
   enlace: string;
 }
-
+const navegar = useNavigate();
 export default function HistoriaNoticias() {
   const [noticias,  setNoticias]  = useState<Noticia[]>([]);
   const [cargando,  setCargando]  = useState<boolean>(true);
@@ -59,7 +60,7 @@ export default function HistoriaNoticias() {
           y motivador donde el aprendizaje y el crecimiento personal son nuestra prioridad.
         </p>
 
-        <button className="boton-leer-mas">
+        <button className="boton-leer-mas" onClick={() => navegar("/conocenos")}>
           Leer Mas ▶
         </button>
 
