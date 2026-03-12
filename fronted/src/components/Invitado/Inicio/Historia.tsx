@@ -102,7 +102,7 @@ export default function HistoriaNoticias() {
           </ul>
         )}
 
-        <button className="boton-ver-noticias">
+        <button className="boton-ver-noticias" onClick={() => navegar("/noticias")}>
           Ver todas las noticias
         </button>
 
