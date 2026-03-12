@@ -11,7 +11,7 @@ const Hero = () => {
         </p>
         <div className="hero-btns">
           <button
-            className="boton-leer-mas"
+            className="btn-conocenos"
             onClick={() => {
               document
                 .getElementById("historia")
