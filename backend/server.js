@@ -1,6 +1,6 @@
 const express = require("express");
 const cors    = require("cors");
-require("dotenv").config();
+const conexion = require("./config/db");  
 
 const rutasNoticias = require("./routes/noticias");
 const rutasCurso = require("./routes/cursos");
