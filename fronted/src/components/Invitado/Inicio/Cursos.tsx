@@ -5,9 +5,10 @@ import CourseCard from "./CursosCard";
 const Cursos: React.FC = () => {
   const [cursos, setCursos] = useState<Curso[]>([]);
   const [loading, setLoading] = useState(true);
+    const API_URL = "https://proyectofinal-escuelakatashi-production.up.railway.app";
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/cursos")
+    fetch(`${API_URL}/api/cursos`)
       .then((res) => res.json())
       .then((data: Curso[]) => {
         setCursos(data);
