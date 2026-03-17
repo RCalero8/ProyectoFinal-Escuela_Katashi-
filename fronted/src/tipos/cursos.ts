@@ -4,7 +4,7 @@ export interface Clase {
     duracion_min: number;
     id_curso: number;
 }
- 
+
 export interface Curso {
     id_curso: number;
     nombre: string;
@@ -13,4 +13,3 @@ export interface Curso {
     f_fin: string;
     clases?: Clase[];   // opcional: el listado no las devuelve, solo /api/cursos/:id
 }
- 

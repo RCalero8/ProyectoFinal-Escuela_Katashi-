@@ -1,28 +1,26 @@
 import React, { useEffect, useState } from "react";
 import type { Curso } from "../../../tipos/cursos";
 import CourseCard from "./CursosCard";
- 
+
 const API_URL = "https://proyectofinal-escuelakatashi-production.up.railway.app";
- 
+
 const Cursos: React.FC = () => {
   const [cursos, setCursos] = useState<Curso[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError]   = useState(false);
- 
+  const [error, setError] = useState(false);
+
   useEffect(() => {
-    // 1. Traemos el listado de cursos
     fetch(`${API_URL}/api/cursos`)
       .then((res) => {
-        if (!res.ok) throw new Error("Error en la respuesta");
+        if (!res.ok) throw new Error();
         return res.json();
       })
       .then(async (data: Curso[]) => {
-        // 2. Por cada curso pedimos el detalle (incluye clases)
         const cursosConClases = await Promise.all(
           data.map((curso) =>
             fetch(`${API_URL}/api/cursos/${curso.id_curso}`)
               .then((r) => r.json())
-              .catch(() => ({ ...curso, clases: [] })) // si falla un detalle no rompemos todo
+              .catch(() => ({ ...curso, clases: [] }))
           )
         );
         setCursos(cursosConClases);
@@ -33,47 +31,56 @@ const Cursos: React.FC = () => {
         setLoading(false);
       });
   }, []);
- 
+
   if (loading)
     return (
-      <div style={{ minHeight: "100vh", background: "radial-gradient(circle at top, #1f2937, #020617)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: 18 }}>
-        Cargando cursos...
+      <div style={{ width: "100%", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#f9fafb" }}>
+        <p style={{ fontSize: 16, color: "#6b7280" }}>Cargando cursos...</p>
       </div>
     );
- 
+
   if (error)
     return (
-      <div style={{ minHeight: "100vh", background: "radial-gradient(circle at top, #1f2937, #020617)", display: "flex", alignItems: "center", justifyContent: "center", color: "#ef4444", fontSize: 18 }}>
-        No se pudieron cargar los cursos. Inténtalo más tarde.
+      <div style={{ width: "100%", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#f9fafb" }}>
+        <p style={{ fontSize: 16, color: "#ef4444" }}>No se pudieron cargar los cursos. Inténtalo más tarde.</p>
       </div>
     );
- 
+
   return (
     <div
       style={{
         width: "100%",
         minHeight: "100vh",
-        background: "radial-gradient(circle at top, #1f2937, #020617)",
-        padding: "40px 16px",
-        color: "white",
+        background: "#f9fafb",
+        padding: "48px 24px",
         boxSizing: "border-box",
       }}
     >
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+
+        {/* Cabecera */}
         <header style={{ marginBottom: 32 }}>
-          <h1 style={{ fontSize: 32, fontWeight: 800, marginBottom: 8 }}>
+          <h1 style={{
+            fontSize: 36,
+            fontWeight: 800,
+            marginBottom: 8,
+            fontFamily: "'Georgia', serif",
+            color: "#b8860b",
+            fontStyle: "italic",
+          }}>
             Nuestros Cursos
           </h1>
-          <p style={{ maxWidth: 520, fontSize: 15, opacity: 0.9 }}>
-            Ofrecemos clases adaptadas a todas las edades y niveles.
+          <p style={{ fontSize: 15, color: "#374151", maxWidth: 560 }}>
+            Ofrecemos clases adaptadas a todas las edades y niveles. Encuentra el grupo perfecto para ti.
           </p>
         </header>
- 
+
+        {/* Grid */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: 24,
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: 20,
           }}
         >
           {cursos.map((curso) => (
@@ -84,5 +91,5 @@ const Cursos: React.FC = () => {
     </div>
   );
 };
- 
+
 export default Cursos;
