@@ -20,7 +20,12 @@ const Hero = () => {
           >
             Conocenos
           </button>
-          <button className="btn-verclases">Ver Clase</button>
+          <button className="btn-verclases"
+          onClick={() => {
+              document
+                .getElementById("cursos")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}>Ver Clase</button>
         </div>
       </div>
     </div>
