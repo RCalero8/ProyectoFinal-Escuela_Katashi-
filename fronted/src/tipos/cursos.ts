@@ -11,5 +11,5 @@ export interface Curso {
     descripcion: string;
     f_inicio: string;
     f_fin: string;
-    clases?: Clase[];   // opcional: el listado no las devuelve, solo /api/cursos/:id
+    clases?: Clase[];   
 }

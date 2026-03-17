@@ -28,7 +28,7 @@ export const cursoMeta: Record<
   },
   Competición: {
     emoji: "🏆",
-    imagen: "/Imagenes_Invitado/Inicio/clases/Competicion.png",
+    imagen: "/Imagenes_Invitado/Inicio/clases/Competición.png",
     color: "#ef4444",
     horario: "M-J 19:30-21:00",
   },
