@@ -34,7 +34,7 @@ const Cursos: React.FC = () => {
 
   if (loading)
     return (
-      <div style={{ width: "100%", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#f9fafb" }} id="cursos">
+      <div style={{ width: "100%", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#f9fafb" }}>
         <p style={{ fontSize: 16, color: "#6b7280" }}>Cargando cursos...</p>
       </div>
     );
@@ -48,6 +48,7 @@ const Cursos: React.FC = () => {
 
   return (
     <div
+      id="cursos"
       style={{
         width: "100%",
         minHeight: "100vh",
