@@ -1,0 +1,204 @@
+/* ── Sección ── */
+.historia-section {
+  width: 100%;
+  background: #fdfcf8;
+  padding: 72px 48px;
+  box-sizing: border-box;
+  border-top: 1px solid #e8e0d0;
+  border-bottom: 1px solid #e8e0d0;
+}
+
+.historia-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ── Columna texto ── */
+.historia-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.historia-titulo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 40px;
+  font-weight: 700;
+  color: #b8860b;
+  margin: 0 0 8px 0;
+  line-height: 1.15;
+}
+
+.historia-texto p {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #374151;
+  margin: 0;
+}
+
+/* ── Botón ── */
+.historia-btn {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #e8a000;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.historia-btn:hover {
+  background: #c87f00;
+  transform: translateX(3px);
+}
+
+.historia-btn-arrow {
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+/* ── Imagen ── */
+.historia-imagen-wrap {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.historia-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* ── Stats sobre la imagen ── */
+.historia-stats {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
+  display: flex;
+  justify-content: space-around;
+  padding: 28px 16px 20px;
+}
+
+.historia-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.historia-stat-valor {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.historia-stat-label {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .historia-section {
+    padding: 48px 24px;
+  }
+
+  .historia-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .historia-imagen-wrap {
+    order: -1; /* imagen arriba en móvil */
+  }
+
+  .historia-img {
+    height: 300px;
+  }
+
+  .historia-titulo {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .historia-titulo {
+    font-size: 26px;
+  }
+
+  .historia-stat-valor {
+    font-size: 20px;
+  }
+}
+
+/* ── Texto expandible ── */
+.historia-extra {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s ease;
+  overflow: hidden;
+}
+
+.historia-extra > p {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.historia-extra--visible {
+  grid-template-rows: 1fr;
+}
+
+/* Los párrafos dentro del extra necesitan su propio contenedor para el truco del grid */
+.historia-extra {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s ease;
+}
+
+.historia-extra--visible {
+  grid-template-rows: 1fr;
+}
+
+/* Contenedor interno para que overflow:hidden funcione con grid */
+.historia-extra-inner {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Flecha del botón rotada cuando está expandido */
+.historia-btn-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-size: 11px;
+}
+
+.historia-btn-arrow--up {
+  transform: rotate(90deg);
+}
