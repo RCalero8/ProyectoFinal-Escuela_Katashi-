@@ -1,6 +1,11 @@
+import Hero from "../../components/Invitado/Conocenos/Hero";
+
+
 const Conocenos = () => {
   return (
-    <h1>Conocenos</h1>
+    <>
+    <Hero />
+    </>
   );
 };
 
