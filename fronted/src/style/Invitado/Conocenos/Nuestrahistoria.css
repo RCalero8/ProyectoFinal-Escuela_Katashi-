@@ -50,8 +50,8 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #111111;
-  color: #ffffff;
+  background: #b8860b;
+  color: #111111;
   border: none;
   padding: 12px 24px;
   border-radius: 4px;
@@ -112,7 +112,7 @@ p {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 26px;
   font-weight: 700;
-  color: #ffffff;
+  color: #b8860b;
   line-height: 1;
 }
 
