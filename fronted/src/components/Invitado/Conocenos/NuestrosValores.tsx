@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../style/Invitado/NuestrosValores.css";
+import "../../../style/Invitado/Conocenos/NuestrosValores.css";
 
 const valores = [
   {
