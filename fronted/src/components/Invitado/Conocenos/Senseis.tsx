@@ -7,7 +7,7 @@ const API_URL = "https://proyectofinal-escuelakatashi-production.up.railway.app"
 // Imagen placeholder por sensei (cámbiala cuando tengas las reales)
 const imagenes: Record<number, string> = {
   1: "/Imagenes_Invitado/Conocenos/Senseis/Ana.jpg",
-  2: "/Imagenes_Invitado/Conocenos/Senseis/Carlos.jpg",
+  2: "/Imagenes_Invitado/Conocenos/Senseis/Carlos.jpeg",
   3: "/Imagenes_Invitado/Conocenos/Senseis/Jose.jpg",
   4: "/Imagenes_Invitado/Conocenos/Senseis/Fran.jpg",
 };
