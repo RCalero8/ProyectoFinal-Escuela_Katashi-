@@ -2,13 +2,13 @@ import React, { useState, useEffect, useCallback } from "react";
 import "../../../style/Invitado/Conocenos/Galeria.css";
 
 const fotos = [
-  "https://images.unsplash.com/photo-1555597673-b21d5c935865?w=1200&q=80",
-  "https://images.unsplash.com/photo-1607962837359-5e7e89f86776?w=1200&q=80",
-  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&q=80",
-  "https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?w=1200&q=80",
-  "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1200&q=80",
-  "https://images.unsplash.com/photo-1549476464-37392f717541?w=1200&q=80",
-  "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=1200&q=80",
+  "/Imagenes_Invitado/Conocenos/Galeria/Combate.jpg",
+  "/Imagenes_Invitado/Conocenos/Galeria/cinturones.jpg",
+  "/Imagenes_Invitado/Conocenos/Galeria/Kata.jpg",
+  "/Imagenes_Invitado/Conocenos/Galeria/pequeños.webp",
+  "/Imagenes_Invitado/Conocenos/Galeria/Playa.JPG",
+  "/Imagenes_Invitado/Conocenos/Galeria/Estiramiento.jpg",
+  "/Imagenes_Invitado/Conocenos/Galeria/Exhibicion.jpg",
 ];
 
 const Galeria: React.FC = () => {
