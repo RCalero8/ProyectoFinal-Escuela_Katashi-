@@ -9,7 +9,7 @@ const imagenes: Record<number, string> = {
   1: "https://images.unsplash.com/photo-1555597673-b21d5c935865?w=400&q=80",
   2: "https://images.unsplash.com/photo-1607962837359-5e7e89f86776?w=400&q=80",
   3: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80",
-  4: "https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?w=400&q=80",
+  4: "/Imagenes_Invitado/Conocenos/Senseis/Fran.jpg",
 };
  
 const Senseis: React.FC = () => {
