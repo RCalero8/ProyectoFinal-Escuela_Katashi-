@@ -143,3 +143,122 @@
   background: rgba(255, 255, 255, 0.15);
   border-color: #ffffff;
 }
+
+/* ── Modal backdrop ── */
+.sensei-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+  box-sizing: border-box;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Modal contenido ── */
+.sensei-modal {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 560px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.25s ease;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* ── Botón cerrar ── */
+.sensei-modal-cerrar {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.sensei-modal-cerrar:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* ── Imagen modal ── */
+.sensei-modal-img-wrap {
+  position: relative;
+  height: 260px;
+}
+
+.sensei-modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.sensei-modal-dan {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #f5c842;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-family: 'Georgia', serif;
+}
+
+/* ── Info modal ── */
+.sensei-modal-info {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sensei-modal-nombre {
+  font-family: 'Georgia', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+}
+
+.sensei-modal-rol {
+  font-size: 13px;
+  color: #b8860b;
+  font-weight: 600;
+  margin: 0;
+}
+
+.sensei-modal-bio {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.8;
+  margin: 0;
+}

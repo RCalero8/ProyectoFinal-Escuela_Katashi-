@@ -16,6 +16,7 @@ const Senseis: React.FC = () => {
   const [senseis, setSenseis] = useState<Sensei[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError]     = useState(false);
+  const [seleccionado, setSeleccionado] = useState<Sensei | null>(null);
  
   useEffect(() => {
     fetch(`${API_URL}/api/senseis`)
@@ -66,21 +67,55 @@ const Senseis: React.FC = () => {
                 alt={`${s.nombre} ${s.apellido}`}
                 className="sensei-img"
               />
- 
               <div className="sensei-overlay">
                 <span className="sensei-dan">{s.dan}</span>
- 
                 <p className="sensei-nombre">Sensei {s.nombre} {s.apellido}</p>
                 <p className="sensei-rol">{s.rol_web}</p>
                 <p className="sensei-bio">{s.biografia}</p>
- 
-                <button className="sensei-btn">Ver perfil completo</button>
+                <button
+                  className="sensei-btn"
+                  onClick={() => setSeleccionado(s)}
+                >
+                  Ver perfil completo
+                </button>
               </div>
             </div>
           ))}
         </div>
- 
       </div>
+ 
+      {/* Modal */}
+      {seleccionado && (
+        <div className="sensei-modal-backdrop" onClick={() => setSeleccionado(null)}>
+          <div className="sensei-modal" onClick={(e) => e.stopPropagation()}>
+ 
+            {/* Botón cerrar */}
+            <button className="sensei-modal-cerrar" onClick={() => setSeleccionado(null)}>
+              ✕
+            </button>
+ 
+            {/* Imagen */}
+            <div className="sensei-modal-img-wrap">
+              <img
+                src={imagenes[seleccionado.id_info] ?? "https://images.unsplash.com/photo-1555597673-b21d5c935865?w=400&q=80"}
+                alt={`${seleccionado.nombre} ${seleccionado.apellido}`}
+                className="sensei-modal-img"
+              />
+              <span className="sensei-modal-dan">{seleccionado.dan}</span>
+            </div>
+ 
+            {/* Info */}
+            <div className="sensei-modal-info">
+              <h3 className="sensei-modal-nombre">
+                Sensei {seleccionado.nombre} {seleccionado.apellido}
+              </h3>
+              <p className="sensei-modal-rol">{seleccionado.rol_web}</p>
+              <p className="sensei-modal-bio">{seleccionado.biografia}</p>
+            </div>
+ 
+          </div>
+        </div>
+      )}
     </section>
   );
 };
