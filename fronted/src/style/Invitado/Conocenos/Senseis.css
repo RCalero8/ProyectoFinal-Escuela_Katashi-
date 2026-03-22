@@ -262,3 +262,28 @@
   line-height: 1.8;
   margin: 0;
 }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .senseis-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .senseis-section {
+    padding: 40px 20px;
+  }
+
+  .senseis-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .senseis-titulo {
+    font-size: 28px;
+  }
+
+  .sensei-img {
+    height: 280px;
+  }
+}
