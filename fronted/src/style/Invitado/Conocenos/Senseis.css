@@ -35,7 +35,7 @@
 .senseis-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  gap: 16px;
 }
 
 /* Card */
@@ -45,12 +45,8 @@
   cursor: pointer;
 }
 
-.sensei-card:first-child {
-  border-radius: 10px 0 0 10px;
-}
-
-.sensei-card:last-child {
-  border-radius: 0 10px 10px 0;
+.sensei-card {
+  border-radius: 10px;
 }
 
 .sensei-img {
