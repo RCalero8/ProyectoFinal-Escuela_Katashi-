@@ -22,24 +22,24 @@ const valores = [
   },
   {
     emoji: "👨‍🏫",
-    color: "#111827",
+    color: "#374151",
     nombre: "Instructores Certificados",
     desc: "Senseis con amplia experiencia y títulos oficiales. Profesionales dedicados a tu progreso.",
   },
 ];
-
+ 
 const NuestrosValores: React.FC = () => {
   return (
     <section className="valores-section">
       <div className="valores-inner">
-
+ 
         <div className="valores-header">
           <h2 className="valores-titulo">Nuestros Valores</h2>
           <p className="valores-subtitulo">
             Los pilares que sustentan nuestra filosofía de enseñanza
           </p>
         </div>
-
+ 
         <div className="valores-grid">
           {valores.map((v) => (
             <div className="valor-card" key={v.nombre}>
@@ -54,10 +54,10 @@ const NuestrosValores: React.FC = () => {
             </div>
           ))}
         </div>
-
+ 
       </div>
     </section>
   );
 };
-
+ 
 export default NuestrosValores;
