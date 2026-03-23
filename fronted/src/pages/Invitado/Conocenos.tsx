@@ -4,6 +4,7 @@ import NuestrosValores from "../../components/Invitado/Conocenos/NuestrosValores
 import Senseis from "../../components/Invitado/Conocenos/Senseis";
 import Galeria from "../../components/Invitado/Conocenos/Galeria";
 import Testimonios from "../../components/Invitado/Conocenos/Testimonios";
+import AcercaDeCta from "../../components/Invitado/Conocenos/Acerca_De_CTA";
 
 
 const Conocenos = () => {
@@ -15,6 +16,7 @@ const Conocenos = () => {
     <Senseis />
     <Galeria/>
     <Testimonios/>
+    <AcercaDeCta/>
     </>
   );
 };
