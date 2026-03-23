@@ -1,6 +1,6 @@
 const express = require ("express");
 const router = express.Router();
-const conexion = require.apply("../config/db");
+const conexion = require("../config/db");
 //Obtener los testimonios
 router.get("/", (req, res) => {
   const sql = `
