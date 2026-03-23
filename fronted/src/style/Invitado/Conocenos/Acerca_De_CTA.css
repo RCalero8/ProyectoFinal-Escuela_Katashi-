@@ -1,0 +1,179 @@
+/* ── Sección hero ── */
+.cta-hero {
+  width: 100%;
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.cta-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1555597673-b21d5c935865?w=1400&q=80') center/cover no-repeat;
+  filter: brightness(0.45);
+}
+
+.cta-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 64px 48px;
+  max-width: 900px;
+}
+
+.cta-hero-titulo {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 44px;
+  font-weight: 700;
+  color: #b8860b;
+  margin: 0 0 12px 0;
+}
+
+.cta-hero-subtitulo {
+  font-size: 18px;
+  color: #ffffff;
+  margin: 0 0 32px 0;
+}
+
+.cta-hero-botones {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn-registro {
+  background: #16a34a;
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cta-btn-registro:hover {
+  background: #15803d;
+}
+
+.cta-btn-login {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cta-btn-login:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cta-btn-clases {
+  background: #dc2626;
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cta-btn-clases:hover {
+  background: #b91c1c;
+}
+
+/* ── Sección roja inferior ── */
+.cta-banner {
+  width: 100%;
+  background: #dc2626;
+  padding: 48px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.cta-banner-titulo {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 700;
+  color: #b8860b;
+  margin: 0 0 12px 0;
+}
+
+.cta-banner-desc {
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0 0 32px 0;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-banner-items {
+  display: flex;
+  justify-content: center;
+  gap: 64px;
+  flex-wrap: wrap;
+}
+
+.cta-banner-item {
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.cta-banner-item::before {
+  content: '✓ ';
+  font-weight: 700;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .cta-hero-titulo {
+    font-size: 28px;
+  }
+
+  .cta-hero-subtitulo {
+    font-size: 15px;
+  }
+
+  .cta-hero-content {
+    padding: 48px 20px;
+  }
+
+  .cta-banner {
+    padding: 40px 20px;
+  }
+
+  .cta-banner-items {
+    gap: 24px;
+    flex-direction: column;
+    align-items: center;
+  }
+}
