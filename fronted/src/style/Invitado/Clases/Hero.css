@@ -1,0 +1,60 @@
+.hero-clases {
+  width: 100%;
+  min-height: 320px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.hero-clases-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/Imagenes_Invitado/Hero.png');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.55);
+}
+
+.hero-clases-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 64px 48px;
+  max-width: 900px;
+}
+
+.hero-clases-titulo {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 52px;
+  font-weight: 700;
+  color: #cc0000;
+  margin: 0 0 20px 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-clases-subtitulo {
+  font-size: 20px;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.7;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero-clases-titulo {
+    font-size: 32px;
+  }
+
+  .hero-clases-subtitulo {
+    font-size: 15px;
+  }
+
+  .hero-clases-content {
+    padding: 48px 20px;
+  }
+}
