@@ -1,2 +1,9 @@
-const Clases = () => <h1>Clases</h1>;
-export default Clases;
+import Hero from "../../components/Invitado/Clases/Hero";
+const Clases = () => {
+  return (
+    <>
+    <Hero/>
+    </>
+  );
+};
+export default Clases
