@@ -1,7 +1,7 @@
 import Hero from "../../components/Invitado/Clases/Hero";
 
 
-const Inicio = () => {
+const Clases = () => {
     return (
         <>
         <Hero />
@@ -10,4 +10,4 @@ const Inicio = () => {
     )
 }
 
-export default Inicio;
+export default Clases;
