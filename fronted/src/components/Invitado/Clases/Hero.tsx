@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../style/Invitado/Clase/Hero.css";
+import "../../../style/Invitado/Clases/Hero.css";
 
 const Hero: React.FC = () => {
   return (
