@@ -1,27 +1,22 @@
-const mysql = require("mysql2");
+const { Pool } = require("pg"); // Usamos pg porque Supabase es PostgreSQL
 require("dotenv").config();
- 
-const pool = mysql.createPool({
-  host:                  process.env.DB_HOST,
-  user:                  process.env.DB_USER ? process.env.DB_USER.trim() : process.env.DB_USER,
-  password:              process.env.DB_PASSWORD,
-  database:              process.env.DB_NAME,
-  port:                  parseInt(process.env.DB_PORT),
-  waitForConnections:    true,
-  connectionLimit:       10,
-  queueLimit:            0,
-  enableKeepAlive:       true,
-  keepAliveInitialDelay: 0,
+
+// Creamos la conexión usando la URL larga que pegamos en Render
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false, // Obligatorio para conectar con Supabase desde Render
+  },
 });
- 
-// Verificar conexión al arrancar
-pool.getConnection((error, connection) => {
+
+// Verificar conexión al arrancar (igual que lo tenías)
+pool.connect((error, client, release) => {
   if (error) {
-    console.error("Error al conectar con MySQL:", error.message);
+    console.error("Error al conectar con Supabase (Postgres):", error.message);
     return;
   }
-  console.log("Conectado a MySQL correctamente (pool)");
-  connection.release();
+  console.log("Conectado a Supabase correctamente 🥋");
+  release();
 });
- 
+
 module.exports = pool;

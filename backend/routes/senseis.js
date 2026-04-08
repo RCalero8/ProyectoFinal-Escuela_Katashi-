@@ -3,8 +3,8 @@ const router = express.Router();
 const conexion = require("../config/db");
 
 // Obtener todos los senseis
-router.get("/", (req, res) => {
-    const sql  = `
+router.get("/", async (req, res) => {
+  const sql = `
     SELECT 
       i.id_info,
       i.id_usuario,
@@ -17,15 +17,21 @@ router.get("/", (req, res) => {
     INNER JOIN usuario u ON i.id_usuario = u.id_usuario
     ORDER BY i.id_info ASC
   `;
-     conexion.query(sql, (error, resultados) => {
-    if (error) return res.status(500).json({ error: "Error al obtener los senseis" });
-    res.json(resultados);
-  });
+
+  try {
+    const resultado = await conexion.query(sql);
+    res.json(resultado.rows);
+  } catch (error) {
+    console.error("Error al obtener senseis:", error);
+    res.status(500).json({ error: "Error al obtener los senseis" });
+  }
 });
 
 // Obtener un sensei por ID
-router.get("/:id", (req, res) => {
+router.get("/:id", async (req, res) => {
   const { id } = req.params;
+  
+  // IMPORTANTE: En PostgreSQL usamos $1 en lugar de ?
   const sql = `
     SELECT 
       i.id_info,
@@ -37,13 +43,22 @@ router.get("/:id", (req, res) => {
       u.apellido
     FROM info_sensei i
     INNER JOIN usuario u ON i.id_usuario = u.id_usuario
-    WHERE i.id_info = ?
+    WHERE i.id_info = $1
   `;
- 
-  conexion.query(sql, [id], (error, resultados) => {
-    if (error) return res.status(500).json({ error: "Error al obtener el sensei" });
-    if (resultados.length === 0) return res.status(404).json({ error: "Sensei no encontrado" });
-    res.json(resultados[0]);
-  });
+
+  try {
+    const resultado = await conexion.query(sql, [id]);
+    
+    if (resultado.rows.length === 0) {
+      return res.status(404).json({ error: "Sensei no encontrado" });
+    }
+    
+    // Devolvemos solo el primer resultado
+    res.json(resultado.rows[0]);
+  } catch (error) {
+    console.error("Error al obtener el sensei:", error);
+    res.status(500).json({ error: "Error al obtener el sensei" });
+  }
 });
+
 module.exports = router;

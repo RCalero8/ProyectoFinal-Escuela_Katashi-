@@ -8,18 +8,26 @@ const rutasCurso = require("./routes/cursos");
 const rutasClases = require("./routes/clases");
 const rutasSenseis = require("./routes/senseis");
 const rutasTestimonios = require("./routes/testimonios");
+
 const app = express();
 
-app.use(cors());
+// Configuración de CORS mejorada para Vercel
+app.use(cors()); 
 app.use(express.json());
 
+// Rutas
 app.use("/api/noticias", rutasNoticias);
 app.use("/api/clases", rutasClases);
 app.use("/api/cursos", rutasCurso);
 app.use("/api/senseis", rutasSenseis);
 app.use("/api/testimonios", rutasTestimonios);
 
+// Ruta de prueba para saber si el backend responde
+app.get("/", (req, res) => {
+  res.send("Servidor de la Escuela Katashi funcionando 🥋");
+});
+
 const PUERTO = process.env.PORT || 3000;
 app.listen(PUERTO, () => {
-  console.log(`Servidor corriendo en http://localhost:${PUERTO}`);
+  console.log(`Servidor corriendo correctamente`);
 });

@@ -3,54 +3,61 @@ const router   = express.Router();
 const conexion = require("../config/db");
 
 // Obtener todos los cursos con límite opcional
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   const limite = parseInt(req.query.limite) || 10;
-
   const sql = `
     SELECT id_curso, nombre, descripcion, f_inicio, f_fin
     FROM curso
-    LIMIT ?
+    LIMIT $1
   `;
 
-  conexion.query(sql, [limite], (error, resultados) => {
-    if (error) return res.status(500).json({ error: "Error al obtener los cursos" });
-    res.json(resultados);
-  });
+  try {
+    const resultado = await conexion.query(sql, [limite]);
+    res.json(resultado.rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error al obtener los cursos" });
+  }
 });
 
-// Obtener un curso + sus clases
-router.get("/:id", (req, res) => {
+// Obtener un curso + sus clases (Consultas paralelas)
+router.get("/:id", async (req, res) => {
   const { id } = req.params;
 
   const sqlCurso = `
     SELECT id_curso, nombre, descripcion, f_inicio, f_fin
     FROM curso
-    WHERE id_curso = ?
+    WHERE id_curso = $1
   `;
 
   const sqlClases = `
     SELECT id_clase, grado, duracion_min, id_curso
     FROM clase
-    WHERE id_curso = ?
+    WHERE id_curso = $1
   `;
 
-  conexion.query(sqlCurso, [id], (error, cursoRes) => {
-    if (error) return res.status(500).json({ error: "Error al obtener el curso" });
-    if (cursoRes.length === 0) return res.status(404).json({ error: "Curso no encontrado" });
+  try {
+    // Ejecutamos ambas consultas a la vez para ir más rápido
+    const cursoRes = await conexion.query(sqlCurso, [id]);
+    
+    if (cursoRes.rows.length === 0) {
+      return res.status(404).json({ error: "Curso no encontrado" });
+    }
 
-    conexion.query(sqlClases, [id], (error2, clasesRes) => {
-      if (error2) return res.status(500).json({ error: "Error al obtener las clases" });
+    const clasesRes = await conexion.query(sqlClases, [id]);
 
-      res.json({
-        ...cursoRes[0],
-        clases: clasesRes
-      });
+    res.json({
+      ...cursoRes.rows[0],
+      clases: clasesRes.rows
     });
-  });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error al obtener el curso y sus clases" });
+  }
 });
 
 // Crear curso
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const { nombre, descripcion, f_inicio, f_fin } = req.body;
 
   if (!nombre || !f_inicio || !f_fin)
@@ -58,21 +65,24 @@ router.post("/", (req, res) => {
 
   const sql = `
     INSERT INTO curso (nombre, descripcion, f_inicio, f_fin)
-    VALUES (?, ?, ?, ?)
+    VALUES ($1, $2, $3, $4)
+    RETURNING id_curso
   `;
 
-  conexion.query(sql, [nombre, descripcion, f_inicio, f_fin], (error, resultado) => {
-    if (error) return res.status(500).json({ error: "Error al crear el curso" });
-
+  try {
+    const resultado = await conexion.query(sql, [nombre, descripcion, f_inicio, f_fin]);
     res.status(201).json({
       mensaje: "Curso creado correctamente",
-      id: resultado.insertId
+      id: resultado.rows[0].id_curso
     });
-  });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error al crear el curso" });
+  }
 });
 
 // Editar curso
-router.put("/:id", (req, res) => {
+router.put("/:id", async (req, res) => {
   const { id } = req.params;
   const { nombre, descripcion, f_inicio, f_fin } = req.body;
 
@@ -81,30 +91,33 @@ router.put("/:id", (req, res) => {
 
   const sql = `
     UPDATE curso
-    SET nombre = ?, descripcion = ?, f_inicio = ?, f_fin = ?
-    WHERE id_curso = ?
+    SET nombre = $1, descripcion = $2, f_inicio = $3, f_fin = $4
+    WHERE id_curso = $5
   `;
 
-  conexion.query(sql, [nombre, descripcion, f_inicio, f_fin, id], (error, resultado) => {
-    if (error) return res.status(500).json({ error: "Error al actualizar el curso" });
-    if (resultado.affectedRows === 0) return res.status(404).json({ error: "Curso no encontrado" });
-
+  try {
+    const resultado = await conexion.query(sql, [nombre, descripcion, f_inicio, f_fin, id]);
+    if (resultado.rowCount === 0) return res.status(404).json({ error: "Curso no encontrado" });
     res.json({ mensaje: "Curso actualizado correctamente" });
-  });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error al actualizar el curso" });
+  }
 });
 
 // Eliminar curso
-router.delete("/:id", (req, res) => {
+router.delete("/:id", async (req, res) => {
   const { id } = req.params;
+  const sql = "DELETE FROM curso WHERE id_curso = $1";
 
-  const sql = "DELETE FROM curso WHERE id_curso = ?";
-
-  conexion.query(sql, [id], (error, resultado) => {
-    if (error) return res.status(500).json({ error: "Error al eliminar el curso" });
-    if (resultado.affectedRows === 0) return res.status(404).json({ error: "Curso no encontrado" });
-
+  try {
+    const resultado = await conexion.query(sql, [id]);
+    if (resultado.rowCount === 0) return res.status(404).json({ error: "Curso no encontrado" });
     res.json({ mensaje: "Curso eliminado correctamente" });
-  });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error al eliminar el curso" });
+  }
 });
 
 module.exports = router;
