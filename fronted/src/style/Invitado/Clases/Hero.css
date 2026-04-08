@@ -12,7 +12,7 @@
 .hero-clases-bg {
   position: absolute;
   inset: 0;
-  background-image: url('/Imagenes_Invitado/Hero.png');
+  background-image: url('/Imagenes_Invitado/Clases/Hero.png');
   background-size: cover;
   background-position: center;
   filter: brightness(0.55);
