@@ -36,9 +36,9 @@
 
 /* Contenedor del listado */
 .lista-wrapper {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 0 20px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 24px;
 }
 
 /* Tarjeta Estilo Fila */
@@ -46,12 +46,13 @@
     display: flex;
     background: white;
     border: 2px solid;
-    margin-bottom: 20px;
-    height: 220px; /* Altura fija para ordenador */
+    margin-bottom: 28px;
+    min-height: 280px;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
 }
 
 .curso-img-side {
-    width: 35%;
+    width: 42%;
 }
 
 .curso-img-side img {
@@ -61,8 +62,8 @@
 }
 
 .curso-info-side {
-    width: 65%;
-    padding: 15px 20px;
+    width: 58%;
+    padding: 24px 28px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -70,7 +71,7 @@
 
 .curso-header h2 {
     margin: 0;
-    font-size: 22px;
+    font-size: 26px;
 }
 
 .rango-texto {
@@ -80,39 +81,43 @@
 }
 
 .descripcion {
-    font-size: 13px;
-    color: #444;
-    margin: 6px 0;
+    font-size: 15px;
+    color: #333;
+    margin: 10px 0;
+    line-height: 1.5;
 }
 
 .horario {
     font-weight: bold;
-    font-size: 13px;
+    font-size: 14px;
     color: #000;
+    margin-bottom: 10px;
 }
 
 .precio-tag {
     display: inline-block;
     color: white;
-    padding: 3px 8px;
+    padding: 6px 12px;
     font-weight: bold;
-    font-size: 12px;
-    margin-top: 5px;
+    font-size: 14px;
+    margin-top: 10px;
+    border-radius: 6px;
 }
 
 /* Botones inferiores */
 .btn-group {
     display: flex;
-    gap: 10px;
+    gap: 14px;
 }
 
 .btn-group button {
     flex: 1;
-    padding: 8px;
+    padding: 12px 14px;
     font-weight: bold;
     border: none;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 14px;
+    border-radius: 8px;
 }
 
 .btn-inscribir {
