@@ -7,11 +7,15 @@ import '../../../style/Invitado/Clases/Cursos.css';
 const CursoCard: React.FC<{ curso: Curso }> = ({ curso }) => {
   const info = configCurso[curso.nombre];
   const color = info?.color || "#666666";
+  
+  // Usamos la URL de imagen de la configuración, o una por defecto si no existe
+  const imagenUrl = info?.imagen || `https://via.placeholder.com/400x300?text=${curso.nombre}`;
 
   return (
     <div className="curso-card" style={{ borderColor: color }}>
       <div className="curso-img-side">
-        <img src={`/img/${curso.nombre.toLowerCase()}.jpg`} alt={curso.nombre} />
+        {/* Cambiado para usar la imagen de la configuración */}
+        <img src={imagenUrl} alt={curso.nombre} />
       </div>
       <div className="curso-info-side">
         <div className="curso-header">
@@ -39,7 +43,6 @@ const Cursos: React.FC = () => {
   const [edadBuscada, setEdadBuscada] = useState<string>("");
 
   useEffect(() => {
-    // Usamos el fetch nativo del navegador
     fetch('https://proyectofinal-escuela-katashi.onrender.com/api/cursos')
       .then(response => {
         if (!response.ok) {
@@ -50,6 +53,7 @@ const Cursos: React.FC = () => {
       .then(data => setCursos(data))
       .catch(err => console.error("Error cargando API:", err));
   }, []);
+
   const cursosFiltrados = cursos.filter(curso => {
     if (edadBuscada === "") return true;
     const edad = parseInt(edadBuscada);
@@ -77,7 +81,9 @@ const Cursos: React.FC = () => {
             <CursoCard key={curso.id_curso} curso={curso} />
           ))
         ) : (
-          <p className="loading-text">Cargando cursos desde la escuela...</p>
+          <p className="loading-text">
+            {cursos.length === 0 ? "Cargando cursos..." : "No hay cursos para esa edad."}
+          </p>
         )}
       </main>
     </div>
