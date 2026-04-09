@@ -16,6 +16,7 @@ export interface Curso {
 
 // Lo necesito para el buscador y los precios
 export interface InfoCurso {
+    imagen: string
     precio: string;
     color: string;
     bgPrecio: string;

@@ -2,6 +2,7 @@ import {type InfoCurso} from "./cursos";
 
 export const configCurso: Record<string, InfoCurso> = {
     "Infantil": {
+        imagen: "/Imagenes_Invitado/Inicio/clases/Infantil.jpg",
         precio: "25€/mes",
         color: "#2563eb",
         bgPrecio: "#6894f5",
@@ -10,6 +11,7 @@ export const configCurso: Record<string, InfoCurso> = {
         maxEdad: 6
     },
     "Niños": {
+        imagen: "/Imagenes_Invitado/Inicio/clases/Niños.png",
         precio: "30€/mes",
         color: "#16a34a",
         bgPrecio: "#4ade80",
@@ -18,6 +20,7 @@ export const configCurso: Record<string, InfoCurso> = {
         maxEdad: 9
     },
     "Prejuvenil": {
+        imagen: "/Imagenes_Invitado/Inicio/clases/Prejuvenil.jpg",
         precio: "35€/mes",
         color: "#f97316",
         bgPrecio: "#fdba74",
@@ -26,6 +29,7 @@ export const configCurso: Record<string, InfoCurso> = {
         maxEdad: 13
     },
     "Adultos": {
+        imagen: "/Imagenes_Invitado/Inicio/clases/Adultos.png",
         precio: "40€/mes",
         color: "#db2777",
         bgPrecio: "#f472b6",
@@ -34,6 +38,7 @@ export const configCurso: Record<string, InfoCurso> = {
         maxEdad: 100
     },
     "Competición": {
+        imagen: "/Imagenes_Invitado/Inicio/clases/Competición.png",
         precio: "15€/mes",
         color: "#9333ea",
         bgPrecio: "#c084fc",
@@ -42,6 +47,7 @@ export const configCurso: Record<string, InfoCurso> = {
         maxEdad: 100
     },
     "Preparación Física": {
+        imagen: "/Imagenes_Invitado/Inicio/clases/Preparacion.png", 
         precio: "10€/mes",
         color: "#854d0e",
         bgPrecio: "#8b6130",
