@@ -1,0 +1,132 @@
+.cursos-container {
+    background-color: #f3f4f6;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar oscura con buscador */
+.navbar-busqueda {
+    background-color: #333333;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buscador-wrapper {
+    background: white;
+    padding: 3px 8px;
+    display: flex;
+    align-items: center;
+    border-radius: 2px;
+}
+
+.buscador-wrapper input {
+    border: none;
+    outline: none;
+    width: 60px;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.icon-lupa {
+    color: #999;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+/* Contenedor del listado */
+.lista-wrapper {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Tarjeta Estilo Fila */
+.curso-card {
+    display: flex;
+    background: white;
+    border: 2px solid;
+    margin-bottom: 20px;
+    height: 220px; /* Altura fija para ordenador */
+}
+
+.curso-img-side {
+    width: 35%;
+}
+
+.curso-img-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.curso-info-side {
+    width: 65%;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.curso-header h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.rango-texto {
+    font-weight: normal;
+    color: #555;
+    font-size: 18px;
+}
+
+.descripcion {
+    font-size: 13px;
+    color: #444;
+    margin: 6px 0;
+}
+
+.horario {
+    font-weight: bold;
+    font-size: 13px;
+    color: #000;
+}
+
+.precio-tag {
+    display: inline-block;
+    color: white;
+    padding: 3px 8px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Botones inferiores */
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-group button {
+    flex: 1;
+    padding: 8px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.btn-inscribir {
+    background-color: #e5e7eb;
+    color: black;
+}
+
+.btn-info {
+    background-color: #000;
+    color: white;
+}
+
+.loading-text {
+    text-align: center;
+    color: #666;
+    margin-top: 50px;
+}

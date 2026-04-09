@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { type Curso } from '../../../tipos/cursos';
-import { configuracionCursos } from '../../../tipos/configCurso';
-import './Cursos.css';
+import { configCurso } from '../../../tipos/configCurso';
+import '../../../style/Invitado/Clases/Cursos.css';
 
 // --- COMPONENTE HIJO: CursoCard ---
 const CursoCard: React.FC<{ curso: Curso }> = ({ curso }) => {
-  const info = configuracionCursos[curso.nombre];
+  const info = configCurso[curso.nombre];
   const color = info?.color || "#666666";
 
   return (
@@ -53,7 +53,7 @@ const Cursos: React.FC = () => {
   const cursosFiltrados = cursos.filter(curso => {
     if (edadBuscada === "") return true;
     const edad = parseInt(edadBuscada);
-    const config = configuracionCursos[curso.nombre];
+    const config = configCurso[curso.nombre];
     return config ? (edad >= config.minEdad && edad <= config.maxEdad) : true;
   });
 
