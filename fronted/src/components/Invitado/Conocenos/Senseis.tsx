@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import type { Sensei } from "../../../tipos/senseis";
 import "../../../style/Invitado/Conocenos/Senseis.css";
  
-const API_URL = import.meta.env.VITE_API_URL ?? "";
- 
 // Imagen placeholder por sensei (cámbiala cuando tengas las reales)
 const imagenes: Record<number, string> = {
   1: "/Imagenes_Invitado/Conocenos/Senseis/Ana.jpg",
@@ -19,7 +17,7 @@ const Senseis: React.FC = () => {
   const [seleccionado, setSeleccionado] = useState<Sensei | null>(null);
  
   useEffect(() => {
-    fetch(`${API_URL}/api/senseis`)
+    fetch(`https://proyectofinal-escuela-katashi.onrender.com/api/senseis`)
       .then((res) => {
         if (!res.ok) throw new Error();
         return res.json();

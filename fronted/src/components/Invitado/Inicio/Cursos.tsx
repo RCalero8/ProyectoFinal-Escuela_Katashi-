@@ -2,15 +2,13 @@ import React, { useEffect, useState } from "react";
 import type { Curso } from "../../../tipos/cursos";
 import CourseCard from "./CursosCard";
 
-const API_URL = import.meta.env.VITE_API_URL ?? "";
-
 const Cursos: React.FC = () => {
   const [cursos, setCursos] = useState<Curso[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch(`${API_URL}/api/cursos`)
+    fetch(`https://proyectofinal-escuela-katashi.onrender.com/api/cursos`)
       .then((res) => {
         if (!res.ok) throw new Error();
         return res.json();
@@ -18,7 +16,7 @@ const Cursos: React.FC = () => {
       .then(async (data: Curso[]) => {
         const cursosConClases = await Promise.all(
           data.map((curso) =>
-            fetch(`${API_URL}/api/cursos/${curso.id_curso}`)
+            fetch(`https://proyectofinal-escuela-katashi.onrender.com/api/cursos/${curso.id_curso}`)
               .then((r) => r.json())
               .catch(() => ({ ...curso, clases: [] }))
           )

@@ -2,8 +2,6 @@ import React, { useEffect, useState, useCallback } from "react";
 import type { Testimonio } from "../../../tipos/testimonios";
 import "../../../style/Invitado/Conocenos/Testimonios.css";
 
-const API_URL = import.meta.env.VITE_API_URL ?? "";
-
 const Testimonios: React.FC = () => {
   const [testimonios, setTestimonios] = useState<Testimonio[]>([]);
   const [actual, setActual]           = useState(0);
@@ -11,7 +9,7 @@ const Testimonios: React.FC = () => {
   const [error, setError]             = useState(false);
 
   useEffect(() => {
-    fetch(`${API_URL}/api/testimonios`)
+    fetch(`https://proyectofinal-escuela-katashi.onrender.com/api/testimonios`)
       .then((res) => {
         if (!res.ok) throw new Error();
         return res.json();

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "../../../style/Invitado/Inicio/Historia.css";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "https://proyectofinal-escuelakatashi-production.up.railway.app";
+const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 
 interface Noticia {
   id:     number;
