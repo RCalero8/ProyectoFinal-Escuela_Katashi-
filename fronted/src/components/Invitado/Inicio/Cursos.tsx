@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import type { Curso } from "../../../tipos/cursos";
 import CourseCard from "./CursosCard";
 
-const API_URL = "https://proyectofinal-escuelakatashi-production.up.railway.app";
+const API_URL = import.meta.env.VITE_API_URL ?? "";
 
 const Cursos: React.FC = () => {
   const [cursos, setCursos] = useState<Curso[]>([]);

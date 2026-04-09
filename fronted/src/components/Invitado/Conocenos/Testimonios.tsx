@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import type { Testimonio } from "../../../tipos/testimonios";
 import "../../../style/Invitado/Conocenos/Testimonios.css";
 
-const API_URL = "https://proyectofinal-escuelakatashi-production.up.railway.app";
+const API_URL = import.meta.env.VITE_API_URL ?? "";
 
 const Testimonios: React.FC = () => {
   const [testimonios, setTestimonios] = useState<Testimonio[]>([]);

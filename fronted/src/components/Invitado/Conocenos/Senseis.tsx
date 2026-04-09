@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import type { Sensei } from "../../../tipos/senseis";
 import "../../../style/Invitado/Conocenos/Senseis.css";
  
-const API_URL = "";
+const API_URL = import.meta.env.VITE_API_URL ?? "";
  
 // Imagen placeholder por sensei (cámbiala cuando tengas las reales)
 const imagenes: Record<number, string> = {
