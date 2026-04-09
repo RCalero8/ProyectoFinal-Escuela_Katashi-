@@ -13,3 +13,13 @@ export interface Curso {
     f_fin: string;
     clases?: Clase[];   
 }
+
+// Lo necesito para el buscador y los precios
+export interface InfoCurso {
+    precio: string;
+    color: string;
+    bgPrecio: string;
+    rangoTexto: string;
+    minEdad: number;
+    maxEdad: number;
+}
