@@ -1,118 +1,113 @@
+/* ── Contenedor principal ── */
 .hero-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 20px auto;
-    font-family: 'Outfit', sans-serif;
-    overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
-
-/* Sección superior con imagen de fondo */
+ 
+/* ── Header con imagen de fondo ── */
 .hero-header {
-    position: relative;
-    height: 300px;
-    /*Imagen de Karate*/
-    background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
-                     url('/Imagenes_Invitados/Noticias/Hero.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
+  width: 100%;
+  min-height: 220px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 48px 32px;
+  box-sizing: border-box;
+  background-image: url('/Imagenes_Invitado/Noticias/Hero.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
 }
-
+ 
+/* Overlay oscuro */
+.hero-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+ 
+/* Logo + título en la misma línea */
 .hero-header_logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
 }
-
+ 
 .hero-header_icon {
-    width: 60px;
-    height: auto;
-    opacity: 0.8;
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
-
+ 
 .hero-header_titulo {
-    font-family: 'Kaushan Script', cursive;
-    font-size: 4.5rem;
-    color: #a31d1d; /* Rojo oscuro/granate */
-    margin: 0;
-    font-weight: normal;
+  font-family: 'Kaushan Script', cursive;
+  font-style: normal;
+  font-size: 44px;
+  font-weight: 400;
+  color: #cc0000;
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
 }
-
+ 
 .hero-header_subtitulo {
-    font-family: 'Kaushan Script', cursive;
-    font-size: 1.8rem;
-    color: #c5a059; /* Dorado/ocre */
-    margin: 0;
-    font-weight: normal;
+  position: relative;
+  z-index: 1;
+  font-family: 'Kaushan Script', cursive;
+  font-style: normal;
+  font-size: 17px;
+  font-weight: 400;
+  color: #e8c97a;
+  margin: 0;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  text-align: center;
 }
-
-/* Sección inferior con texto */
+ 
+/* ── Footer con texto informativo ── */
 .hero-footer {
-    padding: 25px 30px;
-    background-color: #ffffff;
-    border-top: 1px solid #eeeeee;
+  width: 100%;
+  background: #ffffff;
+  padding: 20px 48px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e5e7eb;
 }
-
+ 
 .hero-footer_texto {
-    font-size: 1.4rem;
-    color: #000000;
-    margin: 0;
-    line-height: 1.4;
-    font-weight: 400;
+  font-family: 'Outlet', 'Raleway', sans-serif;
+  font-size: 15px;
+  color: #374151;
+  margin: 0;
+  line-height: 1.7;
+  max-width: 900px;
 }
-
-/* Responsividad */
-@media (max-width: 1024px) {
-  .hero-header_titulo {
-    font-size: 3.5rem;
-  }
-  .hero-header_subtitulo {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
+ 
+/* ── Responsive ── */
+@media (max-width: 600px) {
   .hero-header {
-    height: 250px;
+    padding: 36px 20px 24px;
+    min-height: 180px;
   }
-  
+ 
   .hero-header_titulo {
-    font-size: 2.8rem;
+    font-size: 28px;
   }
-  
+ 
   .hero-header_subtitulo {
-    font-size: 1.2rem;
+    font-size: 14px;
   }
-  
-  .hero-footer_texto {
-    font-size: 1.1rem;
-  }
-  
+ 
   .hero-header_icon {
-    width: 45px;
+    width: 36px;
+    height: 36px;
   }
-}
-
-@media (max-width: 480px) {
-  .hero-header {
-    height: 200px;
-  }
-  
-  .hero-header_titulo {
-    font-size: 2.2rem;
-  }
-  
-  .hero-header_subtitulo {
-    font-size: 1rem;
-  }
-  
-  .hero-header_logo {
-    flex-direction: column;
-    gap: 5px;
+ 
+  .hero-footer {
+    padding: 16px 20px;
   }
 }
