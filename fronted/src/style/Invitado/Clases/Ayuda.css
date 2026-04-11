@@ -1,12 +1,16 @@
+.help-banner-wrapper {
+  background-color: #ffffff;
+}
+/* El banner granate interior */
 .help-banner {
   background-color: #7a0019; /* Color granate oscuro */
   color: #ffffff;
-  padding: 40px 20px;
-  border-radius: 8px;
+  padding: 60px 40px;
+  border-radius: 4px;
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  max-width: 1000px;
-  margin: 20px auto;
+  max-width: 900px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,54 +18,66 @@
   box-sizing: border-box;
 }
 
-.help-banner__title {
-  font-family: 'Brush Script MT', cursive, serif; /* Fuente cursiva similar a la imagen */
-  font-size: 3.5rem;
-  color: #c5a059; /* Color dorado/ocre */
-  margin: 0 0 10px 0;
+.help-banner__titulo {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 4rem;
+  color: #c5a059; /* Color dorado/ocre de la imagen */
+  margin: 0 0 15px 0;
   font-weight: normal;
+  text-transform: none; /* Mantener estilo cursivo */
 }
 
-.help-banner__text {
-  font-size: 1.2rem;
-  margin: 0 0 25px 0;
+.help-banner__texto {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  margin: 0 0 30px 0;
   font-weight: 400;
+  color: #ffffff;
+  opacity: 0.9;
 }
 
-.help-banner__button {
+/* Botón con borde blanco como en la segunda imagen */
+.help-banner__boton {
+  font-family: 'Outfit', sans-serif;
   background-color: transparent;
   color: #ffffff;
-  border: 2px solid #ffffff;
-  padding: 12px 24px;
-  font-size: 1.1rem;
-  border-radius: 6px;
+  border: 2px solid #ffffff; /* Borde blanco solicitado */
+  padding: 10px 30px;
+  font-size: 1rem;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  font-weight: 500;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.help-banner__button:hover {
+.help-banner__boton:hover {
   background-color: #ffffff;
-  color: #7a0019;
+  color: #7a0019; /* Invierte colores al pasar el mouse */
 }
 
 /* Responsividad */
 @media (max-width: 768px) {
+  .help-banner-wrapper {
+    padding: 20px 10px;
+  }
+
   .help-banner {
-    padding: 30px 15px;
-    margin: 10px;
+    padding: 40px 20px;
   }
 
-  .help-banner__title {
-    font-size: 2.5rem;
+  .help-banner__titulo {
+    font-size: 2.8rem;
   }
 
-  .help-banner__text {
+  .help-banner__texto {
     font-size: 1rem;
   }
 
-  .help-banner__button {
+  .help-banner__boton {
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
+    box-sizing: border-box;
   }
 }
