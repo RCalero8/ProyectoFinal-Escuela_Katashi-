@@ -1,0 +1,118 @@
+.hero-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    font-family: 'Outfit', sans-serif;
+    overflow: hidden;
+}
+
+/* Sección superior con imagen de fondo */
+.hero-header {
+    position: relative;
+    height: 300px;
+    /*Imagen de Karate*/
+    background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
+                     url('/Imagenes_Invitados/Noticias/Hero.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-header_logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.hero-header_icon {
+    width: 60px;
+    height: auto;
+    opacity: 0.8;
+}
+
+.hero-header_titulo {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 4.5rem;
+    color: #a31d1d; /* Rojo oscuro/granate */
+    margin: 0;
+    font-weight: normal;
+}
+
+.hero-header_subtitulo {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 1.8rem;
+    color: #c5a059; /* Dorado/ocre */
+    margin: 0;
+    font-weight: normal;
+}
+
+/* Sección inferior con texto */
+.hero-footer {
+    padding: 25px 30px;
+    background-color: #ffffff;
+    border-top: 1px solid #eeeeee;
+}
+
+.hero-footer_texto {
+    font-size: 1.4rem;
+    color: #000000;
+    margin: 0;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+  .hero-header_titulo {
+    font-size: 3.5rem;
+  }
+  .hero-header_subtitulo {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-header {
+    height: 250px;
+  }
+  
+  .hero-header_titulo {
+    font-size: 2.8rem;
+  }
+  
+  .hero-header_subtitulo {
+    font-size: 1.2rem;
+  }
+  
+  .hero-footer_texto {
+    font-size: 1.1rem;
+  }
+  
+  .hero-header_icon {
+    width: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-header {
+    height: 200px;
+  }
+  
+  .hero-header_titulo {
+    font-size: 2.2rem;
+  }
+  
+  .hero-header_subtitulo {
+    font-size: 1rem;
+  }
+  
+  .hero-header_logo {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

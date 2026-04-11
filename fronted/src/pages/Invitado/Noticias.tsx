@@ -1,6 +1,8 @@
+import Hero from "../../components/Invitado/Noticias/Hero";
+
 const Noticias = () => {
   return (
-    <h1>Noticias</h1>
+    <Hero />
   );
 };
 
