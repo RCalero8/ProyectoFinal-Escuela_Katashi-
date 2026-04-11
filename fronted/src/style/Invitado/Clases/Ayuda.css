@@ -29,19 +29,20 @@
 }
 
 .help-banner__button {
-  background-color: #333333;
+  background-color: transparent;
   color: #ffffff;
-  border: none;
+  border: 2px solid #ffffff;
   padding: 12px 24px;
   font-size: 1.1rem;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   font-weight: 500;
 }
 
 .help-banner__button:hover {
-  background-color: #444444;
+  background-color: #ffffff;
+  color: #7a0019;
 }
 
 /* Responsividad */
