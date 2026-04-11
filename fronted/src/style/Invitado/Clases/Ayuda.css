@@ -1,6 +1,14 @@
+/* Contenedor exterior que ahora será blanco */
 .help-banner-wrapper {
-  background-color: #ffffff;
+  background-color: #ffffff; /* Fondo exterior blanco solicitado */
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
+
 /* El banner granate interior */
 .help-banner {
   background-color: #7a0019; /* Color granate oscuro */
@@ -18,8 +26,8 @@
   box-sizing: border-box;
 }
 
-.help-banner__titulo {
-  font-family: 'Kaushan Script', cursive;
+.help-banner_titulo {
+  font-family: 'Brush Script MT', cursive, serif;
   font-size: 4rem;
   color: #c5a059; /* Color dorado/ocre de la imagen */
   margin: 0 0 15px 0;
@@ -27,8 +35,7 @@
   text-transform: none; /* Mantener estilo cursivo */
 }
 
-.help-banner__texto {
-  font-family: 'Outfit', sans-serif;
+.help-banner_texto {
   font-size: 1.1rem;
   margin: 0 0 30px 0;
   font-weight: 400;
@@ -37,8 +44,7 @@
 }
 
 /* Botón con borde blanco como en la segunda imagen */
-.help-banner__boton {
-  font-family: 'Outfit', sans-serif;
+.help-banner_boton {
   background-color: transparent;
   color: #ffffff;
   border: 2px solid #ffffff; /* Borde blanco solicitado */
@@ -52,7 +58,7 @@
   display: inline-block;
 }
 
-.help-banner__boton:hover {
+.help-banner_boton:hover {
   background-color: #ffffff;
   color: #7a0019; /* Invierte colores al pasar el mouse */
 }
@@ -67,15 +73,15 @@
     padding: 40px 20px;
   }
 
-  .help-banner__titulo {
+  .help-banner_titulo {
     font-size: 2.8rem;
   }
 
-  .help-banner__texto {
+  .help-banner_texto {
     font-size: 1rem;
   }
 
-  .help-banner__boton {
+  .help-banner_boton {
     width: 100%;
     max-width: 280px;
     box-sizing: border-box;
