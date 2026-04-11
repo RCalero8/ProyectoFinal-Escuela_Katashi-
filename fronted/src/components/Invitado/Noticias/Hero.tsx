@@ -7,12 +7,7 @@ const Hero: React.FC = () => {
             {/*Sección superior con imagen de fondo y titulo*/}
             <header className="hero-header">
                 <div className="hero-header_logo">
-                    <img 
-                        src="https://cdn-icons-png.flaticon.com/512/21/21601.png" 
-                        alt="Icono Noticias" 
-                        className="hero-header_icon"
-                    />
-                    <h1 className="hero-header_titulo">Noticias del dojo</h1>
+                    <h1 className="hero-header_titulo">📰 Noticias del dojo</h1>
                 </div>
                 <h2 className="hero-header_subtitulo">Consulta las últimas novedades, comunicados y eventos importantes.</h2>
             </header>
