@@ -16,7 +16,7 @@
   padding: 60px 40px;
   border-radius: 4px;
   text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Outfit' sans-serif;
   max-width: 900px;
   width: 100%;
   display: flex;
@@ -27,7 +27,7 @@
 }
 
 .help-banner_titulo {
-  font-family: 'Brush Script MT', cursive, serif;
+  font-family: 'Kaushan Script', cursive, serif;
   font-size: 4rem;
   color: #c5a059; /* Color dorado/ocre de la imagen */
   margin: 0 0 15px 0;
