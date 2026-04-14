@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import NoticiaCard from './NoticiaCard';
+import Filtros from './Filtros';
 import type { Noticia } from '../../../tipos/noticias';
 import '../../../style/Invitado/Noticias/NoticiaSeccion.css';
 
@@ -8,52 +9,54 @@ const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 
 const NoticiasSection: React.FC = () => {
   const [noticias, setNoticias] = useState<Noticia[]>([]);
-  const [categorias, setCategorias] = useState<string[]>([]);
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('Categorias');
-  const [orden, setOrden] = useState('Mas Reciente');
+  const [filtros, setFiltros] = useState({ searchTerm: '', category: 'Categorias', sortOrder: 'Mas Reciente' });
   const [paginaActual, setPaginaActual] = useState(1);
   const [cargando, setCargando] = useState(true);
   const porPagina = 6;
 
-  useEffect(() => {
-    fetch(`${API_URL}/api/noticias/categorias`)
-      .then(res => res.json())
-      .then(data => setCategorias(data))
-      .catch(console.error);
+  const handleFiltrosChange = useCallback((nuevosFiltros: { searchTerm: string; category: string; sortOrder: string }) => {
+    setFiltros(nuevosFiltros);
   }, []);
 
+  // Cargar noticias cuando cambian los filtros
   useEffect(() => {
-    setCargando(true);
-    const params = new URLSearchParams();
-    if (categoriaSeleccionada !== 'Categorias') params.append('categoria', categoriaSeleccionada);
-    params.append('orden', orden);
-    params.append('limite', '100');
+    const fetchNoticias = async () => {
+      setCargando(true);
+      try {
+        const params = new URLSearchParams();
+        if (filtros.searchTerm) params.append('titulo', filtros.searchTerm);
+        if (filtros.category !== 'Categorias') params.append('categoria', filtros.category);
+        params.append('orden', filtros.sortOrder);
+        params.append('limite', '100');
 
-    fetch(`${API_URL}/api/noticias?${params}`)
-      .then(res => res.json())
-      .then(data => { setNoticias(data); setPaginaActual(1); })
-      .catch(console.error)
-      .finally(() => setCargando(false));
-  }, [categoriaSeleccionada, orden]);
+        const response = await fetch(`${API_URL}/api/noticias?${params}`);
+        if (response.ok) {
+          const data = await response.json();
+          setNoticias(data);
+          setPaginaActual(1);
+        }
+      } catch (error) {
+        console.error('Error al cargar noticias:', error);
+      } finally {
+        setCargando(false);
+      }
+    };
+
+    const timeoutId = setTimeout(fetchNoticias, 300);
+    return () => clearTimeout(timeoutId);
+  }, [filtros]);
 
   const totalPaginas = Math.ceil(noticias.length / porPagina);
   const noticiasPaginadas = noticias.slice((paginaActual - 1) * porPagina, paginaActual * porPagina);
 
   return (
     <section className="noticias-section">
-      <div className="noticias-filtros">
-        <select value={categoriaSeleccionada} onChange={e => setCategoriaSeleccionada(e.target.value)} className="noticias-select">
-          <option value="Categorias">Todas las categorías</option>
-          {categorias.map(cat => <option key={cat} value={cat}>{cat}</option>)}
-        </select>
-        <select value={orden} onChange={e => setOrden(e.target.value)} className="noticias-select">
-          <option value="Mas Reciente">Más reciente</option>
-          <option value="Mas Antiguo">Más antiguo</option>
-        </select>
-      </div>
+      <Filtros onFiltrosChange={handleFiltrosChange} />
 
       {cargando ? (
         <div className="noticias-loading"><div className="spinner"></div></div>
+      ) : noticias.length === 0 ? (
+        <div className="noticias-empty">No se encontraron noticias</div>
       ) : (
         <div className="noticias-grid">
           {noticiasPaginadas.map(noticia => <NoticiaCard key={noticia.id} noticia={noticia} />)}

@@ -1,58 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import '../../../style/Invitado/Noticias/Filtros.css';
 
-// URL de la API proporcionada por el usuario
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 
-/**
- * Componente Filtros
- * 
- * Una barra de búsqueda y filtros para las noticias del dojo.
- * Se conecta dinámicamente con la API en Render.
- */
-const Filtros: React.FC = () => {
+interface FiltrosProps {
+  onFiltrosChange: (filtros: { searchTerm: string; category: string; sortOrder: string }) => void;
+}
+
+const Filtros: React.FC<FiltrosProps> = ({ onFiltrosChange }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState('Categorias');
   const [sortOrder, setSortOrder] = useState('Mas Reciente');
   const [categoriesList, setCategoriesList] = useState<string[]>([]);
 
-  // Cargar categorías dinámicamente al montar el componente
+  // Cargar categorías
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        console.log(`Solicitando categorías a: ${API_URL}/api/noticias/categorias`);
         const response = await fetch(`${API_URL}/api/noticias/categorias`);
         if (response.ok) {
           const data = await response.json();
-          console.log('Categorías recibidas:', data);
           setCategoriesList(data.length > 0 ? data : ['General', 'Eventos', 'Anuncios']);
         } else {
-          console.error('Error en la respuesta del servidor al cargar categorías');
-          // Fallback con categorías por defecto si el servidor devuelve error
           setCategoriesList(['General', 'Eventos', 'Anuncios']);
         }
       } catch (error) {
-        console.error('Error de red al cargar categorías:', error);
-        // Fallback con categorías por defecto si hay error de red
+        console.error('Error al cargar categorías:', error);
         setCategoriesList(['General', 'Eventos', 'Anuncios']);
       }
     };
-
     fetchCategories();
   }, []);
 
-  // Función para manejar la búsqueda y filtros
-  const handleSearch = () => {
-    console.log('Ejecutando búsqueda con:', { searchTerm, category, sortOrder });
-    // Ejemplo de llamada a la API con los parámetros:
-    // const url = `${API_URL}/api/noticias?titulo=${searchTerm}&categoria=${category}&orden=${sortOrder}`;
-    // fetch(url)...
-  };
-
-  // Efecto para disparar la búsqueda cuando cambian los filtros
+  // Emitir cambios al padre
   useEffect(() => {
-    handleSearch();
-  }, [category, sortOrder]);
+    onFiltrosChange({ searchTerm, category, sortOrder });
+  }, [searchTerm, category, sortOrder, onFiltrosChange]);
+
+  const handleSearch = () => {
+    onFiltrosChange({ searchTerm, category, sortOrder });
+  };
 
   return (
     <div className="news-filters-container">
@@ -73,7 +60,7 @@ const Filtros: React.FC = () => {
         </button>
       </div>
 
-      {/* Selector de Categorías Dinámico */}
+      {/* Selector de Categorías */}
       <div className="news-filter-group">
         <select 
           className="news-filter-select" 
@@ -81,13 +68,9 @@ const Filtros: React.FC = () => {
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="Categorias">Categorias</option>
-          {categoriesList.length > 0 ? (
-            categoriesList.map((cat, index) => (
-              <option key={index} value={cat}>{cat}</option>
-            ))
-          ) : (
-            <option disabled>Cargando categorías...</option>
-          )}
+          {categoriesList.map((cat, index) => (
+            <option key={index} value={cat}>{cat}</option>
+          ))}
         </select>
         <div className="news-filter-icon-btn">
           <div className="news-filter-arrow"></div>
