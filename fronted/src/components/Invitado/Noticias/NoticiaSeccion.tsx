@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import NoticiaCard from './NoticiaCard';
 import type { Noticia } from '../../../tipos/noticias';
