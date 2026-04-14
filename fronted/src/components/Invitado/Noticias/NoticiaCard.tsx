@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, ArrowRight } from 'lucide-react';
 import type { Noticia } from '../../../tipos/noticias';
-import './NoticiaCard.css';
+import '../../../style/Invitado/Noticias/NoticiaCard.css';
 
 const categoriaColores: Record<string, { bg: string; text: string }> = {
   'Torneos': { bg: '#F59E0B', text: '#FFFFFF' },
