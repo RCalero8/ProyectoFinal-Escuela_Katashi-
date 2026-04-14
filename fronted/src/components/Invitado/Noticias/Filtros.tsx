@@ -1,5 +1,8 @@
 import React from 'react';
+// Importa el CSS que ya tenías
+import '.,/../../style/Invitado/Noticias/Filtros.css';
 
+// Definimos qué necesita este componente para funcionar
 interface FiltrosProps {
   searchTerm: string;
   setSearchTerm: (value: string) => void;
@@ -23,7 +26,7 @@ const Filtros: React.FC<FiltrosProps> = ({
 }) => {
   return (
     <div className="news-filters-container">
-      {/* Input de Búsqueda */}
+      {/* Campo de Búsqueda */}
       <div className="news-filter-group">
         <input 
           type="text" 
@@ -40,7 +43,7 @@ const Filtros: React.FC<FiltrosProps> = ({
         </button>
       </div>
 
-      {/* Selector de Categorías */}
+      {/* Selector de Categorías Dinámico */}
       <div className="news-filter-group">
         <select 
           className="news-filter-select" 
@@ -48,9 +51,11 @@ const Filtros: React.FC<FiltrosProps> = ({
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="Categorias">Categorias</option>
-          {categoriesList.length > 0 ? categoriesList.map((cat, index) => (
-            <option key={index} value={cat}>{cat}</option>
-          )) : (
+          {categoriesList.length > 0 ? (
+            categoriesList.map((cat, index) => (
+              <option key={index} value={cat}>{cat}</option>
+            ))
+          ) : (
             <option disabled>Cargando categorías...</option>
           )}
         </select>
@@ -59,7 +64,7 @@ const Filtros: React.FC<FiltrosProps> = ({
         </div>
       </div>
 
-      {/* Selector de Orden */}
+      {/* Selector de Ordenación */}
       <div className="news-filter-group">
         <select 
           className="news-filter-select" 

@@ -18,7 +18,7 @@ const NoticiasSection: React.FC = () => {
   const [cargando, setCargando] = useState(true);
   const porPagina = 6;
 
-  // 1. Cargar las categorías al montar el componente
+  // 1. Cargar las categorías al montar
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -26,8 +26,6 @@ const NoticiasSection: React.FC = () => {
         if (response.ok) {
           const data = await response.json();
           setCategoriesList(data.length > 0 ? data : ['General', 'Eventos', 'Anuncios']);
-        } else {
-          setCategoriesList(['General', 'Eventos', 'Anuncios']);
         }
       } catch (error) {
         setCategoriesList(['General', 'Eventos', 'Anuncios']);
@@ -36,8 +34,7 @@ const NoticiasSection: React.FC = () => {
     fetchCategories();
   }, []);
 
-  // 2. Lógica de filtrado REACTIVA
-  // Este efecto se ejecuta cada vez que searchTerm, category o sortOrder cambian.
+  // 2. Lógica de búsqueda reactiva
   useEffect(() => {
     const fetchNoticias = async () => {
       setCargando(true);
@@ -46,7 +43,7 @@ const NoticiasSection: React.FC = () => {
         if (searchTerm) params.append('titulo', searchTerm);
         if (category !== 'Categorias') params.append('categoria', category);
         
-        // Mapeo de orden para la API (ajusta según lo que espere tu backend)
+        // Ajustamos el orden para la API
         params.append('orden', sortOrder === 'Mas Reciente' ? 'desc' : 'asc');
         params.append('limite', '100');
 
@@ -54,16 +51,16 @@ const NoticiasSection: React.FC = () => {
         if (response.ok) {
           const data = await response.json();
           setNoticias(data);
-          setPaginaActual(1); // Importante: vuelve a la pág 1 al filtrar
+          setPaginaActual(1); // Volver a la pág 1 al filtrar
         }
       } catch (error) {
-        console.error('Error:', error);
+        console.error('Error cargando noticias:', error);
       } finally {
         setCargando(false);
       }
     };
 
-    const timeoutId = setTimeout(fetchNoticias, 300); // Debounce para el input
+    const timeoutId = setTimeout(fetchNoticias, 400); // Espera un poco mientras escribes
     return () => clearTimeout(timeoutId);
   }, [searchTerm, category, sortOrder]);
 
@@ -72,6 +69,7 @@ const NoticiasSection: React.FC = () => {
 
   return (
     <section className="noticias-section">
+      {/* AQUÍ LOS UNIMOS: Pasamos estados y setters como props */}
       <Filtros 
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
@@ -80,7 +78,7 @@ const NoticiasSection: React.FC = () => {
         sortOrder={sortOrder}
         setSortOrder={setSortOrder}
         categoriesList={categoriesList}
-        handleSearch={() => {}} // La búsqueda ya es automática por el useEffect
+        handleSearch={() => {}} // El useEffect ya lo hace automático
       />
 
       {cargando ? (
