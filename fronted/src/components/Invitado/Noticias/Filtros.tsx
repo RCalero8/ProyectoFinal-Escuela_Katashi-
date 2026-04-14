@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import '../../../style/Invitado/Noticias/Filtros.css';
 
+// URL de la API proporcionada por el usuario
+const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
+
 /**
- * Componente NewsFilters
+ * Componente Filtros
  * 
  * Una barra de búsqueda y filtros para las noticias del dojo.
- * Compatible con el backend de PostgreSQL (async/await).
+ * Se conecta dinámicamente con la API en Render.
  */
-const NewsFilters: React.FC = () => {
+const Filtros: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState('Categorias');
   const [sortOrder, setSortOrder] = useState('Mas Reciente');
@@ -17,13 +20,17 @@ const NewsFilters: React.FC = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('/api/noticias/categorias');
+        console.log(`Solicitando categorías a: ${API_URL}/api/noticias/categorias`);
+        const response = await fetch(`${API_URL}/api/noticias/categorias`);
         if (response.ok) {
           const data = await response.json();
+          console.log('Categorías recibidas:', data);
           setCategoriesList(data);
+        } else {
+          console.error('Error en la respuesta del servidor al cargar categorías');
         }
       } catch (error) {
-        console.error('Error al cargar categorías:', error);
+        console.error('Error de red al cargar categorías:', error);
       }
     };
 
@@ -32,9 +39,10 @@ const NewsFilters: React.FC = () => {
 
   // Función para manejar la búsqueda y filtros
   const handleSearch = () => {
-    console.log('Buscando:', searchTerm, 'Categoría:', category, 'Orden:', sortOrder);
-    // Ejemplo de llamada a la API con los parámetros que espera el nuevo backend:
-    // fetch(`/api/noticias?titulo=${searchTerm}&categoria=${category}&orden=${sortOrder}`)
+    console.log('Ejecutando búsqueda con:', { searchTerm, category, sortOrder });
+    // Ejemplo de llamada a la API con los parámetros:
+    // const url = `${API_URL}/api/noticias?titulo=${searchTerm}&categoria=${category}&orden=${sortOrder}`;
+    // fetch(url)...
   };
 
   // Efecto para disparar la búsqueda cuando cambian los filtros
@@ -69,9 +77,13 @@ const NewsFilters: React.FC = () => {
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="Categorias">Categorias</option>
-          {categoriesList.map((cat, index) => (
-            <option key={index} value={cat}>{cat}</option>
-          ))}
+          {categoriesList.length > 0 ? (
+            categoriesList.map((cat, index) => (
+              <option key={index} value={cat}>{cat}</option>
+            ))
+          ) : (
+            <option disabled>Cargando categorías...</option>
+          )}
         </select>
         <div className="news-filter-icon-btn">
           <div className="news-filter-arrow"></div>
@@ -96,4 +108,4 @@ const NewsFilters: React.FC = () => {
   );
 };
 
-export default NewsFilters;
+export default Filtros;

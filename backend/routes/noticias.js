@@ -36,13 +36,15 @@ router.get("/", async (req, res) => {
   }
 });
 
-// NUEVO: GET /api/noticias/categorias - Obtener categorías únicas de la BD (PostgreSQL)
+// GET /api/noticias/categorias - Obtener TODAS las categorías únicas de la BD
 router.get("/categorias", async (req, res) => {
   try {
+    // Obtenemos todas las categorías únicas que no sean nulas ni vacías
     const resultado = await conexion.query(
-      "SELECT DISTINCT categoria FROM noticias WHERE categoria IS NOT NULL ORDER BY categoria ASC"
+      "SELECT DISTINCT categoria FROM noticias WHERE categoria IS NOT NULL AND categoria <> '' ORDER BY categoria ASC"
     );
     const categorias = resultado.rows.map(r => r.categoria);
+    console.log("Categorías encontradas en la BD:", categorias); // Log para depuración
     res.json(categorias);
   } catch (error) {
     console.error("Error al obtener las categorías:", error);
