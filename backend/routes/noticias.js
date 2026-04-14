@@ -2,18 +2,51 @@ const express = require("express");
 const router = express.Router();
 const conexion = require("../config/db");
 
-// GET /api/noticias
+// GET /api/noticias - Obtener noticias con filtros dinámicos
 router.get("/", async (req, res) => {
-  const limite = parseInt(req.query.limite, 10) || 3;
+  const { titulo, categoria, orden } = req.query;
+  const limite = parseInt(req.query.limite, 10) || 10;
+  
+  let query = "SELECT id, titulo, fecha, enlace, categoria FROM noticias WHERE 1=1";
+  let params = [];
+  let paramIndex = 1;
+
+  if (titulo) {
+    query += ` AND titulo ILIKE $${paramIndex}`;
+    params.push(`%${titulo}%`);
+    paramIndex++;
+  }
+
+  if (categoria && categoria !== "Categorias") {
+    query += ` AND categoria = $${paramIndex}`;
+    params.push(categoria);
+    paramIndex++;
+  }
+
+  const sortOrder = orden === "Mas Antiguo" ? "ASC" : "DESC";
+  query += ` ORDER BY fecha ${sortOrder} LIMIT $${paramIndex}`;
+  params.push(limite);
+
   try {
-    const resultado = await conexion.query(
-      "SELECT id, titulo, fecha, enlace, categoria FROM noticias ORDER BY fecha DESC LIMIT $1",
-      [limite]
-    );
+    const resultado = await conexion.query(query, params);
     res.json(resultado.rows);
   } catch (error) {
     console.error("Error al obtener las noticias:", error);
     res.status(500).json({ error: "Error al obtener las noticias" });
+  }
+});
+
+// NUEVO: GET /api/noticias/categorias - Obtener categorías únicas de la BD (PostgreSQL)
+router.get("/categorias", async (req, res) => {
+  try {
+    const resultado = await conexion.query(
+      "SELECT DISTINCT categoria FROM noticias WHERE categoria IS NOT NULL ORDER BY categoria ASC"
+    );
+    const categorias = resultado.rows.map(r => r.categoria);
+    res.json(categorias);
+  } catch (error) {
+    console.error("Error al obtener las categorías:", error);
+    res.status(500).json({ error: "Error al obtener las categorías" });
   }
 });
 
