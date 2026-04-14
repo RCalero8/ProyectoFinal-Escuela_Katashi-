@@ -2,77 +2,75 @@ const express  = require("express");
 const router   = express.Router();
 const conexion = require("../config/db");
 
-// Obtener noticias con límite
-router.get("/", async (req, res) => {
+// GET /api/noticias
+router.get("/", (req, res) => {
   const limite = parseInt(req.query.limite) || 3;
-  try {
-    // En Postgres, el LIMIT también acepta el parámetro así
-    const sql = "SELECT id, titulo, fecha, enlace FROM noticias ORDER BY fecha DESC LIMIT $1";
-    const resultado = await conexion.query(sql, [limite]);
-    res.json(resultado.rows);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Error al obtener las noticias" });
-  }
+  conexion.query(
+    "SELECT id, titulo, fecha, enlace, categoria FROM noticias ORDER BY fecha DESC LIMIT ?",
+    [limite],
+    (error, resultados) => {
+      if (error) return res.status(500).json({ error: "Error al obtener las noticias" });
+      res.json(resultados);
+    }
+  );
 });
 
-// Obtener noticia por ID
-router.get("/:id", async (req, res) => {
+// GET /api/noticias/:id
+router.get("/:id", (req, res) => {
   const { id } = req.params;
-  try {
-    const sql = "SELECT id, titulo, fecha, contenido, enlace FROM noticias WHERE id = $1";
-    const resultado = await conexion.query(sql, [id]);
-    if (resultado.rows.length === 0) return res.status(404).json({ error: "Noticia no encontrada" });
-    res.json(resultado.rows[0]);
-  } catch (error) {
-    res.status(500).json({ error: "Error al obtener la noticia" });
-  }
+  conexion.query(
+    "SELECT id, titulo, fecha, contenido, enlace, categoria FROM noticias WHERE id = ?",
+    [id],
+    (error, resultados) => {
+      if (error) return res.status(500).json({ error: "Error al obtener la noticia" });
+      if (resultados.length === 0) return res.status(404).json({ error: "Noticia no encontrada" });
+      res.json(resultados[0]);
+    }
+  );
 });
 
-// Crear noticia
-router.post("/", async (req, res) => {
-  const { titulo, fecha, contenido, enlace } = req.body;
+// POST /api/noticias
+router.post("/", (req, res) => {
+  const { titulo, fecha, contenido, enlace, categoria } = req.body;
   if (!titulo || !fecha) return res.status(400).json({ error: "El título y la fecha son obligatorios" });
-  
-  try {
-    // En Postgres usamos RETURNING id para obtener el ID del nuevo registro
-    const sql = "INSERT INTO noticias (titulo, fecha, contenido, enlace) VALUES ($1, $2, $3, $4) RETURNING id";
-    const resultado = await conexion.query(sql, [titulo, fecha, contenido, enlace]);
-    res.status(201).json({ mensaje: "Noticia creada correctamente", id: resultado.rows[0].id });
-  } catch (error) {
-    res.status(500).json({ error: "Error al crear la noticia" });
-  }
+  conexion.query(
+    "INSERT INTO noticias (titulo, fecha, contenido, enlace, categoria) VALUES (?, ?, ?, ?, ?)",
+    [titulo, fecha, contenido, enlace, categoria ?? "General"],
+    (error, resultado) => {
+      if (error) return res.status(500).json({ error: "Error al crear la noticia" });
+      res.status(201).json({ mensaje: "Noticia creada correctamente", id: resultado.insertId });
+    }
+  );
 });
 
-// Editar noticia
-router.put("/:id", async (req, res) => {
+// PUT /api/noticias/:id
+router.put("/:id", (req, res) => {
   const { id } = req.params;
-  const { titulo, fecha, contenido, enlace } = req.body;
-  
-  try {
-    const sql = "UPDATE noticias SET titulo = $1, fecha = $2, contenido = $3, enlace = $4 WHERE id = $5";
-    const resultado = await conexion.query(sql, [titulo, fecha, contenido, enlace, id]);
-    
-    // rowCount nos dice cuántas filas se modificaron
-    if (resultado.rowCount === 0) return res.status(404).json({ error: "Noticia no encontrada" });
-    res.json({ mensaje: "Noticia actualizada correctamente" });
-  } catch (error) {
-    res.status(500).json({ error: "Error al editar la noticia" });
-  }
+  const { titulo, fecha, contenido, enlace, categoria } = req.body;
+  if (!titulo || !fecha) return res.status(400).json({ error: "El título y la fecha son obligatorios" });
+  conexion.query(
+    "UPDATE noticias SET titulo = ?, fecha = ?, contenido = ?, enlace = ?, categoria = ? WHERE id = ?",
+    [titulo, fecha, contenido, enlace, categoria ?? "General", id],
+    (error, resultado) => {
+      if (error) return res.status(500).json({ error: "Error al editar la noticia" });
+      if (resultado.affectedRows === 0) return res.status(404).json({ error: "Noticia no encontrada" });
+      res.json({ mensaje: "Noticia actualizada correctamente" });
+    }
+  );
 });
 
-// Eliminar noticia
-router.delete("/:id", async (req, res) => {
+// DELETE /api/noticias/:id
+router.delete("/:id", (req, res) => {
   const { id } = req.params;
-  try {
-    const sql = "DELETE FROM noticias WHERE id = $1";
-    const resultado = await conexion.query(sql, [id]);
-    
-    if (resultado.rowCount === 0) return res.status(404).json({ error: "Noticia no encontrada" });
-    res.json({ mensaje: "Noticia eliminada correctamente" });
-  } catch (error) {
-    res.status(500).json({ error: "Error al eliminar la noticia" });
-  }
+  conexion.query(
+    "DELETE FROM noticias WHERE id = ?",
+    [id],
+    (error, resultado) => {
+      if (error) return res.status(500).json({ error: "Error al eliminar la noticia" });
+      if (resultado.affectedRows === 0) return res.status(404).json({ error: "Noticia no encontrada" });
+      res.json({ mensaje: "Noticia eliminada correctamente" });
+    }
+  );
 });
 
 module.exports = router;
