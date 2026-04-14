@@ -25,12 +25,16 @@ const Filtros: React.FC = () => {
         if (response.ok) {
           const data = await response.json();
           console.log('Categorías recibidas:', data);
-          setCategoriesList(data);
+          setCategoriesList(data.length > 0 ? data : ['General', 'Eventos', 'Anuncios']);
         } else {
           console.error('Error en la respuesta del servidor al cargar categorías');
+          // Fallback con categorías por defecto si el servidor devuelve error
+          setCategoriesList(['General', 'Eventos', 'Anuncios']);
         }
       } catch (error) {
         console.error('Error de red al cargar categorías:', error);
+        // Fallback con categorías por defecto si hay error de red
+        setCategoriesList(['General', 'Eventos', 'Anuncios']);
       }
     };
 
