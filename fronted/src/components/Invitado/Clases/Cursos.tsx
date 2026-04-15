@@ -48,8 +48,9 @@ const DetallesCursoModal: React.FC<{
             <h3>Clases disponibles</h3>
             {curso.clases && curso.clases.length > 0 ? (
               <div className="clases-list">
-                {curso.clases.map((clase) => (
+                {curso.clases.map((clase, index) => (
                   <div key={clase.id_clase} className="clase-item" style={{ borderLeftColor: color }}>
+                    <div className="clase-numero" style={{ backgroundColor: color }}>{index + 1}</div>
                     <div className="clase-info">
                       <strong>{clase.grado}</strong>
                       <span className="duracion">{clase.duracion_min} min</span>

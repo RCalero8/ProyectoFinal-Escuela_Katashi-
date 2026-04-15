@@ -350,6 +350,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
+}
+
+.clase-numero {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
 }
 
 .clase-info {
