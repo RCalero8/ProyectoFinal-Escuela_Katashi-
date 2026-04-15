@@ -1,6 +1,6 @@
 import React from 'react';
 // Importa el CSS que ya tenías
-import '.,/../../style/Invitado/Noticias/Filtros.css';
+import '../../../style/Invitado/Noticias/Filtros.css';
 
 // Definimos qué necesita este componente para funcionar
 interface FiltrosProps {
