@@ -11,7 +11,7 @@ import Clases from "./pages/Invitado/Clases.tsx";
 import Noticias from "./pages/Invitado/Noticias.tsx";
 import Tienda from "./pages/Invitado/Tienda.tsx";
 import Contacto from "./pages/Invitado/Contacto.tsx";
-
+import NoticiaDetalle from "./components/Invitado/Noticias/NoticiaDetalle.tsx";
 function App() {
   return (
     <Router>
@@ -26,6 +26,7 @@ function App() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<Registro />} />
+          <Route path="/noticias/:slug" element={<NoticiaDetalle />} />
         </Routes>
       </main>
       <Footer />
