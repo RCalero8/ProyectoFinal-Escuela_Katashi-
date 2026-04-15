@@ -1,6 +1,7 @@
+import Tiendas from '../../components/Invitado/Tiendas/Tienda';
 const Tienda = () => {
   return (
-    <h1>Tienda</h1>
+    <Tiendas />
   );
 };
 
