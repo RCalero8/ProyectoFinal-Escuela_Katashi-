@@ -59,7 +59,7 @@ const DetallesCursoModal: React.FC<{
                 ))}
               </div>
             ) : (
-              <p className="sin-clases">No hay clases disponibles para este curso.</p>
+              <p className="sin-clases">10</p>
             )}
           </section>
         </div>
