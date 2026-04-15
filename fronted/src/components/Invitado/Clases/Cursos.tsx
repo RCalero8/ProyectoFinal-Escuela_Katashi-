@@ -11,6 +11,18 @@ const CursoCard: React.FC<{ curso: Curso }> = ({ curso }) => {
   // Usamos la URL de imagen de la configuración, o una por defecto si no existe
   const imagenUrl = info?.imagen || `https://via.placeholder.com/400x300?text=${curso.nombre}`;
 
+  // Verificar si el usuario está autenticado
+  const usuarioAutenticado = localStorage.getItem('usuarioAutenticado') === 'true';
+
+  const handleInscribir = () => {
+    if (!usuarioAutenticado) {
+      alert('¡Debes registrarte para poder inscribirte a un curso!');
+      return;
+    }
+    // Aquí irá la lógica de inscripción real
+    console.log('Inscribiéndose en:', curso.nombre);
+  };
+
   return (
     <div className="curso-card" style={{ borderColor: color }}>
       <div className="curso-img-side">
@@ -29,7 +41,14 @@ const CursoCard: React.FC<{ curso: Curso }> = ({ curso }) => {
           </div>
         </div>
         <div className="btn-group">
-          <button className="btn-inscribir">Inscribirme</button>
+          <button 
+            className="btn-inscribir" 
+            onClick={handleInscribir}
+            disabled={!usuarioAutenticado}
+            style={{ opacity: usuarioAutenticado ? 1 : 0.6, cursor: usuarioAutenticado ? 'pointer' : 'not-allowed' }}
+          >
+            Inscribirme
+          </button>
           <button className="btn-info">Más Información</button>
         </div>
       </div>
