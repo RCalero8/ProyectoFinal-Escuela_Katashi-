@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../../../style/Invitado/Tiendas/Tienda.css';
+import '../../../style/Invitado/Tienda/Tienda.css';
 
 // URL de la API proporcionada por el usuario
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
