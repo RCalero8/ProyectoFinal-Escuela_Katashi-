@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, ArrowRight } from 'lucide-react';
 import type { Noticia } from '../../../tipos/noticias';
+// Importamos el diccionario de detalles donde están las imágenes reales
+import { detallesNoticias } from '../../../tipos/noticiasDetalle';
 import '../../../style/Invitado/Noticias/NoticiaCard.css';
 
 const categoriaColores: Record<string, { bg: string; text: string }> = {
@@ -13,40 +15,59 @@ const categoriaColores: Record<string, { bg: string; text: string }> = {
   'General': { bg: '#6B7280', text: '#FFFFFF' },
 };
 
-const imagenesPorCategoria: Record<string, string> = {
-  'Torneos': 'https://images.unsplash.com/photo-1555597673-b21d5c3c8e4b?w=400&h=300&fit=crop',
-  'Comunicados': 'https://images.unsplash.com/photo-1509563268479-0f004cf3f58b?w=400&h=300&fit=crop',
-  'Eventos': 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop',
-  'Horarios': 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop',
-  'Promociones': 'https://images.unsplash.com/photo-1555597673-b21d5c935e4e?w=400&h=300&fit=crop',
-  'General': 'https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=400&h=300&fit=crop',
-};
-
 const formatearFecha = (fecha: string): string => {
   const date = new Date(fecha);
-  return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+  return date.toLocaleDateString('es-ES', { 
+    day: 'numeric', 
+    month: 'long', 
+    year: 'numeric' 
+  });
 };
 
 const NoticiaCard: React.FC<{ noticia: Noticia }> = ({ noticia }) => {
   const categoria = noticia.categoria || 'General';
   const colores = categoriaColores[categoria] || categoriaColores['General'];
-  const imagen = imagenesPorCategoria[categoria] || imagenesPorCategoria['General'];
+
+  // BUSCAMOS LA IMAGEN EN noticiasDetalle.ts usando el enlace como clave
+  // Si por alguna razón no existe en el archivo, ponemos una por defecto
+  const infoExtra = noticia.enlace ? detallesNoticias[noticia.enlace] : null;
+  const imagenReal = infoExtra ? infoExtra.imagen : 'https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=400';
+
+  if (!noticia.enlace) {
+    return null; // O manejar de otra forma
+  }
 
   return (
     <article className="noticia-card">
       <div className="noticia-card__imagen-container">
-        <img src={imagen} alt={noticia.titulo} className="noticia-card__imagen" />
-        <span className="noticia-card__categoria" style={{ backgroundColor: colores.bg, color: colores.text }}>
+        {/* Usamos la imagen que viene de noticiasDetalle.ts */}
+        <img 
+          src={imagenReal} 
+          alt={noticia.titulo} 
+          className="noticia-card__imagen" 
+        />
+        <span 
+          className="noticia-card__categoria" 
+          style={{ backgroundColor: colores.bg, color: colores.text }}
+        >
           {categoria}
         </span>
       </div>
+
       <div className="noticia-card__contenido">
         <h3 className="noticia-card__titulo">{noticia.titulo}</h3>
+        
         <div className="noticia-card__fecha">
           <Calendar size={14} />
           <span>{formatearFecha(noticia.fecha)}</span>
         </div>
-        <Link to={`/noticia/${noticia.id}`} className="noticia-card__link">
+
+        {/* Navegamos usando el enlace de la DB y pasando la noticia en el state */}
+        <Link 
+          to={noticia.enlace} 
+          state={{ noticia }} 
+          className="noticia-card__link"
+        >
           Leer más <ArrowRight size={16} />
         </Link>
       </div>
