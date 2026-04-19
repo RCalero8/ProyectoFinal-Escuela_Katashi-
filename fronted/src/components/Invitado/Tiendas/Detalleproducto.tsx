@@ -16,6 +16,7 @@ const DetalleProducto: React.FC = () => {
   const [tallaActiva, setTallaActiva]   = useState<string>("");
   const [cantidad, setCantidad]         = useState(1);
   const [imgActiva, setImgActiva]       = useState(0);
+  const [colorActivo, setColorActivo]   = useState<string>("");
 
   useEffect(() => {
     setLoading(true);
@@ -34,6 +35,11 @@ const DetalleProducto: React.FC = () => {
         if (data.Talla) {
           const tallas = data.Talla.split(",").map((t) => t.trim());
           setTallaActiva(tallas[0]);
+        }
+        // Color por defecto: el primero
+        if (data.Color) {
+          const colores = data.Color.split(",").map((c: string) => c.trim());
+          setColorActivo(colores[0]);
         }
         // Cargar relacionados (misma categoría)
         return fetch(`${API_URL}/api/material`);
@@ -158,6 +164,24 @@ const DetalleProducto: React.FC = () => {
                       onClick={() => setTallaActiva(t)}
                     >
                       {t}
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* Colores */}
+            {producto.Color && (
+              <>
+                <p className="detalle-tallas-titulo">Selecciona el color</p>
+                <div className="detalle-tallas" style={{ marginBottom: 16 }}>
+                  {producto.Color.split(",").map((c) => c.trim()).map((color) => (
+                    <button
+                      key={color}
+                      className={`detalle-talla-btn ${colorActivo === color ? "activo" : ""}`}
+                      onClick={() => setColorActivo(color)}
+                    >
+                      {color}
                     </button>
                   ))}
                 </div>
