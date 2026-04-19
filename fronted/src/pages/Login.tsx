@@ -1,2 +1,13 @@
-const Login = () => <h1>Login</h1>;
+import Loginhero from "../components/Login/Loginhero";
+
+
+const Login = () => {
+    return (
+        <>
+        <Loginhero />
+       </>
+    )
+}
+
 export default Login;
+

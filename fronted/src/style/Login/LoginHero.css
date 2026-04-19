@@ -1,0 +1,51 @@
+.login-hero {
+  width: 100%;
+  min-height: 160px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 48px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: url('https://images.unsplash.com/photo-1555597673-b21d5c935865?w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.login-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.login-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.login-hero-titulo {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 40px;
+  font-weight: 700;
+  color: #cc0000;
+  margin: 0 0 10px 0;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.login-hero-subtitulo {
+  font-size: 15px;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 600px) {
+  .login-hero-titulo { font-size: 26px; }
+  .login-hero { padding: 32px 20px; }
+  .login-hero-subtitulo { font-size: 13px; }
+}
