@@ -1,4 +1,4 @@
-import Tiendas from '../../components/Invitado/Tiendas/Tiendas';
+import Tiendas from '../../components/Invitado/Tiendas/Tienda';
 const Tienda = () => {
   return (
     <>
