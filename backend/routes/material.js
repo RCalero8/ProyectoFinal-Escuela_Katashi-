@@ -3,30 +3,37 @@ const router   = express.Router();
 const conexion = require("../config/db");
 
 //Get /api/material
-router.get("/", (req, res) => {
-  const sql = `
-    SELECT id_material, nombre, descripcion, precio, stock, Categoria, Imagen, Talla, Color
-    FROM material
-    ORDER BY id_material ASC
-  `;
-  conexion.query(sql, (error, resultados) => {
-    if (error) return res.status(500).json({ error: "Error al obtener los materiales" });
-    res.json(resultados);
-  });
+router.get("/", async (req, res) => {
+  try {
+    const resultado = await pool.query(
+      `SELECT id_material, nombre, descripcion, precio, stock, "Categoria", "Imagen", "Talla", "Color"
+       FROM material
+       ORDER BY id_material ASC`
+    );
+    res.json(resultado.rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error al obtener los materiales" });
+  }
 });
 
 //Get /api/material/:id
-router.get("/:id", (req, res) => {
+router.get("/:id", async (req, res) => {
   const { id } = req.params;
-  conexion.query(
-    "SELECT id_material, nombre, descripcion, precio, stock, Categoria, Imagen, Talla, Color FROM material WHERE id_material = ?",
-    [id],
-    (error, resultados) => {
-      if (error) return res.status(500).json({ error: "Error al obtener el material" });
-      if (resultados.length === 0) return res.status(404).json({ error: "Material no encontrado" });
-      res.json(resultados[0]);
-    }
-  );
+  try {
+    const resultado = await pool.query(
+      `SELECT id_material, nombre, descripcion, precio, stock, "Categoria", "Imagen", "Talla", "Color"
+       FROM material
+       WHERE id_material = $1`,
+      [id]
+    );
+    if (resultado.rows.length === 0)
+      return res.status(404).json({ error: "Material no encontrado" });
+    res.json(resultado.rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error al obtener el material" });
+  }
 });
  
 module.exports = router;
