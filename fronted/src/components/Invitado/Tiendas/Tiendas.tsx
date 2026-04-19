@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import type { Material } from "../../../tipos/material";
-import "../../../style/Invitado/Tienda.css";
+import "../../../style/Invitado/Tienda/Tienda.css";
 
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 
