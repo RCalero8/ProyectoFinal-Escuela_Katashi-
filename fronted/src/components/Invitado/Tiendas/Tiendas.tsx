@@ -1,21 +1,23 @@
 import React, { useEffect, useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import type { Material } from "../../../tipos/material";
-import "../../../style/Invitado/Tienda/Tienda.css";
-
+import "../../../style/Invitado/Tienda.css";
+ 
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
-
+ 
 const Tienda: React.FC = () => {
   const [productos, setProductos] = useState<Material[]>([]);
+  const navigate = useNavigate();
   const [loading, setLoading]     = useState(true);
   const [error, setError]         = useState(false);
-
+ 
   // Filtros
   const [busqueda, setBusqueda]     = useState("");
   const [categoria, setCategoria]   = useState("Todos");
   const [talla, setTalla]           = useState("Todas");
   const [orden, setOrden]           = useState("Relevancia");
   const [precioMax, setPrecioMax]   = useState(200);
-
+ 
   useEffect(() => {
     fetch(`${API_URL}/api/material`)
       .then((res) => {
@@ -31,13 +33,13 @@ const Tienda: React.FC = () => {
         setLoading(false);
       });
   }, []);
-
+ 
   // Categorías y tallas únicas para los selects
   const categorias = useMemo(() => {
     const cats = [...new Set(productos.map((p) => p.Categoria).filter(Boolean))];
     return ["Todos", ...cats];
   }, [productos]);
-
+ 
   const tallas = useMemo(() => {
     const ts = new Set<string>();
     productos.forEach((p) => {
@@ -45,51 +47,51 @@ const Tienda: React.FC = () => {
     });
     return ["Todas", ...Array.from(ts)];
   }, [productos]);
-
+ 
   // Filtrado
   const productosFiltrados = useMemo(() => {
     let lista = [...productos];
-
+ 
     if (busqueda)
       lista = lista.filter((p) =>
         p.nombre.toLowerCase().includes(busqueda.toLowerCase())
       );
-
+ 
     if (categoria !== "Todos")
       lista = lista.filter((p) => p.Categoria === categoria);
-
+ 
     if (talla !== "Todas")
       lista = lista.filter((p) => p.Talla?.includes(talla));
-
+ 
     lista = lista.filter((p) => p.precio <= precioMax);
-
+ 
     if (orden === "Precio: menor a mayor")
       lista.sort((a, b) => a.precio - b.precio);
     else if (orden === "Precio: mayor a menor")
       lista.sort((a, b) => b.precio - a.precio);
     else if (orden === "Nombre")
       lista.sort((a, b) => a.nombre.localeCompare(b.nombre));
-
+ 
     return lista;
   }, [productos, busqueda, categoria, talla, precioMax, orden]);
-
+ 
   if (loading)
     return (
       <div className="tienda-section" style={{ padding: 48, textAlign: "center", color: "#6b7280" }}>
         Cargando tienda...
       </div>
     );
-
+ 
   if (error)
     return (
       <div className="tienda-section" style={{ padding: 48, textAlign: "center", color: "#ef4444" }}>
         No se pudo cargar la tienda. Inténtalo más tarde.
       </div>
     );
-
+ 
   return (
     <div className="tienda-section">
-
+ 
       {/* Hero */}
       <div className="tienda-hero">
         <div className="tienda-hero-content">
@@ -102,11 +104,11 @@ const Tienda: React.FC = () => {
           </p>
         </div>
       </div>
-
+ 
       {/* Filtros */}
       <div className="tienda-filtros">
         <div className="tienda-filtros-row">
-
+ 
           <div className="tienda-filtro-grupo">
             <span className="tienda-filtro-label">Buscar Producto</span>
             <input
@@ -117,7 +119,7 @@ const Tienda: React.FC = () => {
               onChange={(e) => setBusqueda(e.target.value)}
             />
           </div>
-
+ 
           <div className="tienda-filtro-grupo">
             <span className="tienda-filtro-label">Categoría</span>
             <select
@@ -130,7 +132,7 @@ const Tienda: React.FC = () => {
               ))}
             </select>
           </div>
-
+ 
           <div className="tienda-filtro-grupo">
             <span className="tienda-filtro-label">Tallas</span>
             <select
@@ -143,7 +145,7 @@ const Tienda: React.FC = () => {
               ))}
             </select>
           </div>
-
+ 
           <div className="tienda-filtro-grupo">
             <span className="tienda-filtro-label">Ordenar por</span>
             <select
@@ -157,9 +159,9 @@ const Tienda: React.FC = () => {
               <option>Nombre</option>
             </select>
           </div>
-
+ 
         </div>
-
+ 
         <div className="tienda-filtros-row">
           <div className="tienda-filtro-grupo">
             <span className="tienda-filtro-label">Precio máximo</span>
@@ -175,7 +177,7 @@ const Tienda: React.FC = () => {
           </div>
         </div>
       </div>
-
+ 
       {/* Grid */}
       <div className="tienda-inner">
         <div className="tienda-grid">
@@ -203,15 +205,15 @@ const Tienda: React.FC = () => {
                   <p className="producto-desc">{p.descripcion}</p>
                   <p className="producto-precio">{Number(p.precio).toFixed(2)}€</p>
                 </div>
-                <button className="producto-btn">Ver Producto</button>
+                <button className="producto-btn" onClick={() => navigate(`/tienda/${p.id_material}`)}>Ver Producto</button>
               </div>
             ))
           )}
         </div>
       </div>
-
+ 
     </div>
   );
 };
-
+ 
 export default Tienda;

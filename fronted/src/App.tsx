@@ -12,6 +12,8 @@ import Noticias from "./pages/Invitado/Noticias.tsx";
 import Tienda from "./pages/Invitado/Tienda.tsx";
 import Contacto from "./pages/Invitado/Contacto.tsx";
 import NoticiaDetalle from "./components/Invitado/Noticias/NoticiaDetalle.tsx";
+import DetalleProducto from "./components/Invitado/Tiendas/Detalleproducto.tsx";
+
 function App() {
   return (
     <Router>
@@ -27,6 +29,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<Registro />} />
           <Route path="/noticias/:slug" element={<NoticiaDetalle />} />
+          <Route path="/tienda/:id" element={<DetalleProducto />} />
         </Routes>
       </main>
       <Footer />
