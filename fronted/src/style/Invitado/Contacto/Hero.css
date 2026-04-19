@@ -30,7 +30,7 @@
 .hero-titulo {
    font-family: 'Kaushan Script', serif;
   font-style: italic;
-  font-size: 44px;
+  font-size: 60px;
   font-weight: 700;
   color: #cc0000;
   margin: 0 0 10px 0;
@@ -52,7 +52,7 @@
 
 @media (max-width: 600px) {
   .hero-titulo {
-    font-size: 28px;
+    font-size: 36px;
   }
   .hero-subtitulo {
     font-size: 13px;
