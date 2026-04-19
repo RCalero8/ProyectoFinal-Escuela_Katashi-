@@ -1,6 +1,6 @@
 const express  = require("express");
 const router   = express.Router();
-const conexion = require("../config/db");
+const pool = require("../config/db");
 
 //Get /api/material
 router.get("/", async (req, res) => {
