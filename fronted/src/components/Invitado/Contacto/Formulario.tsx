@@ -149,7 +149,7 @@ const Formulario: React.FC = () => {
           <div className="contacto-mapa-wrap">
             <iframe
               className="contacto-mapa-iframe"
-              src="https://maps.app.goo.gl/TpqYmKzS15V9yPiP6"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3759.6409383161495!2d-6.036644023709018!3d37.4019214335496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126b7d04ddc389%3A0x4f1ca9e75f753c9f!2sHermandad%20Del%20Roc%C3%ADo%20De%20Camas!5e1!3m2!1ses!2sus!4v1776606024921!5m2!1ses!2sus"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
