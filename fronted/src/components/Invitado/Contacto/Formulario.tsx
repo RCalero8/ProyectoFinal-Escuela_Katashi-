@@ -129,15 +129,15 @@ const Formulario: React.FC = () => {
           <div className="contacto-info-card">
             <div className="contacto-info-item">
               <span className="contacto-info-titulo">📍 Dirección</span>
-              <p className="contacto-info-texto">C/ Hermanos Machado, 4<br />41900 Camas (Sevilla)</p>
+              <p className="contacto-info-texto">C/ Juan Agustín Palomar, 10<br />41900 Camas (Sevilla)</p>
             </div>
             <div className="contacto-info-item">
               <span className="contacto-info-titulo">📞 Teléfono</span>
-              <a className="contacto-info-link" href="tel:600123456">600 123 456</a>
+              <a className="contacto-info-link" href="tel:955123456">955 123 456</a>
             </div>
             <div className="contacto-info-item">
               <span className="contacto-info-titulo">✉️ Email</span>
-              <a className="contacto-info-link" href="mailto:escuela@karatecamas.es">escuela@karatecamas.es</a>
+              <a className="contacto-info-link" href="mailto:infoKarateKatashi@gmail.com">infoKarateKatashi@gmail.com</a>
             </div>
             <div className="contacto-info-item">
               <span className="contacto-info-titulo">🕐 Horario de atención</span>
