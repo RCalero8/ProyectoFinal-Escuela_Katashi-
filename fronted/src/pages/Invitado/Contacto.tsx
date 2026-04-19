@@ -1,6 +1,9 @@
+import Hero from "../../components/Invitado/Contacto/Hero"
 const Contacto = () => {
   return (
-    <h1>Contacto</h1>
+    <>
+    <Hero />
+    </>
   );
 };
 
