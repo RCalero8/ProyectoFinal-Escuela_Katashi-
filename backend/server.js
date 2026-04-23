@@ -9,8 +9,8 @@ const rutasClases = require("./routes/clases");
 const rutasSenseis = require("./routes/senseis");
 const rutasTestimonios = require("./routes/testimonios");
 const rutasMaterial = require("./routes/material");
+const rutasAuth = require("./routes/auth");  // ← aquí arriba
 const app = express();
-const rutasAuth = require("./routes/auth");
 
 // Configuración de CORS mejorada para Vercel
 app.use(cors()); 
