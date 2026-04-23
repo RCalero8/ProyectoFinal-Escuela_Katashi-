@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../../style/Invitado/LoginForm.css";
+import "../../style/Login/LoginForm.css";
 
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 
