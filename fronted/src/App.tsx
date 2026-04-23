@@ -53,7 +53,7 @@ function App() {
           <Route 
             path="/usuario" 
             element={
-              usuario?.rol === 'CLIENTE' ? <PanelUsuario /> : <Navigate to="/login" />
+              usuario?.tipo_usuario === 'CLIENTE' ? <PanelUsuario /> : <Navigate to="/login" />
             } 
           />
 
@@ -61,7 +61,7 @@ function App() {
           <Route 
             path="/admin" 
             element={
-              usuario?.rol === 'ADMINISTRADOR' ? <PanelAdmin /> : <Navigate to="/login" />
+              usuario?.tipo_usuario === 'ADMINISTRADOR' ? <PanelAdmin /> : <Navigate to="/login" />
             } 
           />
 
@@ -75,4 +75,3 @@ function App() {
 }
 
 export default App;
-
