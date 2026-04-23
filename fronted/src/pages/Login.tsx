@@ -1,10 +1,9 @@
-import Logins from "../components/Login/Loginhero";
 
 
 const Login = () => {
     return (
         <>
-        <Logins />
+            <h1>Login</h1>
        </>
     )
 }
