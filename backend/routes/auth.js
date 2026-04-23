@@ -1,62 +1,34 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const conexion = require("../config/db");
+const pool = require('../config/db');
 
-// POST /api/auth/login - Iniciar sesión
-router.post("/login", async (req, res) => {
-  const { email, contrasena } = req.body;
-
-  if (!email || !contrasena) {
-    return res.status(400).json({ error: "Email y contraseña son requeridos" });
+//POST /api/auth/login
+router.post('/login', async (req, res) => {
+const { email, contrasena } = req.body;
+  if (!email || !password) {
+    return res.status(400).json({error: "Email y contraseña son obligatorios"})
   }
-
   try {
-    // Consulta usando los nombres de campos exactos de la imagen del usuario
-    const query = "SELECT id_usuario, nombre, apellido, email, tipo_usuario FROM usuarios WHERE email = $1 AND contrasena = $2";
-    const resultado = await conexion.query(query, [email, contrasena]);
-
-    if (resultado.rows.length > 0) {
-      const usuario = resultado.rows[0];
-      res.json({
-        mensaje: "Inicio de sesión exitoso",
-        usuario: {
-          id: usuario.id_usuario,
-          nombre: usuario.nombre,
-          apellido: usuario.apellido,
-          email: usuario.email,
-          rol: usuario.tipo_usuario
-        }
-      });
-    } else {
-      res.status(401).json({ error: "Credenciales incorrectas" });
+    const resultado = await pool.query(
+       `SELECT id_usuario, nombre, apellido, email, tipo_usuario
+       FROM usuario
+       WHERE email = $1 AND contrasena = $2`,
+       [email, password]
+    );
+    if (resultado.rows.length === 0){
+      return res.status(401).json({error: "Email o contraseña incorrectos"});
     }
+    const usuario = resultado.rows[0];
+    res.json({
+      id_usuario:   usuario.id_usuario,
+      nombre:       usuario.nombre,
+       apellido:    usuario.apellido,
+      email:        usuario.email,
+      tipo_usuario: usuario.tipo_usuario,
+    });
   } catch (error) {
-    console.error("Error en el login:", error);
-    res.status(500).json({ error: "Error interno del servidor" });
-  }
-});
-
-// POST /api/auth/recuperar - Simular recuperación de contraseña
-router.post("/recuperar", async (req, res) => {
-  const { email } = req.body;
-
-  if (!email) {
-    return res.status(400).json({ error: "El email es requerido" });
-  }
-
-  try {
-    const query = "SELECT id_usuario FROM usuarios WHERE email = $1";
-    const resultado = await conexion.query(query, [email]);
-
-    if (resultado.rows.length > 0) {
-      // Aquí iría la lógica para enviar un email real
-      res.json({ mensaje: "Se ha enviado un enlace de recuperación a tu correo" });
-    } else {
-      res.status(404).json({ error: "No existe una cuenta con ese email" });
-    }
-  } catch (error) {
-    console.error("Error en recuperación:", error);
-    res.status(500).json({ error: "Error interno del servidor" });
+    console.error(error);
+    res.status(500).json({error: "Error interno del servidor"});
   }
 });
 
