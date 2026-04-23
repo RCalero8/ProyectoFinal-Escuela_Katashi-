@@ -10,13 +10,22 @@ export function Header() {
         return location.pathname === path ? "active" : "";
     };
 
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
+    const toggleMenu = () => setMenuOpen(!menuOpen);
+    const closeMenu = () => setMenuOpen(false);
 
-    const closeMenu = () => {
-        setMenuOpen(false);
-    };
+    // Rutas donde solo se muestra el header simple
+    const isAuthPage = ["/login", "/registro"].includes(location.pathname);
+
+    if (isAuthPage) {
+        return (
+            <header className="header header-simple">
+                <div className="header-simple-content">
+                    <img src="/Imagenes_Invitado/Logo.png" alt="Logo" className="logo_header" />
+                    <span className="header-simple-titulo">Escuela de Karate Katashi</span>
+                </div>
+            </header>
+        );
+    }
     
     return (
         <header className="header">
@@ -24,24 +33,12 @@ export function Header() {
                 <img src="/Imagenes_Invitado/Logo.png" alt="Logo" className="logo_header" />
                 <nav className="nav">
                     <ul>
-                        <li>
-                            <Link to="/" className={isActive("/")}>Inicio</Link>
-                        </li>
-                        <li>
-                            <Link to="/conocenos" className={isActive("/conocenos")}>Conocenos</Link>
-                        </li>
-                        <li>
-                            <Link to="/clases" className={isActive("/clases")}>Clases</Link>
-                        </li>
-                        <li>
-                            <Link to="/noticias" className={isActive("/noticias")}>Noticias</Link>
-                        </li>
-                        <li>
-                            <Link to="/tienda" className={isActive("/tienda")}>Tienda</Link>
-                        </li>
-                        <li>
-                            <Link to="/contacto" className={isActive("/contacto")}>Contacto</Link>
-                        </li>
+                        <li><Link to="/" className={isActive("/")}>Inicio</Link></li>
+                        <li><Link to="/conocenos" className={isActive("/conocenos")}>Conocenos</Link></li>
+                        <li><Link to="/clases" className={isActive("/clases")}>Clases</Link></li>
+                        <li><Link to="/noticias" className={isActive("/noticias")}>Noticias</Link></li>
+                        <li><Link to="/tienda" className={isActive("/tienda")}>Tienda</Link></li>
+                        <li><Link to="/contacto" className={isActive("/contacto")}>Contacto</Link></li>
                     </ul>
                 </nav>
             </div>
@@ -56,24 +53,12 @@ export function Header() {
             </div>
             <nav className={`nav mobile ${menuOpen ? "open" : ""}`}>
                 <ul>
-                    <li>
-                        <Link to="/" className={isActive("/")} onClick={closeMenu}>Inicio</Link>
-                    </li>
-                    <li>
-                        <Link to="/conocenos" className={isActive("/conocenos")} onClick={closeMenu}>Conocenos</Link>
-                    </li>
-                    <li>
-                        <Link to="/clases" className={isActive("/clases")} onClick={closeMenu}>Clases</Link>
-                    </li>
-                    <li>
-                        <Link to="/noticias" className={isActive("/noticias")} onClick={closeMenu}>Noticias</Link>
-                    </li>
-                    <li>
-                        <Link to="/tienda" className={isActive("/tienda")} onClick={closeMenu}>Tienda</Link>
-                    </li>
-                    <li>
-                        <Link to="/contacto" className={isActive("/contacto")} onClick={closeMenu}>Contacto</Link>
-                    </li>
+                    <li><Link to="/" className={isActive("/")} onClick={closeMenu}>Inicio</Link></li>
+                    <li><Link to="/conocenos" className={isActive("/conocenos")} onClick={closeMenu}>Conocenos</Link></li>
+                    <li><Link to="/clases" className={isActive("/clases")} onClick={closeMenu}>Clases</Link></li>
+                    <li><Link to="/noticias" className={isActive("/noticias")} onClick={closeMenu}>Noticias</Link></li>
+                    <li><Link to="/tienda" className={isActive("/tienda")} onClick={closeMenu}>Tienda</Link></li>
+                    <li><Link to="/contacto" className={isActive("/contacto")} onClick={closeMenu}>Contacto</Link></li>
                 </ul>
             </nav>
         </header>
