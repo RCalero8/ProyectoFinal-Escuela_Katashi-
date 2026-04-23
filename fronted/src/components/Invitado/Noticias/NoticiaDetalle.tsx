@@ -28,7 +28,7 @@ const PaginaNoticiaDetalle: React.FC = () => {
   if (!noticiaDB || !contenidoExtra) return null;
 
   return (
-    <div className="noticia-detalle-container" style={{ maxWidth: '900px', margin: '0 auto', padding: '40px 20px' }}>
+    <div className="noticia-detalle-container" style={{ width: '100%', margin: '0', padding: '40px 20px' }}>
       {/* Botón Volver */}
       <button 
         onClick={() => navigate(-1)} 

@@ -55,7 +55,7 @@ const Cursos: React.FC = () => {
         boxSizing: "border-box",
       }}
     >
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+      <div style={{ width: "100%", margin: "0" }}>
 
         {/* Cabecera */}
         <header style={{ marginBottom: 32 }}>
@@ -69,7 +69,7 @@ const Cursos: React.FC = () => {
           }}>
             Nuestros Cursos
           </h1>
-          <p style={{ fontSize: 15, color: "#374151", maxWidth: 560 }}>
+          <p style={{ fontSize: 15, color: "#374151", width: "100%" }}>
             Ofrecemos clases adaptadas a todas las edades y niveles. Encuentra el grupo perfecto para ti.
           </p>
         </header>
