@@ -1,9 +1,9 @@
-
+import LoginHero from "../components/Login/LoginHero";
 
 const Login = () => {
     return (
         <>
-            <h1>Login</h1>
+            <LoginHero/>
        </>
     )
 }
