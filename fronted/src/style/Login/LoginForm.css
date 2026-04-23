@@ -1,0 +1,187 @@
+.login-body {
+  width: 100%;
+  background: #ffffff;
+  padding: 48px;
+  box-sizing: border-box;
+}
+
+.login-body-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ── Títulos ── */
+.login-titulo {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 700;
+  color: #b8860b;
+  margin: 0 0 20px 0;
+}
+
+/* ── Campos ── */
+.login-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.login-field-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111111;
+  min-width: 90px;
+}
+
+.login-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #111111;
+  outline: none;
+  transition: border-color 0.2s ease;
+  font-family: inherit;
+}
+
+.login-input::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.login-input:focus {
+  border-color: #b8860b;
+}
+
+/* Recordarme + texto */
+.login-recordar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.login-recordar input {
+  accent-color: #b8860b;
+  cursor: pointer;
+}
+
+.login-registro-texto {
+  font-size: 12px;
+  color: #374151;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.login-registro-texto a {
+  color: #cc0000;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Botón iniciar sesión */
+.login-btn-submit {
+  padding: 9px 20px;
+  background: #cc0000;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: 'Georgia', serif;
+  margin-bottom: 20px;
+}
+
+.login-btn-submit:hover {
+  background: #aa0000;
+}
+
+/* Botones sociales */
+.login-sociales {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-btn-social {
+  width: 100%;
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #111111;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  font-family: inherit;
+}
+
+.login-btn-social:hover {
+  background: #f3f4f6;
+  border-color: #6b7280;
+}
+
+/* ── Recuperar contraseña ── */
+.login-recuperar-titulo {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 700;
+  color: #b8860b;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.login-recuperar-texto {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.7;
+  margin: 0 0 20px 0;
+}
+
+.login-btn-recuperar {
+  padding: 9px 20px;
+  background: #cc0000;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: 'Georgia', serif;
+  margin-top: 12px;
+  display: block;
+}
+
+.login-btn-recuperar:hover {
+  background: #aa0000;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .login-body {
+    padding: 32px 20px;
+  }
+
+  .login-body-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .login-titulo,
+  .login-recuperar-titulo {
+    font-size: 26px;
+  }
+}
