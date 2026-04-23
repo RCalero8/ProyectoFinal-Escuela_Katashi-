@@ -145,6 +145,24 @@
     width: 100%;
     text-align: center;
 }
+.header-simple {
+  background: #2d2d2d;
+  justify-content: center;
+  padding: 12px 48px;
+}
+
+.header-simple-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-simple-titulo {
+    font-family: 'Kaushan Script', cursive;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+}
 
 /*Responsive*/
 @media (max-width: 768px) {
