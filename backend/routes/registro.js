@@ -1,6 +1,6 @@
-const express = requiere ('express');
+const express = require ('express');
 const router = express.Router();
-const pool = requiere('../config/db');
+const pool = require('../config/db');
 
 //Post /api/registro
 router.post('/', async (req, res) => {
