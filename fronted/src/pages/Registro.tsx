@@ -1,2 +1,11 @@
-const Registro = () => <h1>Registro</h1>;
+import RegistroForm from "../components/Registro/Registroform";
+const Registro = () => {
+    return (
+        <>
+          <RegistroForm/>
+       </>
+    )
+}
+
 export default Registro;
+

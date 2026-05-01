@@ -1,0 +1,147 @@
+.registro-body {
+  width: 100%;
+  background: #ffffff;
+  padding: 48px;
+  box-sizing: border-box;
+}
+
+.registro-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ── Formulario ── */
+.registro-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.registro-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111111;
+  min-width: 170px;
+}
+
+.registro-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #111111;
+  outline: none;
+  background: #e5e7eb;
+  transition: border-color 0.2s ease;
+  font-family: inherit;
+}
+
+.registro-input::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.registro-input:focus {
+  border-color: #b8860b;
+  background: #ffffff;
+}
+
+/* Checkbox */
+.registro-terminos {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+.registro-terminos input {
+  width: 18px;
+  height: 18px;
+  accent-color: #cc0000;
+  cursor: pointer;
+}
+
+/* Link login */
+.registro-login-link {
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.registro-login-link a {
+  color: #2563eb;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.registro-login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Error */
+.registro-error {
+  font-size: 13px;
+  color: #cc0000;
+  margin-bottom: 10px;
+}
+
+/* Botón */
+.registro-btn {
+  padding: 12px 32px;
+  background: #cc0000;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: 'Georgia', serif;
+}
+
+.registro-btn:hover {
+  background: #aa0000;
+}
+
+/* Imagen lateral */
+.registro-imagen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.registro-imagen img {
+  width: 100%;
+  max-width: 280px;
+  object-fit: contain;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .registro-body {
+    padding: 32px 20px;
+  }
+
+  .registro-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .registro-imagen {
+    display: none;
+  }
+
+  .registro-label {
+    min-width: 130px;
+    font-size: 14px;
+  }
+}

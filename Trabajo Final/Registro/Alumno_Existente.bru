@@ -1,0 +1,25 @@
+meta {
+  name: Alumno_Existente
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://proyectofinal-escuela-katashi.onrender.com/api/registro
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nombre": "Roberto",
+    "apellido": "Diaz",
+    "email": "roberto2@gmail.com",
+    "password": "1234"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
