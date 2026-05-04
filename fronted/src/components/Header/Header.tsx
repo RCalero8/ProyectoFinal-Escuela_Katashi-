@@ -14,7 +14,7 @@ export function Header() {
     const closeMenu = () => setMenuOpen(false);
 
     // Rutas donde solo se muestra el header simple
-    const isAuthPage = ["/login", "/registro"].includes(location.pathname);
+    const isAuthPage = ["/login", "/registro", "/matriculacion"].includes(location.pathname);
 
     if (isAuthPage) {
         return (

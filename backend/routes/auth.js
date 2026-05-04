@@ -4,9 +4,9 @@ const pool = require('../config/db');
 
 // POST /api/auth/login
 router.post('/login', async (req, res) => {
-  const { email, password } = req.body;
+  const { email, contrasena } = req.body;
 
-  if (!email || !password) {
+  if (!email || !contrasena) {
     return res.status(400).json({ error: "Email y contraseña son obligatorios" });
   }
 
@@ -15,7 +15,7 @@ router.post('/login', async (req, res) => {
       `SELECT id_usuario, nombre, apellido, email, tipo_usuario
        FROM usuario
        WHERE email = $1 AND contrasena = $2`,
-      [email, password]
+      [email, contrasena]
     );
 
     if (resultado.rows.length === 0) {

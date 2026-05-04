@@ -11,6 +11,7 @@ const rutasTestimonios = require("./routes/testimonios");
 const rutasMaterial = require("./routes/material");
 const rutasAuth = require("./routes/auth"); 
 const rutasRegistro = require("./routes/registro");
+const rutasMatriculacion = require("./routes/matriculacion");
 const app = express();
 
 // Configuración de CORS mejorada para Vercel
@@ -26,6 +27,7 @@ app.use("/api/testimonios", rutasTestimonios);
 app.use("/api/material", rutasMaterial);
 app.use("/api/auth", rutasAuth);
 app.use("/api/registro", rutasRegistro);
+app.use("/api/matriculacion", rutasMatriculacion);
 
 
 // Ruta de prueba para saber si el backend responde
