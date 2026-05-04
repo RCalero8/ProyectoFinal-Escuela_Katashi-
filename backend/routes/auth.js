@@ -1,8 +1,9 @@
+// auth.js
 const express = require('express');
 const router = express.Router();
-const pool = require('../config/db');
+const bcrypt = require('bcrypt');
+const pool = require('../config/db'); // Importamos el mismo pool
 
-// POST /api/auth/login
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -11,11 +12,10 @@ router.post('/login', async (req, res) => {
   }
 
   try {
+    // 1. Buscar usuario por email
     const resultado = await pool.query(
-      `SELECT id_usuario, nombre, apellido, email, tipo_usuario
-       FROM usuario
-       WHERE email = $1 AND contrasena = $2`,
-      [email, password]
+      'SELECT * FROM usuarios WHERE email = $1', 
+      [email]
     );
 
     if (resultado.rows.length === 0) {
@@ -23,6 +23,15 @@ router.post('/login', async (req, res) => {
     }
 
     const usuario = resultado.rows[0];
+
+    // 2. Comparar contraseña ingresada con el hash guardado
+    const coincide = await bcrypt.compare(password, usuario.contrasena);
+
+    if (!coincide) {
+      return res.status(401).json({ error: "Email o contraseña incorrectos" });
+    }
+
+    // 3. Login exitoso
     res.json({
       id_usuario:   usuario.id_usuario,
       nombre:       usuario.nombre,
