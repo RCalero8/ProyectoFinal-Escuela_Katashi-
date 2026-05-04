@@ -1,44 +1,52 @@
-// registro.js
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const pool = require('../config/db'); // Importamos el pool centralizado
+const pool = require('../config/db'); // Asumiendo que esta es la ruta a tu archivo de conexión
 
-router.post('/api/registro', async (req, res) => {
+router.post('/registro', async (req, res) => {
   const { nombre, apellido, email, contrasena } = req.body;
 
+  // Validación básica
   if (!nombre || !apellido || !email || !contrasena) {
-    return res.status(400).json({ error: "Todos los campos son obligatorios" });
+    return res.status(400).json({ error: "Faltan datos obligatorios" });
   }
 
   try {
-    // 1. Verificar si el email ya existe
-    const existeRes = await pool.query('SELECT * FROM usuarios WHERE email = $1', [email]);
-    if (existeRes.rows.length > 0) {
-      return res.status(400).json({ error: "El correo electrónico ya está registrado" });
-    }
+    // Iniciar transacción
+    await pool.query('BEGIN');
 
-    // 2. Cifrar la contraseña
+    // 1. Cifrar contraseña
     const saltRounds = 10;
     const contrasenaHash = await bcrypt.hash(contrasena, saltRounds);
 
-    // 3. Insertar usuario con la contraseña cifrada
-    const insertQuery = `
-      INSERT INTO usuarios (nombre, apellido, email, contrasena, tipo_usuario)
+    // 2. Insertar en tabla 'usuario'
+    const insertUsuario = `
+      INSERT INTO usuario (nombre, apellido, email, contrasena, tipo_usuario)
       VALUES ($1, $2, $3, $4, 'CLIENTE')
-      RETURNING id_usuario, nombre, apellido, email, tipo_usuario
+      RETURNING id_usuar;
     `;
-    
-    const result = await pool.query(insertQuery, [nombre, apellido, email, contrasenaHash]);
-    
-    res.status(201).json({
-      mensaje: "Usuario registrado con éxito",
-      usuario: result.rows[0]
-    });
+    const userRes = await pool.query(insertUsuario, [nombre, apellido, email, contrasenaHash]);
+    const nuevoIdUsuario = userRes.rows[0].id_usuar;
+
+    // 3. Insertar en tabla 'alumno'
+    // NOTA: Como en tu formulario no pides DNI ni fecha de nacimiento, 
+    // insertaremos valores temporales o NULLs. Asegúrate de actualizar esto luego.
+    const insertAlumno = `
+      INSERT INTO alumno (nombre, apellido, id_usuar, dni, f_nacimiento, nivel)
+      VALUES ($1, $2, $3, 'PENDIENTE', '2000-01-01', 'Blanco');
+    `;
+    await pool.query(insertAlumno, [nombre, apellido, nuevoIdUsuario]);
+
+    // Confirmar transacción
+    await pool.query('COMMIT');
+
+    res.status(201).json({ mensaje: "Usuario y alumno creados con éxito" });
 
   } catch (error) {
-    console.error("Error en el registro:", error);
-    res.status(500).json({ error: "Error interno del servidor" });
+    // Si algo falla, deshacer todo
+    await pool.query('ROLLBACK');
+    console.error("Error en registro:", error);
+    res.status(500).json({ error: "Error al registrar usuario en la base de datos" });
   }
 });
 
