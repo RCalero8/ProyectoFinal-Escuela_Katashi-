@@ -1,0 +1,143 @@
+.matriculacion-body {
+  width: 100%;
+  background: #ffffff;
+  padding: 48px;
+  box-sizing: border-box;
+}
+
+.matriculacion-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Titulo */
+.matriculacion-titulo {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 700;
+  color: #b8860b;
+  margin: 0 0 8px 0;
+}
+
+.matriculacion-subtitulo {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.6;
+  margin: 0 0 28px 0;
+}
+
+/* Campos */
+.matriculacion-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.matriculacion-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111111;
+  min-width: 180px;
+}
+
+.matriculacion-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #111111;
+  outline: none;
+  background: #e5e7eb;
+  transition: border-color 0.2s ease;
+  font-family: inherit;
+}
+
+.matriculacion-input::placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.matriculacion-input:focus {
+  border-color: #b8860b;
+  background: #ffffff;
+}
+
+/* Select */
+.matriculacion-input option {
+  font-family: inherit;
+}
+
+/* Error y éxito */
+.matriculacion-error {
+  font-size: 13px;
+  color: #cc0000;
+  margin-bottom: 10px;
+}
+
+.matriculacion-exito {
+  font-size: 13px;
+  color: #16a34a;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Botón */
+.matriculacion-btn {
+  padding: 12px 32px;
+  background: #cc0000;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: 'Georgia', serif;
+  margin-top: 8px;
+}
+
+.matriculacion-btn:hover {
+  background: #aa0000;
+}
+
+.matriculacion-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Link login */
+.matriculacion-login-link {
+  font-size: 14px;
+  color: #374151;
+  margin-top: 20px;
+  display: block;
+}
+
+.matriculacion-login-link a {
+  color: #2563eb;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.matriculacion-login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .matriculacion-body {
+    padding: 32px 20px;
+  }
+
+  .matriculacion-label {
+    min-width: 130px;
+    font-size: 14px;
+  }
+
+  .matriculacion-titulo {
+    font-size: 26px;
+  }
+}
