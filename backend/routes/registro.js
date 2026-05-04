@@ -23,16 +23,16 @@ router.post('/', async (req, res) => {
     const insertUsuario = `
       INSERT INTO usuario (nombre, apellido, email, contrasena, tipo_usuario)
       VALUES ($1, $2, $3, $4, 'CLIENTE')
-      RETURNING id_usuar;
+      RETURNING id_usuario;
     `;
     const userRes = await pool.query(insertUsuario, [nombre, apellido, email, contrasenaHash]);
-    const nuevoIdUsuario = userRes.rows[0].id_usuar;
+    const nuevoIdUsuario = userRes.rows[0].id_usuario;
 
     // 3. Insertar en tabla 'alumno'
     // NOTA: Como en tu formulario no pides DNI ni fecha de nacimiento, 
     // insertaremos valores temporales o NULLs. Asegúrate de actualizar esto luego.
     const insertAlumno = `
-      INSERT INTO alumno (nombre, apellido, id_usuar, dni, f_nacimiento, nivel)
+      INSERT INTO alumno (nombre, apellido, id_usuario, dni, f_nacimiento, nivel)
       VALUES ($1, $2, $3, 'PENDIENTE', '2000-01-01', 'Blanco');
     `;
     await pool.query(insertAlumno, [nombre, apellido, nuevoIdUsuario]);
