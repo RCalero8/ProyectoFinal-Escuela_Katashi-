@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const pool = require('../config/db'); // Asumiendo que esta es la ruta a tu archivo de conexión
 
-router.post('/registro', async (req, res) => {
+router.post('/', async (req, res) => {
   const { nombre, apellido, email, contrasena } = req.body;
 
   // Validación básica
