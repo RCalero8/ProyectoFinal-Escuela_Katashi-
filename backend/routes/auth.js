@@ -1,4 +1,7 @@
-const bcrypt = require('bcrypt'); // Importa bcrypt
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcrypt');
+const pool = require('../config/db');
 
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
@@ -20,8 +23,10 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: "Credenciales inválidas" });
     }
 
-    res.json({ id_usuar: usuario.id_usuar, nombre: usuario.nombre, tipo: usuario.tipo_usuario });
+    res.json({ id_usuario: usuario.id_usuario, nombre: usuario.nombre, tipo: usuario.tipo_usuario });
   } catch (error) {
     res.status(500).json({ error: "Error de servidor" });
   }
 });
+
+module.exports = router;
