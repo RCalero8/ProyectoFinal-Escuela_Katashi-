@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Header } from "./components/Header/Header.tsx";
 import { Footer } from "./components/Footer/Footer.tsx";
@@ -17,7 +18,7 @@ import InicioUsuario from "./pages/Usuario/Inicio.tsx";
 const PanelAdmin = () => <div style={{padding: '100px'}}><h1>Panel de Administrador</h1></div>;
 
 // Componente de ruta protegida
-const RutaProtegida = ({ tipo, children }: { tipo: string, children: JSX.Element }) => {
+const RutaProtegida = ({ tipo, children }: { tipo: string, children: React.ReactNode }) => {
   const userJson = localStorage.getItem('usuario');
   const usuario = userJson ? JSON.parse(userJson) : null;
   return usuario?.tipo_usuario === tipo ? children : <Navigate to="/login" replace />;
