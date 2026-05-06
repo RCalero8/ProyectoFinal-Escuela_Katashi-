@@ -51,7 +51,7 @@ const RegistroForm: React.FC = () => {
           nombre:   form.nombre,
           apellido: form.apellido,
           email:    form.email,
-          password: form.password,
+          contrasena: form.password,
         }),
       });
 

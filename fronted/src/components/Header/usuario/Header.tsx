@@ -22,25 +22,23 @@ const HeaderUsuario: React.FC = () => {
     <header className="header-usuario">
 
       {/* Logo */}
-      <Link to="/usuario" className="header-usuario-logo">
-        <img src="/Imagenes_Invitado/Logo.png" alt="Logo Katashi" />
-      </Link>
-
-      {/* Nav */}
-      <nav className="header-usuario-nav">
-        <ul>
-          <li><Link to="/usuario" className={isActive("/usuario")}>Inicio</Link></li>
-          <li><Link to="/usuario/clases" className={isActive("/usuario/clases")}>Mis clases</Link></li>
-          <li><Link to="/usuario/pagos" className={isActive("/usuario/pagos")}>Pagos</Link></li>
-          <li><Link to="/usuario/federacion" className={isActive("/usuario/federacion")}>Federación</Link></li>
-          <li><Link to="/noticias" className={isActive("/noticias")}>Noticias</Link></li>
-          <li><Link to="/contacto" className={isActive("/contacto")}>Contacto</Link></li>
-          <li><Link to="/tienda" className={isActive("/tienda")}>Tienda</Link></li>
-        </ul>
-      </nav>
+      <div className="header-usuario-left">
+        <img src="/Imagenes_Invitado/Logo.png" alt="Logo Katashi" className="logo_header" />
+        <nav className="nav">
+          <ul>
+            <li><Link to="/usuario" className={isActive("/usuario")}>Inicio</Link></li>
+            <li><Link to="/usuario/clases" className={isActive("/usuario/clases")}>Mis clases</Link></li>
+            <li><Link to="/usuario/pagos" className={isActive("/usuario/pagos")}>Pagos</Link></li>
+            <li><Link to="/usuario/federacion" className={isActive("/usuario/federacion")}>Federación</Link></li>
+            <li><Link to="/noticias" className={isActive("/noticias")}>Noticias</Link></li>
+            <li><Link to="/contacto" className={isActive("/contacto")}>Contacto</Link></li>
+            <li><Link to="/tienda" className={isActive("/tienda")}>Tienda</Link></li>
+          </ul>
+        </nav>
+      </div>
 
       {/* Perfil */}
-      <div className="header-usuario-perfil">
+      <div className="header-usuario-right">
         <span className="header-usuario-bienvenida">
           Bienvenido, <span>{nombre}</span>
         </span>
