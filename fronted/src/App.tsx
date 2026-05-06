@@ -13,13 +13,8 @@ import Contacto from "./pages/Invitado/Contacto.tsx";
 import NoticiaDetalle from "./components/Invitado/Noticias/NoticiaDetalle.tsx";
 import DetalleProducto from "./components/Invitado/Tiendas/Detalleproducto.tsx";
 
-// --- IMPORTA TUS NUEVAS PÁGINAS DE USUARIO Y ADMIN AQUÍ ---
-// import PanelUsuario from "./pages/Usuario/PanelUsuario.tsx";
-// import PanelAdmin from "./pages/Admin/PanelAdmin.tsx";
-
-// Componentes temporales para que no te de error al compilar
-const PanelUsuario = () => <div style={{padding: '100px'}}><h1>Panel del Alumno</h1></div>;
-const PanelAdmin = () => <div style={{padding: '100px'}}><h1>Panel de Administrador</h1></div>;
+//Usuarios
+import Inicio from "./pages/Usuario/Inicio.tsx";
 
 function App() {
   // Función para obtener el usuario y su rol desde el localStorage
@@ -53,7 +48,7 @@ function App() {
           <Route 
             path="/usuario" 
             element={
-              usuario?.tipo_usuario === 'CLIENTE' ? <PanelUsuario /> : <Navigate to="/login" />
+              usuario?.tipo_usuario === 'CLIENTE' ? <Inicio /> : <Navigate to="/login" />
             } 
           />
 
