@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Header } from "./components/Header/Header.tsx";
 import { Footer } from "./components/Footer/Footer.tsx";
 
@@ -12,16 +12,19 @@ import Tienda from "./pages/Invitado/Tienda.tsx";
 import Contacto from "./pages/Invitado/Contacto.tsx";
 import NoticiaDetalle from "./components/Invitado/Noticias/NoticiaDetalle.tsx";
 import DetalleProducto from "./components/Invitado/Tiendas/Detalleproducto.tsx";
-
-
-// Quita esto:
-const PanelAdmin = () => <div style={{padding: '100px'}}><h1>Panel del Alumno</h1></div>;
-
-//Usuarios
 import InicioUsuario from "./pages/Usuario/Inicio.tsx";
 
-function App() {
-  // Función para obtener el usuario y su rol desde el localStorage
+// Componente temporal admin
+const PanelAdmin = () => <div style={{padding: '100px'}}><h1>Panel de Administrador</h1></div>;
+
+// Rutas donde NO aparece el Header/Footer de invitado
+const RUTAS_SIN_HEADER = ["/usuario", "/admin", "/login", "/registro"];
+
+function Layout() {
+  const location = useLocation();
+  const ocultarHeader = RUTAS_SIN_HEADER.some(r => location.pathname.startsWith(r));
+
+  // Lee el usuario en cada render para estar siempre actualizado
   const getUsuario = () => {
     const userJson = localStorage.getItem('usuario');
     return userJson ? JSON.parse(userJson) : null;
@@ -30,11 +33,11 @@ function App() {
   const usuario = getUsuario();
 
   return (
-    <Router>
-      <Header />
+    <>
+      {!ocultarHeader && <Header />}
       <main>
         <Routes>
-          {/* --- RUTAS PÚBLICAS (Invitados) --- */}
+          {/* Rutas públicas */}
           <Route path="/" element={<Inicio />} />
           <Route path="/conocenos" element={<Conocenos />} />
           <Route path="/clases" element={<Clases />} />
@@ -46,29 +49,36 @@ function App() {
           <Route path="/noticias/:slug" element={<NoticiaDetalle />} />
           <Route path="/tienda/:id" element={<DetalleProducto />} />
 
-          {/* --- RUTAS PROTEGIDAS (Requieren Login) --- */}
-          
-          {/* Ruta para Alumnos (CLIENTE) */}
-          <Route 
-            path="/usuario" 
+          {/* Rutas protegidas */}
+          <Route
+            path="/usuario"
             element={
-              usuario?.tipo_usuario === 'CLIENTE' ? <InicioUsuario /> : <Navigate to="/login" />
-            } 
+              usuario?.tipo_usuario === 'CLIENTE'
+                ? <InicioUsuario />
+                : <Navigate to="/login" />
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              usuario?.tipo_usuario === 'ADMINISTRADOR'
+                ? <PanelAdmin />
+                : <Navigate to="/login" />
+            }
           />
 
-          {/* Ruta para Administradores (ADMINISTRADOR) */}
-          <Route 
-            path="/admin" 
-            element={
-              usuario?.tipo_usuario === 'ADMINISTRADOR' ? <PanelAdmin /> : <Navigate to="/login" />
-            } 
-          />
-
-          {/* Redirección automática si entran a una ruta que no existe */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
-      <Footer />
+      {!ocultarHeader && <Footer />}
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Layout />
     </Router>
   );
 }
