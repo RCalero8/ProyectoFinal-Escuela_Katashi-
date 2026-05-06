@@ -17,8 +17,6 @@ import DetalleProducto from "./components/Invitado/Tiendas/Detalleproducto.tsx";
 // Quita esto:
 const PanelAdmin = () => <div style={{padding: '100px'}}><h1>Panel del Alumno</h1></div>;
 
-// Y añade el import arriba:
-import PanelUsuario from "./pages/Usuario/PanelUsuario";
 //Usuarios
 import InicioUsuario from "./pages/Usuario/Inicio.tsx";
 
