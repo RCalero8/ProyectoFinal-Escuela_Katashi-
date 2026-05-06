@@ -10,6 +10,8 @@ interface DashboardItem {
 }
 
 const UserDashboard: React.FC = () => {
+    const formatTitle = (title: string) => title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
+
     const items: DashboardItem[] = [
         {
             id: 1,
@@ -48,7 +50,7 @@ const UserDashboard: React.FC = () => {
                     <div key={item.id} className="dashboard-card">
                         <div className="card-header">
                             <span className="card-icon">{item.icon}</span>
-                            <h2 className="card-title">{item.title}</h2>
+                            <h2 className="card-title">{formatTitle(item.title)}</h2>
                         </div>
                         <p className="card-description">{item.description}</p>
                         <a href={item.path} className="card-button">
