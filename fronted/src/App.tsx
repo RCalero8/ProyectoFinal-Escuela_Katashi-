@@ -14,7 +14,7 @@ import NoticiaDetalle from "./components/Invitado/Noticias/NoticiaDetalle.tsx";
 import DetalleProducto from "./components/Invitado/Tiendas/Detalleproducto.tsx";
 
 //Usuarios
-import Inicio from "./pages/Usuario/Inicio.tsx";
+import InicioUsuario from "./pages/Usuario/Inicio.tsx";
 
 function App() {
   // Función para obtener el usuario y su rol desde el localStorage
@@ -48,7 +48,7 @@ function App() {
           <Route 
             path="/usuario" 
             element={
-              usuario?.tipo_usuario === 'CLIENTE' ? <Inicio /> : <Navigate to="/login" />
+              usuario?.tipo_usuario === 'CLIENTE' ? <InicioUsuario /> : <Navigate to="/login" />
             } 
           />
 
