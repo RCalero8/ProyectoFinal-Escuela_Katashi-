@@ -18,6 +18,7 @@ const LoginForm: React.FC = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+    console.log("Datos a enviar", {email, password});
     try {
       const res = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
