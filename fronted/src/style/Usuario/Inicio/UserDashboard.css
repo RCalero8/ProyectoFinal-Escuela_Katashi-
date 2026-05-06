@@ -1,0 +1,83 @@
+.user-dashboard-container {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #fdfdfd;
+}
+
+.user-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.dashboard-card {
+  background-color: #fff;
+  border: 1px solid #eee;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-icon {
+  font-size: 24px;
+  margin-right: 15px;
+}
+
+.card-title {
+  font-family: 'Dancing Script', cursive, serif;
+  font-size: 2.2rem;
+  color: #000;
+  margin: 0;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.4;
+  margin-bottom: 40px;
+  max-width: 80%;
+}
+
+.card-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #c00000;
+  color: #fff;
+  border: none;
+  padding: 8px 25px;
+  font-family: 'Dancing Script', cursive, serif;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.card-button:hover {
+  background-color: #900000;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .user-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-title {
+    font-size: 1.8rem;
+  }
+}
