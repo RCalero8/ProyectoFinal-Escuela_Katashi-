@@ -1,6 +1,6 @@
 .header-usuario {
   width: 100%;
-  background: #1a1a1a;
+  background: #2e2e2e;
   padding: 0 32px;
   box-sizing: border-box;
   display: flex;
@@ -21,28 +21,29 @@
 }
 
 .header-usuario-logo img {
-  width: 40px;
-  height: 40px;
+  width: 112px;
+  height: 112px;
   object-fit: contain;
   border-radius: 50%;
 }
 
 /* Nav */
+.header-usuario-nav{
+  display:block;
+}
 .header-usuario-nav ul {
   display: flex;
-  gap: 24px;
+  gap: 20px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.header-usuario-nav a {
-  font-size: 14px;
-  font-weight: 600;
-  color: #ffffff;
+.header-usuario-nav li a {
   text-decoration: none;
-  transition: color 0.2s ease;
-  white-space: nowrap;
+  color: #b8860b;
+  font-weight: 500;
+  font-family: 'Kaushan Script', cursive;
 }
 
 .header-usuario-nav a:hover,
@@ -108,6 +109,7 @@
   .header-usuario-nav ul {
     gap: 14px;
   }
+  
 
   .header-usuario-nav a {
     font-size: 12px;
