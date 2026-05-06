@@ -1,53 +1,59 @@
-const express = require('express');
+const express = require ('express');
 const router = express.Router();
-const bcrypt = require('bcrypt');
-const pool = require('../config/db'); // Asumiendo que esta es la ruta a tu archivo de conexión
+const pool = require('../config/db');
 
+//Post /api/registro
 router.post('/', async (req, res) => {
-  const { nombre, apellido, email, contrasena } = req.body;
+    const {nombre, apellido, email, password} = req.body;
+    if (!nombre || !apellido || !email || !password){
+        return res.status(400).json({error: "Todos los campos son obligatorios"})
+    }
+    try {
+        //1. Comprobar si el email ya esta registrado
+        const emailExiste = await pool.query(
+            `SELECT id_usuario FROM usuario WHERE email = $1`,
+            [email]
+        );
+        if (emailExiste.rows.length > 0){
+            return res.status(409).json({error: "Este email ya está registrado"});
+        }
+        //2. Buscar si existe como alumno en la escuela
+         const alumno = await pool.query(
+            `SELECT id_alumno FROM alumno
+            WHERE LOWER(nombre) = LOWER($1) AND LOWER(apellido) = LOWER ($2)`,
+            [nombre, apellido]
+         );
+         if (alumno.rows.length === 0){
+            return res.status(404).json({ error: "No encontrado" }); 
+         }
+        //3. Crear el usuario
+        const nuevoUsuario = await pool.query(
+            `INSERT INTO usuario (nombre, apellido, email, contrasena, tipo_usuario)
+            VALUES ($1, $2, $3, $4, 'CLIENTE')
+            RETURNING id_usuario, nombre, apellido, email, tipo_usuario`,
+            [nombre, apellido, email, password]
+        );
 
-  // Validación básica
-  if (!nombre || !apellido || !email || !contrasena) {
-    return res.status(400).json({ error: "Faltan datos obligatorios" });
-  }
+        const usuario = nuevoUsuario.rows[0];
+        //4. Vincular el alumno con el nuevo usuario
+        await pool.query(
+            `Update alumno set id_usuario = $1
+            where id_alumno = $2`,
+            [usuario.id_usuario, alumno.rows[0].id_alumno]
+        );
+        //5. Devolver el usuario para loguearlo directamente
+        res.status(201).json({
+            id_usuario:   usuario.id_usuario,
+            nombre:       usuario.nombre,
+            apellido:     usuario.apellido,
+            email:        usuario.email,
+            tipo_usuario: usuario.tipo_usuario,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({error: "Error interno del servidor"});
+    }
 
-  try {
-    // Iniciar transacción
-    await pool.query('BEGIN');
-
-    // 1. Cifrar contraseña
-    const saltRounds = 10;
-    const contrasenaHash = await bcrypt.hash(contrasena, saltRounds);
-
-    // 2. Insertar en tabla 'usuario'
-    const insertUsuario = `
-      INSERT INTO usuario (nombre, apellido, email, contrasena, tipo_usuario)
-      VALUES ($1, $2, $3, $4, 'CLIENTE')
-      RETURNING id_usuario;
-    `;
-    const userRes = await pool.query(insertUsuario, [nombre, apellido, email, contrasenaHash]);
-    const nuevoIdUsuario = userRes.rows[0].id_usuario;
-
-    // 3. Insertar en tabla 'alumno'
-    // NOTA: Como en tu formulario no pides DNI ni fecha de nacimiento, 
-    // insertaremos valores temporales o NULLs. Asegúrate de actualizar esto luego.
-    const insertAlumno = `
-      INSERT INTO alumno (nombre, apellido, id_usuario, dni, f_nacimiento, nivel)
-      VALUES ($1, $2, $3, 'PENDIENTE', '2000-01-01', 'Blanco');
-    `;
-    await pool.query(insertAlumno, [nombre, apellido, nuevoIdUsuario]);
-
-    // Confirmar transacción
-    await pool.query('COMMIT');
-
-    res.status(201).json({ mensaje: "Usuario y alumno creados con éxito" });
-
-  } catch (error) {
-    // Si algo falla, deshacer todo
-    await pool.query('ROLLBACK');
-    console.error("Error en registro:", error);
-    res.status(500).json({ error: "Error al registrar usuario en la base de datos" });
-  }
 });
 
 module.exports = router;
