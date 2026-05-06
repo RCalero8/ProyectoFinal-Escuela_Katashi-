@@ -31,9 +31,9 @@ const LoginForm: React.FC = () => {
       }
       localStorage.setItem("usuario", JSON.stringify(data));
       if (data.tipo_usuario === "ADMINISTRADOR") {
-        navigate("/admin");
+        window.location.href = "/admin";
       } else {
-        navigate("/cliente");
+        window.location.href = "/usuario";
       }
     } catch {
       setError("Error de conexión. Inténtalo más tarde.");
