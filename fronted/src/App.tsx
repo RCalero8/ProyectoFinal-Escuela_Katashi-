@@ -14,30 +14,26 @@ import NoticiaDetalle from "./components/Invitado/Noticias/NoticiaDetalle.tsx";
 import DetalleProducto from "./components/Invitado/Tiendas/Detalleproducto.tsx";
 import InicioUsuario from "./pages/Usuario/Inicio.tsx";
 
-// Componente temporal admin
 const PanelAdmin = () => <div style={{padding: '100px'}}><h1>Panel de Administrador</h1></div>;
 
-// Rutas donde NO aparece el Header/Footer de invitado
+// Componente de ruta protegida
+const RutaProtegida = ({ tipo, children }: { tipo: string, children: JSX.Element }) => {
+  const userJson = localStorage.getItem('usuario');
+  const usuario = userJson ? JSON.parse(userJson) : null;
+  return usuario?.tipo_usuario === tipo ? children : <Navigate to="/login" replace />;
+};
+
 const RUTAS_SIN_HEADER = ["/usuario", "/admin", "/login", "/registro"];
 
 function Layout() {
   const location = useLocation();
   const ocultarHeader = RUTAS_SIN_HEADER.some(r => location.pathname.startsWith(r));
 
-  // Lee el usuario en cada render para estar siempre actualizado
-  const getUsuario = () => {
-    const userJson = localStorage.getItem('usuario');
-    return userJson ? JSON.parse(userJson) : null;
-  };
-
-  const usuario = getUsuario();
-
   return (
     <>
       {!ocultarHeader && <Header />}
       <main>
         <Routes>
-          {/* Rutas públicas */}
           <Route path="/" element={<Inicio />} />
           <Route path="/conocenos" element={<Conocenos />} />
           <Route path="/clases" element={<Clases />} />
@@ -49,23 +45,17 @@ function Layout() {
           <Route path="/noticias/:slug" element={<NoticiaDetalle />} />
           <Route path="/tienda/:id" element={<DetalleProducto />} />
 
-          {/* Rutas protegidas */}
-          <Route
-            path="/usuario"
-            element={
-              usuario?.tipo_usuario === 'CLIENTE'
-                ? <InicioUsuario />
-                : <Navigate to="/login" />
-            }
-          />
-          <Route
-            path="/admin"
-            element={
-              usuario?.tipo_usuario === 'ADMINISTRADOR'
-                ? <PanelAdmin />
-                : <Navigate to="/login" />
-            }
-          />
+          <Route path="/usuario" element={
+            <RutaProtegida tipo="CLIENTE">
+              <InicioUsuario />
+            </RutaProtegida>
+          } />
+
+          <Route path="/admin" element={
+            <RutaProtegida tipo="ADMINISTRADOR">
+              <PanelAdmin />
+            </RutaProtegida>
+          } />
 
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
