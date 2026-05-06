@@ -1,10 +1,10 @@
 import Header from "../../components/Header/usuario/Header";
-
+import Hero from "../../components/Usuario/Inicio/Hero";
 const Inicio = () => {
   return (
     <>
       <Header />
-      {/* Aquí irán el resto de secciones */}
+      <Hero />
     </>
   );
 };
