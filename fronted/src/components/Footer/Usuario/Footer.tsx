@@ -8,12 +8,13 @@ export const Footer = () => {
         {/* Enlaces principales a la izquierda */}
         <nav className="footer-main-nav">
           <ul>
-            <li><Link to="/">Inicio</Link></li>
-            <li><Link to="/clases">Clase</Link></li>
-            <li><Link to="/horarios">Horario</Link></li>
-            <li><Link to="/noticias">Noticia</Link></li>
-            <li><Link to="/contacto">Contacto</Link></li>
-            <li><Link to="/tienda">Tienda</Link></li>
+            <li><Link to="/usuario">Inicio</Link></li>
+            <li><Link to="/usuario/mis_clases">Mis clases</Link></li>
+            <li><Link to="/usuario/pagos">Pagos</Link></li>
+            <li><Link to="/usuario/federacion">Federacion</Link></li>
+            <li><Link to="/usuario/noticia">Noticia</Link></li>
+            <li><Link to="/usuario/contacto">Contacto</Link></li>
+            <li><Link to="/usuario/tienda">Tienda</Link></li>
           </ul>
         </nav>
 
@@ -28,7 +29,7 @@ export const Footer = () => {
           
           <div className="footer-logo-container">
             <div className="footer-logo-circle">
-            <img src="/Imagenes_Invitados/Logo.png" alt="Logo" />              
+            <img src="/Imagenes_Invitado/Logo.png" alt="Logo" />              
             </div>
           </div>
         </div>
