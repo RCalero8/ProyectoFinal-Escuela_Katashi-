@@ -4,7 +4,7 @@
   padding: 15px 40px;
   width: 100%;
   box-sizing: border-box;
-  font-family: 'Georgia', serif; /* Fuente elegante similar a la imagen */
+  font-family: 'Kaushan Script', serif; /* Fuente elegante similar a la imagen */
 }
 
 .footer-content {
@@ -53,18 +53,11 @@
 /* Contenedor del Logo circular */
 .footer-logo-circle {
   width: 65px;
-  height: 65px;
-  background-color: white;
-  border-radius: 50%;
   overflow: hidden; /* Para que la imagen no se salga del círculo */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #d4af37;
 }
 
 .footer-logo-circle img {
-  width: 85%; /* Ajusta el tamaño del logo dentro del círculo */
+  width: 100%; /* Ajusta el tamaño del logo dentro del círculo */
   height: auto;
   object-fit: contain;
 }
