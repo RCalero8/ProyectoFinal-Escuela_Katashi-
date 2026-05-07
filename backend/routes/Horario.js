@@ -10,7 +10,7 @@ router.get('/:id_usuario', async (req, res) => {
       `SELECT h.id_horario, h.dia, h.hora, h.tipo_clase, h.dojo,
               u.nombre AS sensei_nombre, u.apellido AS sensei_apellido
        FROM horario h
-       LEFT JOIN usuario u ON h.id_sensei = u.id_usuario
+       LEFT JOIN usuario u ON h."Sensei" = u.id_usuario
        WHERE h.id_usuario = $1
        ORDER BY 
          CASE h.dia
