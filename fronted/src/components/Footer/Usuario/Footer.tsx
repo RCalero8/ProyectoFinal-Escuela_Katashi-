@@ -28,8 +28,7 @@ export const Footer = () => {
           
           <div className="footer-logo-container">
             <div className="footer-logo-circle">
-              {/* Aquí puedes poner la imagen del logo real */}
-              <span className="footer-logo-text">KATASHI</span>
+            <img src="/Imagenes_Invitados/Logo.png" alt="Logo" />              
             </div>
           </div>
         </div>
