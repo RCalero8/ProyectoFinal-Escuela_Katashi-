@@ -12,6 +12,7 @@ const rutasMaterial = require("./routes/material");
 const rutasAuth = require("./routes/auth"); 
 const rutasRegistro = require("./routes/registro");
 const rutasHorario = require("./routes/Horario");
+const rutasAsistencia = require ("./routes/asistencia");
 const app = express();
 
 // Configuración de CORS mejorada para Vercel
@@ -28,6 +29,7 @@ app.use("/api/material", rutasMaterial);
 app.use("/api/auth", rutasAuth);
 app.use("/api/registro", rutasRegistro);
 app.use("/api/horario", rutasHorario);
+app.use("/api/asistencia", rutasAsistencia);
 
 
 // Ruta de prueba para saber si el backend responde
