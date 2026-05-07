@@ -10,7 +10,6 @@ interface Noticia {
   categoria: string;
   imagen_url: string;
 }
-
 const LatestNews: React.FC = () => {
   const [noticias, setNoticias] = useState<Noticia[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -20,7 +19,7 @@ const LatestNews: React.FC = () => {
     const fetchLatestNews = async () => {
       try {
         // Fetch only the 2 most recent news items
-        const response = await fetch('/api/noticias?limite=2');
+        const response = await fetch('https://proyectofinal-escuela-katashi.onrender.com/api/noticias?limite=2');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -29,6 +28,7 @@ const LatestNews: React.FC = () => {
       } catch (err) {
         setError('Error al cargar las últimas noticias.');
         console.error('Error fetching latest news:', err);
+        console.error('Detalles del error:', err instanceof Error ? err.message : String(err));
       } finally {
         setLoading(false);
       }
