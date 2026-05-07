@@ -9,7 +9,7 @@ export const Footer = () => {
         <nav className="footer-main-nav">
           <ul>
             <li><Link to="/usuario">Inicio</Link></li>
-            <li><Link to="/usuario/mis_clases">Mis clases</Link></li>
+            <li><Link to="/usuario/clases">Mis clases</Link></li>
             <li><Link to="/usuario/pagos">Pagos</Link></li>
             <li><Link to="/usuario/federacion">Federacion</Link></li>
             <li><Link to="/usuario/noticia">Noticia</Link></li>
