@@ -1,9 +1,10 @@
 .footer-katashi {
-  background-color: #2e2e2e; /* Gris muy oscuro como en la imagen */
-  color: #d4af37; /* Color dorado para las letras */
-  padding: 20px 40px;
+  background-color: #2e2e2e; /* Gris oscuro del diseño */
+  color: #d4af37; /* Dorado para los enlaces */
+  padding: 15px 40px;
   width: 100%;
   box-sizing: border-box;
+  font-family: 'Georgia', serif; /* Fuente elegante similar a la imagen */
 }
 
 .footer-content {
@@ -13,6 +14,7 @@
   flex-wrap: wrap;
 }
 
+/* Navegación izquierda */
 .footer-main-nav ul {
   list-style: none;
   display: flex;
@@ -24,11 +26,11 @@
 .footer-main-nav a {
   color: #d4af37;
   text-decoration: none;
-  font-family: 'Georgia', serif; /* O una fuente cursiva similar */
-  font-style: italic;
-  font-size: 1.2rem;
+  font-style: italic; /* Cursiva como en el diseño */
+  font-size: 1.1rem;
 }
 
+/* Sección derecha (Legal + Logo) */
 .footer-right-section {
   display: flex;
   align-items: center;
@@ -39,28 +41,43 @@
   color: #d4af37;
   text-decoration: none;
   font-style: italic;
-  margin: 0 10px;
   font-size: 0.9rem;
+  margin: 0 5px;
 }
 
 .footer-separator {
   color: #d4af37;
+  font-weight: normal;
 }
 
+/* Contenedor del Logo circular */
 .footer-logo-circle {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   background-color: white;
   border-radius: 50%;
+  overflow: hidden; /* Para que la imagen no se salga del círculo */
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid #d4af37;
 }
 
-.footer-logo-text {
-  color: black;
-  font-weight: bold;
-  font-size: 0.7rem;
-  text-align: center;
+.footer-logo-circle img {
+  width: 85%; /* Ajusta el tamaño del logo dentro del círculo */
+  height: auto;
+  object-fit: contain;
+}
+
+/* Responsive: para que en móviles no se rompa */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  .footer-main-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
