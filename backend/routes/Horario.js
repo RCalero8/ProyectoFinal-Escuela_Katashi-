@@ -7,11 +7,13 @@ router.get('/:id_usuario', async (req, res) => {
   const { id_usuario } = req.params;
   try {
     const resultado = await pool.query(
-      `SELECT id_horario, dia, hora, tipo_clase, dojo
-       FROM horario
-       WHERE id_usuario = $1
+      `SELECT h.id_horario, h.dia, h.hora, h.tipo_clase, h.dojo,
+              u.nombre AS sensei_nombre, u.apellido AS sensei_apellido
+       FROM horario h
+       LEFT JOIN usuario u ON h.id_sensei = u.id_usuario
+       WHERE h.id_usuario = $1
        ORDER BY 
-         CASE dia
+         CASE h.dia
            WHEN 'Lunes'     THEN 1
            WHEN 'Martes'    THEN 2
            WHEN 'Miércoles' THEN 3
@@ -19,7 +21,7 @@ router.get('/:id_usuario', async (req, res) => {
            WHEN 'Viernes'   THEN 5
            WHEN 'Sábado'    THEN 6
            WHEN 'Domingo'   THEN 7
-         END, hora ASC`,
+         END, h.hora ASC`,
       [id_usuario]
     );
     res.json(resultado.rows);
