@@ -1,0 +1,167 @@
+/* ── Noticias ── */
+.usuario-noticias {
+  width: 100%;
+  padding: 40px 48px;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.usuario-noticias-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.usuario-seccion-titulo {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 26px;
+  font-weight: 700;
+  color: #b8860b;
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.usuario-noticias-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.usuario-noticia-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 200px;
+  cursor: pointer;
+}
+
+.usuario-noticia-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.usuario-noticia-card:hover img {
+  transform: scale(1.05);
+}
+
+.usuario-noticia-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 14px;
+}
+
+.usuario-noticia-titulo {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+}
+
+.usuario-noticia-btn {
+  background: #cc0000;
+  color: #ffffff;
+  border: none;
+  padding: 5px 14px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  align-self: flex-start;
+  font-family: 'Georgia', serif;
+}
+
+.usuario-ver-mas-btn {
+  background: #cc0000;
+  color: #ffffff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  transition: background 0.2s ease;
+}
+
+.usuario-ver-mas-btn:hover {
+  background: #aa0000;
+}
+
+/* ── Próximas clases ── */
+.usuario-clases {
+  width: 100%;
+  padding: 40px 48px;
+  box-sizing: border-box;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+}
+
+.usuario-clases-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.usuario-clases-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.usuario-clase-item {
+  font-size: 15px;
+  color: #111111;
+  line-height: 1.7;
+}
+
+.usuario-clase-item.proxima {
+  font-weight: 700;
+  color: #cc0000;
+}
+
+.usuario-clase-dia {
+  font-weight: 700;
+}
+
+.usuario-horario-btn {
+  background: #cc0000;
+  color: #ffffff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  transition: background 0.2s ease;
+}
+
+.usuario-horario-btn:hover {
+  background: #aa0000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .usuario-noticias,
+  .usuario-clases {
+    padding: 32px 20px;
+  }
+
+  .usuario-noticias-grid {
+    grid-template-columns: 1fr;
+  }
+}

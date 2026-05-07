@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-//import "../../../style/Usuario/Inicio/Iniciousuariosecciones.css";
+import "../../../style/Usuario/Inicio/Iniciousuariosecciones.css";
 
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 
