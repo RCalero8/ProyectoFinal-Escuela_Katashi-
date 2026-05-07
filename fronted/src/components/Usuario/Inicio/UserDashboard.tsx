@@ -18,7 +18,7 @@ const UserDashboard: React.FC = () => {
             title: 'Mis Clases',
             description: 'Ver horarios, próximas clases y sensei asignado,',
             icon: '🥋',
-            path: '/mis-clases'
+            path: '/usuario/clases'
         }, 
         {
             id: 2,
