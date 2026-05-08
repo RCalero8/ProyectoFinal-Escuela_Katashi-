@@ -16,13 +16,15 @@
   align-items: start;
 }
 
-/* Título con estilo de la imagen */
+/* Título con estilo de sección estándar */
 .inscripciones-titulo {
   grid-column: 1 / -1;
-  font-family: 'Dancing Script', cursive;
-  font-size: 2.8rem;
-  color: #b38b2d; /* Color dorado/ocre de la imagen */
-  margin-bottom: 1.5rem;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 26px;
+  font-weight: 700;
+  color: #b8860b;
+  margin: 0 0 20px 0;
   display: flex;
   align-items: center;
   gap: 10px;
