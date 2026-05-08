@@ -1,0 +1,176 @@
+/* Importar fuentes para los títulos (estilo manuscrito) */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600;700&display=swap');
+
+.inscripciones-section {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  background-color: #fff;
+}
+
+.inscripciones-inner {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Título con estilo de la imagen */
+.inscripciones-titulo {
+  grid-column: 1 / -1;
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.8rem;
+  color: #b38b2d; /* Color dorado/ocre de la imagen */
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Filtros con borde rojo y texto cursivo */
+.inscripciones-filtros {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.inscripciones-filtro-btn {
+  padding: 8px 25px;
+  border: 1px solid #c51d2d;
+  background: white;
+  color: #c51d2d;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.inscripciones-filtro-btn.todos {
+  background-color: #c51d2d;
+  color: white;
+}
+
+/* Tarjetas de clase */
+.inscripcion-card {
+  background-color: #fcf6f6; /* Fondo rosado muy tenue */
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.inscripcion-card-nombre {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #000;
+  margin: 0;
+}
+
+.inscripcion-card-horario {
+  color: #444;
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.inscripcion-card-plazas {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-top: 10px;
+}
+
+/* Badges redondeados */
+.inscripcion-badge {
+  padding: 4px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.inscripcion-badge.abiertas {
+  background-color: #98fb98; /* Verde menta */
+  color: #1b5e20;
+}
+
+.inscripcion-badge.inscrito {
+  background-color: #c2c2f0; /* Azul lavanda */
+  color: #3f51b5;
+}
+
+/* Botones de acción */
+.inscripcion-btn-inscribir {
+  background-color: #c51d2d;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.inscripcion-btn-baja {
+  background-color: #bdbdbd;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: not-allowed;
+}
+
+/* Panel de Recomendaciones Amarillo */
+.inscripciones-recomendaciones {
+  background-color: #f0e68c; /* Amarillo caqui claro */
+  padding: 2rem;
+  border-radius: 40px; /* Bordes muy redondeados como en la foto */
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+
+.inscripciones-rec-titulo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  color: #b38b2d;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.inscripciones-rec-lista {
+  list-style: none;
+  padding: 0;
+}
+
+.inscripciones-rec-lista li {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: #000;
+  display: flex;
+  align-items: flex-start;
+}
+
+.inscripciones-rec-lista li::before {
+  content: "✦";
+  margin-right: 10px;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+/* Ajustes Responsive */
+@media (max-width: 850px) {
+  .inscripciones-inner {
+    grid-template-columns: 1fr;
+  }
+  .inscripcion-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}
