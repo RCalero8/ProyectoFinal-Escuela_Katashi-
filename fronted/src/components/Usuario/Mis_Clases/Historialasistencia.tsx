@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import jsPDF from "jspdf";
+import "../../../style/Usuario/MIs_Clases/Historialasistencia.css";
 
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 
