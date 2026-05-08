@@ -13,23 +13,32 @@ interface Horario {
   dojo: string;
 }
 
+interface Asistencia {
+  id_asistencia: number;
+  presente: boolean;
+}
+
 const MisClases: React.FC = () => {
   const usuario = JSON.parse(localStorage.getItem("usuario") || "{}");
-  const [horarios, setHorarios] = useState<Horario[]>([]);
+  const [horarios, setHorarios]       = useState<Horario[]>([]);
+  const [asistencias, setAsistencias] = useState<Asistencia[]>([]);
 
   useEffect(() => {
     if (usuario?.id_usuario) {
       fetch(`${API_URL}/api/horario/${usuario.id_usuario}`)
         .then(r => r.json())
-        .then(setHorarios)
+        .then(data => setHorarios(Array.isArray(data) ? data : []))
+        .catch(() => {});
+
+      fetch(`${API_URL}/api/asistencia/${usuario.id_usuario}`)
+        .then(r => r.json())
+        .then(data => setAsistencias(Array.isArray(data) ? data : []))
         .catch(() => {});
     }
   }, []);
 
-  // Clases activas = total de horarios
   const clasesActivas = horarios.length;
 
-  // Próximas clases esta semana = clases desde hoy hasta el domingo
   const proximasSemana = () => {
     const ahora      = new Date();
     const diaActual  = ahora.getDay();
@@ -45,6 +54,8 @@ const MisClases: React.FC = () => {
       return diff > 0 && diff <= (6 - diaActual);
     }).length;
   };
+
+  const totalAsistencias = asistencias.filter(a => a.presente).length;
 
   return (
     <div className="misclases-header">
@@ -75,7 +86,7 @@ const MisClases: React.FC = () => {
           <div className="misclases-stat-card">
             <span className="misclases-stat-emoji">⏱️</span>
             <div className="misclases-stat-info">
-              <span className="misclases-stat-numero">0</span>
+              <span className="misclases-stat-numero">{totalAsistencias}</span>
               <span className="misclases-stat-label">Historial de asistencia</span>
             </div>
           </div>
