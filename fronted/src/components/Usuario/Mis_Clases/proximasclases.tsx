@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../../style/Usuario/MIs_Clases/proximasclases.css";
-import ModalHorario from "./ModalHorario";
+import ModalHorario from "./Modalhorario";
  
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
  
