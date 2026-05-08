@@ -1,7 +1,7 @@
 import Header from "../../components/Header/usuario/Header";
 import MisClases from "../../components/Usuario/Mis_Clases/mis_clases";
 import ProxClase from "../../components/Usuario/Mis_Clases/proximasclases";
-import Modal from "../../components/Usuario/Mis_Clases/Modalhorario";
+import Historia from "../../components/Usuario/Mis_Clases/Historialasistencia";
 import {Footer} from "../../components/Footer/Usuario/Footer";
 
 const Mis_clases = () => {
@@ -10,7 +10,7 @@ const Mis_clases = () => {
       <Header />
       <MisClases />
       <ProxClase/>
-      <Modal />
+      <Historia />
       <Footer />
     </>
   );
