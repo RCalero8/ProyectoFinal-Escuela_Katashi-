@@ -13,7 +13,7 @@ const rutasAuth = require("./routes/auth");
 const rutasRegistro = require("./routes/registro");
 const rutasHorario = require("./routes/Horario");
 const rutasAsistencia = require ("./routes/asistencia");
-const rutasInscripciones = require ("./routes/inscripciones");
+const rutasInscripciones = require ("./routes/inscripsiones");
 const app = express();
 
 // Configuración de CORS mejorada para Vercel
