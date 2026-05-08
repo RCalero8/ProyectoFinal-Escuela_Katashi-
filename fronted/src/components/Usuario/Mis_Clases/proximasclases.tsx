@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../../style/Usuario/MIs_Clases/proximasclases.css";
-
+import ModalHorario from "./ModalHorario";
+ 
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
-
+ 
 const DIAS_SEMANA = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
-
+ 
 interface Horario {
   id_horario: number;
   dia: string;
@@ -15,7 +16,7 @@ interface Horario {
   sensei_nombre: string;
   sensei_apellido: string;
 }
-
+ 
 const getBadgeClase = (tipo: string) => {
   const t = tipo.toLowerCase();
   if (t.includes("infantil"))    return "infantil";
@@ -24,13 +25,13 @@ const getBadgeClase = (tipo: string) => {
   if (t.includes("competici"))   return "competicion";
   return "default";
 };
-
+ 
 const ProximasClases: React.FC = () => {
-  const navigate  = useNavigate();
   const usuario   = JSON.parse(localStorage.getItem("usuario") || "{}");
   const [horarios, setHorarios] = useState<Horario[]>([]);
   const [loading, setLoading]   = useState(true);
-
+  const [modalAbierto, setModalAbierto] = useState(false);
+ 
   useEffect(() => {
     if (usuario?.id_usuario) {
       fetch(`${API_URL}/api/horario/${usuario.id_usuario}`)
@@ -39,13 +40,13 @@ const ProximasClases: React.FC = () => {
         .catch(() => setLoading(false));
     }
   }, []);
-
+ 
   // Determinar la próxima clase
   const getProximaId = () => {
     const ahora      = new Date();
     const diaActual  = ahora.getDay();
     const horaActual = ahora.getHours() * 60 + ahora.getMinutes();
-
+ 
     const proxima = [...horarios].sort((a, b) => {
       const diaA = DIAS_SEMANA.indexOf(a.dia);
       const diaB = DIAS_SEMANA.indexOf(b.dia);
@@ -57,19 +58,19 @@ const ProximasClases: React.FC = () => {
       const [hH, mH] = h.hora.split(":").map(Number);
       return (hH * 60 + mH) > horaActual;
     });
-
+ 
     return proxima?.id_horario;
   };
-
+ 
   const proximaId = getProximaId();
-
+ 
   const formatHora = (hora: string) => hora.slice(0, 5);
-
+ 
   return (
     <div className="proximas-clases">
       <div className="proximas-clases-inner">
         <h2 className="proximas-clases-titulo">📅 Próximas clases</h2>
-
+ 
         {loading ? (
           <p style={{ color: "#6b7280", fontSize: 14 }}>Cargando...</p>
         ) : horarios.length === 0 ? (
@@ -106,13 +107,17 @@ const ProximasClases: React.FC = () => {
             </tbody>
           </table>
         )}
-
-        <button className="proximas-clases-btn" onClick={() => navigate("/usuario/clases")}>
+ 
+        <button className="proximas-clases-btn" onClick={() => setModalAbierto(true)}>
           Ver horario completo
         </button>
+ 
+        {modalAbierto && (
+          <ModalHorario horarios={horarios} onCerrar={() => setModalAbierto(false)} />
+        )}
       </div>
     </div>
   );
 };
-
+ 
 export default ProximasClases;
