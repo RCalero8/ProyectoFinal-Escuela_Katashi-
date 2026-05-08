@@ -10,7 +10,7 @@ router.get('/:id_usuario', async (req, res) => {
       `SELECT a.id_asistencia, a.fecha, a.presente,
               h.dia, h.hora, h.tipo_clase, h.dojo
        FROM asistencia a
-       INNER JOIN horario h ON a.id_horario = h.id_horario
+       INNER JOIN horario h ON a.id_clase = h.id_horario
        WHERE a.id_usuario = $1
        ORDER BY a.fecha DESC`,
       [id_usuario]
@@ -31,7 +31,7 @@ router.get('/clase/:id_horario/:fecha', async (req, res) => {
               u.id_usuario, u.nombre, u.apellido
        FROM asistencia a
        INNER JOIN usuario u ON a.id_usuario = u.id_usuario
-       WHERE a.id_horario = $1 AND a.fecha = $2
+       WHERE a.id_clase = $1 AND a.fecha = $2
        ORDER BY u.apellido ASC`,
       [id_horario, fecha]
     );
@@ -52,7 +52,7 @@ router.post('/', async (req, res) => {
   try {
     for (const alumno of alumnos) {
       await pool.query(
-        `INSERT INTO asistencia (id_usuario, id_horario, fecha, presente)
+        `INSERT INTO asistencia (id_usuario, id_clase, fecha, presente)
          VALUES ($1, $2, $3, $4)
          ON CONFLICT DO NOTHING`,
         [alumno.id_usuario, id_horario, fecha, alumno.presente]
