@@ -1,0 +1,199 @@
+/* ── Backdrop ── */
+.modal-horario-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+  box-sizing: border-box;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Modal ── */
+.modal-horario {
+  background: #1a1a1a;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 680px;
+  position: relative;
+  animation: slideUp 0.25s ease;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* ── Cabecera modal ── */
+.modal-horario-header {
+  background: linear-gradient(135deg, #cc0000, #8b0000);
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-horario-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal-horario-titulo {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.modal-horario-nombre {
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  margin: 0;
+}
+
+.modal-horario-cerrar {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #ffffff;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.modal-horario-cerrar:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* ── Cuerpo modal ── */
+.modal-horario-body {
+  padding: 24px 28px;
+}
+
+/* Días de la semana como columnas */
+.modal-horario-semana {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.modal-horario-dia-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-horario-dia-nombre {
+  font-size: 11px;
+  font-weight: 700;
+  color: #b8860b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #333;
+}
+
+.modal-horario-clase-card {
+  background: #2a2a2a;
+  border-radius: 8px;
+  padding: 10px;
+  border-left: 3px solid #cc0000;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal-horario-clase-card.proxima {
+  border-left-color: #b8860b;
+  background: #2d2500;
+}
+
+.modal-horario-clase-hora {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.modal-horario-clase-tipo {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.modal-horario-clase-dojo {
+  font-size: 10px;
+  color: #6b7280;
+}
+
+.modal-horario-clase-sensei {
+  font-size: 10px;
+  color: #b8860b;
+  font-style: italic;
+}
+
+/* Día vacío */
+.modal-horario-dia-vacio {
+  background: #222;
+  border-radius: 8px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-horario-dia-vacio span {
+  font-size: 18px;
+  opacity: 0.3;
+}
+
+/* Leyenda */
+.modal-horario-leyenda {
+  display: flex;
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #333;
+}
+
+.modal-horario-leyenda-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.modal-horario-leyenda-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .modal-horario-semana {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-horario {
+    max-width: 100%;
+  }
+}
