@@ -13,6 +13,7 @@ const rutasAuth = require("./routes/auth");
 const rutasRegistro = require("./routes/registro");
 const rutasHorario = require("./routes/Horario");
 const rutasAsistencia = require ("./routes/asistencia");
+const rutasInscripciones = require ("./routes/inscripciones");
 const app = express();
 
 // Configuración de CORS mejorada para Vercel
@@ -30,7 +31,7 @@ app.use("/api/auth", rutasAuth);
 app.use("/api/registro", rutasRegistro);
 app.use("/api/horario", rutasHorario);
 app.use("/api/asistencia", rutasAsistencia);
-
+app.use("/api/inscripciones", rutasInscripciones);
 
 // Ruta de prueba para saber si el backend responde
 app.get("/", (req, res) => {
