@@ -30,9 +30,9 @@ const HeaderUsuario: React.FC = () => {
             <li><Link to="/usuario/clases" className={isActive("/usuario/clases")}>Mis clases</Link></li>
             <li><Link to="/usuario/pagos" className={isActive("/usuario/pagos")}>Pagos</Link></li>
             <li><Link to="/usuario/federacion" className={isActive("/usuario/federacion")}>Federación</Link></li>
-            <li><Link to="/noticias" className={isActive("/noticias")}>Noticias</Link></li>
+            <li><Link to="/usuario/noticias" className={isActive("/usuario/noticias")}>Noticias</Link></li>
             <li><Link to="/contacto" className={isActive("/contacto")}>Contacto</Link></li>
-            <li><Link to="/tienda" className={isActive("/tienda")}>Tienda</Link></li>
+            <li><Link to="/usuario/tienda" className={isActive("/usuario/tienda")}>Tienda</Link></li>
           </ul>
         </nav>
       </div>
