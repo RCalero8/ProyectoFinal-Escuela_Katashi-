@@ -1,16 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from "react-router-dom";
-
-// Estructura de Invitado
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Header } from "./components/Header/Header.tsx";
 import { Footer } from "./components/Footer/Footer.tsx";
 
-// Estructura de Usuario (Segundo Header y Footer Oscuro)
-import HeaderUsuario from "./components/Header/usuario/Header"; 
-// Asegúrate de importar el Footer oscuro que creamos anteriormente
-import { Footer as FooterUsuario } from "./components/Footer/Footer.tsx"; 
-
-// Páginas Invitado
 import Login from "./pages/Login.tsx";
 import Registro from "./pages/Registro.tsx";
 import Inicio from "./pages/Invitado/Inicio.tsx";
@@ -22,95 +14,93 @@ import Contacto from "./pages/Invitado/Contacto.tsx";
 import NoticiaDetalle from "./components/Invitado/Noticias/NoticiaDetalle.tsx";
 import DetalleProducto from "./components/Invitado/Tiendas/Detalleproducto.tsx";
 
-// Páginas Usuario
+//Usuarios
 import InicioUsuario from "./pages/Usuario/Inicio.tsx";
-import Mis_clases from "./pages/Usuario/Mis_Clases.tsx";
-
+import Mis_clases from "./pages/Usuario/Mis_Clases.tsx"
 const PanelAdmin = () => <div style={{padding: '100px'}}><h1>Panel de Administrador</h1></div>;
 
-// --- COMPONENTE DE RUTA PROTEGIDA ---
+// Componente de ruta protegida
 const RutaProtegida = ({ tipo, children }: { tipo: string, children: React.ReactNode }) => {
   const userJson = localStorage.getItem('usuario');
   const usuario = userJson ? JSON.parse(userJson) : null;
   return usuario?.tipo_usuario === tipo ? children : <Navigate to="/login" replace />;
 };
 
-// --- LAYOUTS PARA DIFERENCIAR HEADERS/FOOTERS ---
+const RUTAS_SIN_HEADER = ["/usuario", "/admin", "/login", "/registro"];
 
-// Diseño para Invitados
-const InvitadoLayout = () => (
-  <>
-    <Header />
-    <main><Outlet /></main>
-    <Footer />
-  </>
-);
+function Layout() {
+  const location = useLocation();
+  const ocultarHeader = RUTAS_SIN_HEADER.some(r => location.pathname.startsWith(r));
 
-// Diseño para Usuarios (EL SEGUNDO HEADER)
-const UsuarioLayout = () => (
-  <>
-    <HeaderUsuario />
-    <main><Outlet /></main>
-    <FooterUsuario /> 
-  </>
-);
-
-function AppRoutes() {
   return (
-    <Routes>
-      {/* === GRUPO 1: RUTAS PÚBLICAS (Usa Header 1) === */}
-      <Route element={<InvitadoLayout />}>
-        <Route path="/" element={<Inicio />} />
-        <Route path="/conocenos" element={<Conocenos />} />
-        <Route path="/clases" element={<Clases />} />
-        <Route path="/noticias" element={<Noticias />} />
-        <Route path="/tienda" element={<Tienda />} />
-        <Route path="/contacto" element={<Contacto />} />
-        <Route path="/noticias/:slug" element={<NoticiaDetalle />} />
-        <Route path="/tienda/:id" element={<DetalleProducto />} />
-      </Route>
+    <>
+      {!ocultarHeader && <Header />}
+      <main>
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/conocenos" element={<Conocenos />} />
+          <Route path="/clases" element={<Clases />} />
+          <Route path="/noticias" element={<Noticias />} />
+          <Route path="/tienda" element={<Tienda />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path="/noticias/:slug" element={<NoticiaDetalle />} />
+          <Route path="/tienda/:id" element={<DetalleProducto />} />
 
-      {/* === GRUPO 2: AUTH (Sin Header/Footer) === */}
-      <Route path="/login" element={<Login />} />
-      <Route path="/registro" element={<Registro />} />
+          {/*Usuarios*/}
+          <Route path="/usuario" element={
+            <RutaProtegida tipo="CLIENTE">
+              <InicioUsuario />
+            </RutaProtegida>
+          } />
+          <Route path="/usuario/clases" element={
+            <RutaProtegida tipo="CLIENTE">
+              <Mis_clases />
+            </RutaProtegida>
+          } />
 
-      {/* === GRUPO 3: RUTAS DE USUARIO (Usa Header 2 / PRIVADO) === */}
-      <Route 
-        path="/usuario" 
-        element={
-          <RutaProtegida tipo="CLIENTE">
-            <UsuarioLayout />
-          </RutaProtegida>
-        }
-      >
-        <Route index element={<InicioUsuario />} />
-        <Route path="clases" element={<Mis_clases />} />
-        {/* Reutilizamos los componentes compartidos con el Header 2 */}
-        <Route path="noticias" element={<Noticias />} />
-        <Route path="noticias/:slug" element={<NoticiaDetalle />} />
-        <Route path="tienda" element={<Tienda />} />
-        <Route path="tienda/:id" element={<DetalleProducto />} />
-      </Route>
+          <Route path="/usuario/noticias" element={
+            <RutaProtegida tipo="CLIENTE">
+              <Noticias />
+            </RutaProtegida>
+          } />
 
-      {/* === GRUPO 4: ADMIN === */}
-      <Route 
-        path="/admin" 
-        element={
-          <RutaProtegida tipo="ADMINISTRADOR">
-            <PanelAdmin />
-          </RutaProtegida>
-        } 
-      />
+          <Route path="/usuario/noticias/:slug" element={
+            <RutaProtegida tipo="CLIENTE">
+              <NoticiaDetalle/>
+            </RutaProtegida>
+          } />
 
-      <Route path="*" element={<Navigate to="/" />} />
-    </Routes>
+          <Route path="/usuario/tienda" element={
+            <RutaProtegida tipo="CLIENTE">
+              <Tienda/>
+            </RutaProtegida>
+          } />
+            <Route path="/usuario/tienda/:id" element={
+            <RutaProtegida tipo="CLIENTE">
+              <DetalleProducto/>
+            </RutaProtegida>
+          } />
+
+          <Route path="/admin" element={
+            <RutaProtegida tipo="ADMINISTRADOR">
+              <PanelAdmin />
+            </RutaProtegida>
+          } />
+
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </main>
+      {!ocultarHeader && <Footer />}
+    </>
   );
 }
 
 function App() {
   return (
     <Router>
-      <AppRoutes />
+      <Layout />
     </Router>
   );
 }
