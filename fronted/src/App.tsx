@@ -60,6 +60,18 @@ function Layout() {
             </RutaProtegida>
           } />
 
+          <Route path="/usuario/noticias" element={
+            <RutaProtegida tipo="CLIENTE">
+              <Noticias />
+            </RutaProtegida>
+          } />
+
+          <Route path="/usuario/noticias/:slug" element={
+            <RutaProtegida tipo="CLIENTE">
+              <NoticiaDetalle/>
+            </RutaProtegida>
+          } />
+
           <Route path="/admin" element={
             <RutaProtegida tipo="ADMINISTRADOR">
               <PanelAdmin />
