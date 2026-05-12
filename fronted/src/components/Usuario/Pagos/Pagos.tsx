@@ -44,8 +44,8 @@ const Pagos: React.FC = () => {
 
   useEffect(() => { cargarPagos(); }, []);
 
-  const pagosPendientes = pagos.filter(p => p.estado === 'Pendiente');
-  const pagosPagados    = pagos.filter(p => p.estado === 'Pagado');
+  const pagosPendientes = pagos.filter(p => p.estado === 'PENDIENTE');
+  const pagosPagados    = pagos.filter(p => p.estado === 'COMPLETADO');
   const ultimoPago      = pagosPagados[0];
   const proximoPago     = pagosPendientes[0];
 
@@ -102,7 +102,7 @@ const Pagos: React.FC = () => {
       doc.text(formatFecha(p.fecha), 14, y);
       doc.text(p.concepto.slice(0, 35), 45, y);
       doc.text(`${p.importe}€`, 130, y);
-      if (p.estado === "Pagado") { doc.setTextColor(22, 163, 74); }
+      if (p.estado === "COMPLETADO") { doc.setTextColor(22, 163, 74); }
       else { doc.setTextColor(202, 138, 4); }
       doc.text(p.estado, 155, y);
       doc.setTextColor(0, 0, 0);
