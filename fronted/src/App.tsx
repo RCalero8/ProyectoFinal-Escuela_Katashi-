@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "r
 import { Header } from "./components/Header/Header.tsx";
 import HeaderUsuario from "./components/Header/usuario/Header.tsx";
 import { Footer } from "./components/Footer/Footer.tsx";
+import { Footer as FooterUsuario } from "./components/Footer/Usuario/Footer.tsx";
 
 import Login from "./pages/Login.tsx";
 import Registro from "./pages/Registro.tsx";
@@ -110,7 +111,8 @@ function Layout() {
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
-      {!ocultarHeader && <Footer />}
+      {!ocultarHeader && !mostrarHeaderUsuario && <Footer />}
+      {mostrarHeaderUsuario && <FooterUsuario />}
     </>
   );
 }
