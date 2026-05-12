@@ -21,6 +21,8 @@ const DetalleProducto: React.FC = () => {
   const [mensajeCarrito, setMensajeCarrito] = useState<string>("");
 
   const isUsuario = location.pathname.startsWith("/usuario");
+  const usuarioLogueado = !!localStorage.getItem("usuario");
+
 
   type CartItem = Material & {
     cantidad: number;
@@ -276,7 +278,7 @@ const DetalleProducto: React.FC = () => {
             <button
               className="detalle-btn-comprar"
               onClick={agregarAlCarrito}
-              disabled={!isUsuario || producto.stock === 0}
+              disabled={!usuarioLogueado || producto.stock === 0}
             >
               🟢 Añadir al carrito
             </button>
@@ -284,12 +286,12 @@ const DetalleProducto: React.FC = () => {
             <button
               className="detalle-btn-comprar detalle-btn-comprar--secondary"
               onClick={comprarAhora}
-              disabled={!isUsuario || producto.stock === 0}
+              disabled={!usuarioLogueado || producto.stock === 0}
             >
               🛒 Comprar ahora
             </button>
 
-            {!isUsuario && (
+            {!usuarioLogueado && (
               <p className="detalle-login-aviso">
                 Debes iniciar sesión como usuario para comprar.
               </p>
