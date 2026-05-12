@@ -39,7 +39,7 @@ const UserDashboard: React.FC = () => {
             title: 'Tienda',
             description: 'Comprar material o uniformes oficiales.',
             icon: '🛍️',
-            path: '/tienda'
+            path: '/usuario/tienda'
         }
     ];
 
