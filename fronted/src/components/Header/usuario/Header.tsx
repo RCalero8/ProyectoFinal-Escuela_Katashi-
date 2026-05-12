@@ -33,6 +33,7 @@ const HeaderUsuario: React.FC = () => {
             <li><Link to="/usuario/noticias" className={isActive("/usuario/noticias")}>Noticias</Link></li>
             <li><Link to="/contacto" className={isActive("/contacto")}>Contacto</Link></li>
             <li><Link to="/usuario/tienda" className={isActive("/usuario/tienda")}>Tienda</Link></li>
+            <li><Link to="/usuario/carrito" className={isActive("/usuario/carrito")}>Carrito</Link></li>
           </ul>
         </nav>
       </div>

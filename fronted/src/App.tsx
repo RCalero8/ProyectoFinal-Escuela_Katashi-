@@ -19,6 +19,7 @@ import DetalleProducto from "./components/Invitado/Tiendas/Detalleproducto.tsx";
 import InicioUsuario from "./pages/Usuario/Inicio.tsx";
 import Mis_clases from "./pages/Usuario/Mis_Clases.tsx"
 import Noticias_usuario from "./pages/Usuario/Noticias_usuario.tsx";
+import Carrito from "./pages/Usuario/Carrito.tsx";
 import DetalleNoticia from "./components/Usuario/Noticias/NoticiaDetalle-usu.tsx";
 const PanelAdmin = () => <div style={{padding: '100px'}}><h1>Panel de Administrador</h1></div>;
 
@@ -83,9 +84,20 @@ function Layout() {
               <Tienda/>
             </RutaProtegida>
           } />
-            <Route path="/usuario/tienda/:id" element={
+          <Route path="/usuario/tienda/:id" element={
             <RutaProtegida tipo="CLIENTE">
               <DetalleProducto/>
+            </RutaProtegida>
+          } />
+          <Route path="/usuario/carrito" element={
+            <RutaProtegida tipo="CLIENTE">
+              <Carrito />
+            </RutaProtegida>
+          } />
+
+          <Route path="/usuario/contacto" element={
+            <RutaProtegida tipo="CLIENTE">
+              <Contacto/>
             </RutaProtegida>
           } />
 

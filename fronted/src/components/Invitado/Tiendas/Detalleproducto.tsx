@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import type { Material } from "../../../tipos/material";
 import "../../../style/Invitado/Tienda/Detalleproducto.css";
 
@@ -8,6 +8,7 @@ const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 const DetalleProducto: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [producto, setProducto]         = useState<Material | null>(null);
   const [relacionados, setRelacionados] = useState<Material[]>([]);
@@ -17,6 +18,63 @@ const DetalleProducto: React.FC = () => {
   const [cantidad, setCantidad]         = useState(1);
   const [imgActiva, setImgActiva]       = useState(0);
   const [colorActivo, setColorActivo]   = useState<string>("");
+  const [mensajeCarrito, setMensajeCarrito] = useState<string>("");
+
+  const isUsuario = location.pathname.startsWith("/usuario");
+
+  type CartItem = Material & {
+    cantidad: number;
+    talla?: string;
+    color?: string;
+  };
+
+  const getCartKey = () => {
+    const usuario = JSON.parse(localStorage.getItem("usuario") ?? "null");
+    const userKey = usuario?.nombre || usuario?.email || "usuario";
+    return `carrito_${userKey}`;
+  };
+
+  const cargarCarrito = (): CartItem[] => {
+    try {
+      return JSON.parse(localStorage.getItem(getCartKey()) ?? "[]");
+    } catch {
+      return [];
+    }
+  };
+
+  const guardarCarrito = (items: CartItem[]) => {
+    localStorage.setItem(getCartKey(), JSON.stringify(items));
+  };
+
+  const agregarAlCarrito = () => {
+    if (!producto) return;
+
+    const carrito = cargarCarrito();
+    const itemIndex = carrito.findIndex(
+      (item) => item.id_material === producto.id_material && item.talla === tallaActiva && item.color === colorActivo
+    );
+
+    if (itemIndex >= 0) {
+      const item = carrito[itemIndex];
+      const nuevaCantidad = Math.min(item.cantidad + cantidad, producto.stock);
+      carrito[itemIndex] = { ...item, cantidad: nuevaCantidad };
+    } else {
+      carrito.push({
+        ...producto,
+        cantidad,
+        talla: tallaActiva,
+        color: colorActivo,
+      });
+    }
+
+    guardarCarrito(carrito);
+    setMensajeCarrito("Producto añadido al carrito.");
+  };
+
+  const comprarAhora = () => {
+    agregarAlCarrito();
+    navigate("/usuario/carrito");
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -211,10 +269,31 @@ const DetalleProducto: React.FC = () => {
               🏫 Los pedidos se recogen en el dojo. No hay envío a domicilio.
             </div>
 
-            {/* Botón comprar (deshabilitado) */}
-            <button className="detalle-btn-comprar" disabled>
+            {mensajeCarrito && (
+              <div className="detalle-mensaje-carrito">{mensajeCarrito}</div>
+            )}
+
+            <button
+              className="detalle-btn-comprar"
+              onClick={agregarAlCarrito}
+              disabled={!isUsuario || producto.stock === 0}
+            >
               🟢 Añadir al carrito
             </button>
+
+            <button
+              className="detalle-btn-comprar detalle-btn-comprar--secondary"
+              onClick={comprarAhora}
+              disabled={!isUsuario || producto.stock === 0}
+            >
+              🛒 Comprar ahora
+            </button>
+
+            {!isUsuario && (
+              <p className="detalle-login-aviso">
+                Debes iniciar sesión como usuario para comprar.
+              </p>
+            )}
 
             {/* Botones secundarios */}
             <div className="detalle-btns-secundarios">
@@ -259,7 +338,16 @@ const DetalleProducto: React.FC = () => {
                       >
                         {si.clase === "en-stock" ? "🟢" : si.clase === "pocas" ? "🟡" : "🔴"} {si.label}
                       </span>
-                      <button className="detalle-rel-btn" disabled>Añadir Carrito</button>
+                      <button
+                        className="detalle-rel-btn"
+                        onClick={() =>
+                          isUsuario
+                            ? navigate(`/usuario/tienda/${p.id_material}`)
+                            : navigate(`/tienda/${p.id_material}`)
+                        }
+                      >
+                        Ver producto
+                      </button>
                     </div>
                   </div>
                 );
