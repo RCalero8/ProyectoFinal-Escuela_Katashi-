@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const pool    = require('../config/db');
 
-// GET /api/pagos/:id_usuario — pagos del usuario con su método de pago
+// GET /api/pagos/:id_usuario
 router.get('/:id_usuario', async (req, res) => {
   const { id_usuario } = req.params;
   try {
@@ -12,10 +12,10 @@ router.get('/:id_usuario', async (req, res) => {
     );
 
     const pagos = await pool.query(
-      `SELECT id_pago, concepto, importe, fecha, estado, metodo_pago
+      `SELECT id_pago, tipo AS concepto, precio AS importe, f_pago AS fecha, estado, id_material
        FROM pagos
        WHERE id_usuario = $1
-       ORDER BY fecha DESC`,
+       ORDER BY f_pago DESC`,
       [id_usuario]
     );
 
@@ -34,7 +34,7 @@ router.post('/pagar/:id_pago', async (req, res) => {
   const { id_pago } = req.params;
   try {
     await pool.query(
-      `UPDATE pagos SET estado = 'Pagado', fecha = CURRENT_DATE WHERE id_pago = $1`,
+      `UPDATE pagos SET estado = 'Pagado', f_pago = CURRENT_DATE WHERE id_pago = $1`,
       [id_pago]
     );
     res.json({ mensaje: "Pago realizado correctamente" });
@@ -44,10 +44,10 @@ router.post('/pagar/:id_pago', async (req, res) => {
   }
 });
 
-// PUT /api/pagos/facturacion/:id_usuario — actualizar datos de facturación
+// PUT /api/pagos/facturacion/:id_usuario
 router.put('/facturacion/:id_usuario', async (req, res) => {
   const { id_usuario } = req.params;
-  const { nombre, apellido, dni, direccion, ciudad, codigo_postal, pais, email } = req.body;
+  const { nombre, apellido, email } = req.body;
   try {
     await pool.query(
       `UPDATE usuario SET nombre=$1, apellido=$2, email=$3 WHERE id_usuario=$4`,
