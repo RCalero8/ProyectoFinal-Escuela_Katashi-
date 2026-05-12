@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Header } from "./components/Header/Header.tsx";
+import HeaderUsuario from "./components/Header/usuario/Header.tsx";
 import { Footer } from "./components/Footer/Footer.tsx";
 
 import Login from "./pages/Login.tsx";
@@ -28,15 +29,19 @@ const RutaProtegida = ({ tipo, children }: { tipo: string, children: React.React
   return usuario?.tipo_usuario === tipo ? children : <Navigate to="/login" replace />;
 };
 
-const RUTAS_SIN_HEADER = ["/usuario", "/admin", "/login", "/registro"];
+const RUTAS_SIN_HEADER = ["/admin", "/login", "/registro"];
 
 function Layout() {
   const location = useLocation();
   const ocultarHeader = RUTAS_SIN_HEADER.some(r => location.pathname.startsWith(r));
+  const usuarioLogueado = localStorage.getItem('usuario');
+
+  const mostrarHeaderUsuario = location.pathname.startsWith("/usuario") && usuarioLogueado;
 
   return (
     <>
-      {!ocultarHeader && <Header />}
+      {!ocultarHeader && !mostrarHeaderUsuario && <Header />}
+      {mostrarHeaderUsuario && <HeaderUsuario />}
       <main>
         <Routes>
           <Route path="/" element={<Inicio />} />

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { detallesNoticias } from '../../../tipos/noticiasDetalle';
 import { Calendar, Tag, ChevronLeft } from 'lucide-react';
-import HeaderUsuario from '../../Header/usuario/Header';
 import '../../../style/Invitado/Noticias/PaginaNoticiaDetalle.css';
 
 const PaginaNoticiaDetalle: React.FC = () => {
@@ -30,7 +29,6 @@ const PaginaNoticiaDetalle: React.FC = () => {
 
   return (
     <>
-      <HeaderUsuario />
       <div className="noticia-detalle-container">
         <div className="noticia-detalle-inner">
           {/* Botón Volver */}
