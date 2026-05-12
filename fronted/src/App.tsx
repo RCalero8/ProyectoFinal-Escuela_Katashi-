@@ -34,9 +34,8 @@ const RUTAS_SIN_HEADER = ["/admin", "/login", "/registro"];
 function Layout() {
   const location = useLocation();
   const ocultarHeader = RUTAS_SIN_HEADER.some(r => location.pathname.startsWith(r));
-  const usuarioLogueado = localStorage.getItem('usuario');
 
-  const mostrarHeaderUsuario = location.pathname.startsWith("/usuario") && usuarioLogueado;
+  const mostrarHeaderUsuario = location.pathname.startsWith("/usuario");
 
   return (
     <>
