@@ -49,6 +49,13 @@ const Pagos: React.FC = () => {
   const ultimoPago      = pagosPagados[0];
   const proximoPago     = pagosPendientes[0];
 
+  // Próximo pago siempre el día 15 del mes siguiente
+  const getProximaFecha = () => {
+    const hoy = new Date();
+    const proximoMes = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 15);
+    return `15/${String(proximoMes.getMonth() + 1).padStart(2, "0")}/${String(proximoMes.getFullYear()).slice(2)}`;
+  };
+
   const formatFecha = (f: string) => {
     if (!f) return "—";
     const d = new Date(f);
@@ -145,7 +152,7 @@ const Pagos: React.FC = () => {
             <span className="pagos-stat-label">Cuota activa</span>
           </div>
           <div className="pagos-stat">
-            <span className="pagos-stat-valor">{proximoPago ? formatFecha(proximoPago.fecha) : "—"}</span>
+            <span className="pagos-stat-valor">{getProximaFecha()}</span>
             <span className="pagos-stat-label">Próximo Pago</span>
           </div>
           <div className="pagos-stat">
