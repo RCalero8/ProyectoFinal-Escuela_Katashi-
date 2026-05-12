@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Calendar, ArrowRight } from 'lucide-react';
 import type { Noticia } from '../../../tipos/noticias';
 // Importamos el diccionario de detalles donde están las imágenes reales
@@ -37,6 +37,26 @@ const NoticiaCard: React.FC<{ noticia: Noticia }> = ({ noticia }) => {
     return null; // O manejar de otra forma
   }
 
+  const location = useLocation();
+  const isRutaUsuario = location.pathname.startsWith('/usuario');
+
+  let detalleRuta = noticia.enlace || '';
+  if (isRutaUsuario) {
+    if (detalleRuta.startsWith('/usuario')) {
+      // Ya es ruta completa de usuario
+    } else if (detalleRuta.startsWith('/noticias')) {
+      detalleRuta = `/usuario${detalleRuta}`;
+    } else {
+      detalleRuta = `/usuario/noticias/${detalleRuta.replace(/^\/+/, '')}`;
+    }
+  } else {
+    if (detalleRuta.startsWith('/usuario')) {
+      detalleRuta = detalleRuta.replace(/^\/usuario/, '') || '/noticias';
+    } else if (!detalleRuta.startsWith('/noticias')) {
+      detalleRuta = `/noticias/${detalleRuta.replace(/^\/+/, '')}`;
+    }
+  }
+
   return (
     <article className="noticia-card">
       <div className="noticia-card__imagen-container">
@@ -64,7 +84,7 @@ const NoticiaCard: React.FC<{ noticia: Noticia }> = ({ noticia }) => {
 
         {/* Navegamos usando el enlace de la DB y pasando la noticia en el state */}
         <Link 
-          to={noticia.enlace} 
+          to={detalleRuta} 
           state={{ noticia }} 
           className="noticia-card__link"
         >

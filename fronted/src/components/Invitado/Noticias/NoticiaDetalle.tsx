@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { detallesNoticias } from '../../../tipos/noticiasDetalle';
 import { Calendar, Tag, ChevronLeft } from 'lucide-react';
-import { Header } from '../../Header/Header';
-import HeaderUsuario from '../../Header/usuario/Header';
 import '../../../style/Invitado/Noticias/PaginaNoticiaDetalle.css';
 
 const PaginaNoticiaDetalle: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [isUsuario, setIsUsuario] = useState(false);
   
   // 1. Recuperamos la noticia básica que enviamos desde la Card (vía Link state)
   const noticiaDB = location.state?.noticia;
@@ -21,12 +18,9 @@ const PaginaNoticiaDetalle: React.FC = () => {
     // Al cargar, subimos al inicio de la página
     window.scrollTo(0, 0);
     
-    // Detectamos si hay un usuario logueado
-    const usuarioLS = localStorage.getItem("usuario");
-    setIsUsuario(!!usuarioLS);
-    
     // Si alguien intenta acceder a la URL directamente sin pasar por la lista,
     // o si la noticia no existe en nuestro diccionario, redirigimos a noticias.
+    const usuarioLS = localStorage.getItem('usuario');
     if (!noticiaDB || !contenidoExtra) {
       navigate(usuarioLS ? '/usuario/noticias' : '/noticias');
     }
@@ -36,7 +30,6 @@ const PaginaNoticiaDetalle: React.FC = () => {
 
   return (
     <>
-      {isUsuario ? <HeaderUsuario /> : <Header />}
       <div className="noticia-detalle-container">
         <div className="noticia-detalle-inner">
           {/* Botón Volver */}
