@@ -35,7 +35,7 @@ const Carrito: React.FC = () => {
     setCarrito(cargarCarrito());
   }, []);
 
-  const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+  const total = carrito.reduce((sum, item) => sum + Number(item.precio) * item.cantidad, 0);
 
   const eliminarItem = (id: number, talla?: string, color?: string) => {
     const actualizado = carrito.filter(
@@ -111,7 +111,7 @@ const Carrito: React.FC = () => {
                 <div>
                   <h2 style={{ margin: 0 }}>{item.nombre}</h2>
                   <p style={{ margin: "8px 0", color: "#6b7280" }}>{item.Categoria}</p>
-                  <p style={{ margin: 0 }}><strong>Precio:</strong> {item.precio.toFixed(2)}€</p>
+                  <p style={{ margin: 0 }}><strong>Precio:</strong> {Number(item.precio).toFixed(2)}€</p>
                   <p style={{ margin: "8px 0 0" }}><strong>Cantidad:</strong> {item.cantidad}</p>
                   {item.talla && <p style={{ margin: "4px 0 0" }}><strong>Talla:</strong> {item.talla}</p>}
                   {item.color && <p style={{ margin: "4px 0 0" }}><strong>Color:</strong> {item.color}</p>}
@@ -149,7 +149,7 @@ const Carrito: React.FC = () => {
           </div>
 
           <div style={{ marginTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
-            <div style={{ fontSize: 18, fontWeight: 600 }}>Total: {total.toFixed(2)}€</div>
+            <div style={{ fontSize: 18, fontWeight: 600 }}>Total: {Number(total).toFixed(2)}€</div>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <button
                 style={{
