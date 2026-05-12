@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import type { Material } from "../../../tipos/material";
 import "../../../style/Invitado/Tienda/Tiendas.css";
  
@@ -8,6 +8,8 @@ const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 const Tienda: React.FC = () => {
   const [productos, setProductos] = useState<Material[]>([]);
   const navigate = useNavigate();
+  const location = useLocation();
+  const isRutaUsuario = location.pathname.startsWith('/usuario');
   const [loading, setLoading]     = useState(true);
   const [error, setError]         = useState(false);
  
@@ -205,7 +207,18 @@ const Tienda: React.FC = () => {
                   <p className="producto-desc">{p.descripcion}</p>
                   <p className="producto-precio">{Number(p.precio).toFixed(2)}€</p>
                 </div>
-                <button className="producto-btn" onClick={() => navigate(`/tienda/${p.id_material}`)}>Ver Producto</button>
+                <button
+                  className="producto-btn"
+                  onClick={() =>
+                    navigate(
+                      isRutaUsuario
+                        ? `/usuario/tienda/${p.id_material}`
+                        : `/tienda/${p.id_material}`
+                    )
+                  }
+                >
+                  Ver Producto
+                </button>
               </div>
             ))
           )}
