@@ -12,7 +12,7 @@ router.get('/:id_usuario', async (req, res) => {
               h.dia, h.hora, h.dojo, h.tipo_clase,
               u2.nombre AS sensei_nombre, u2.apellido AS sensei_apellido
        FROM inscripcion i
-       INNER JOIN cursos c ON i.id_curso = c.id_curso
+       INNER JOIN curso c ON i.id_curso = c.id_curso
        LEFT JOIN horario h ON h.id_usuario = i.id_usuario
        LEFT JOIN usuario u2 ON h."Sensei" = u2.id_usuario
        WHERE i.id_usuario = $1
@@ -70,12 +70,12 @@ router.put('/:codigo', async (req, res) => {
 });
 
 // GET /api/inscripciones/cursos/disponibles — todos los cursos disponibles
-router.get('/cursos/disponibles', async (req, res) => {
+router.get('/curso/disponibles', async (req, res) => {
   try {
     const resultado = await pool.query(
       `SELECT c.id_curso, c.nombre, c.descripcion,
               COUNT(i.codigo) AS inscritos
-       FROM cursos c
+       FROM curso c
        LEFT JOIN inscripcion i ON c.id_curso = i.id_curso AND i.estado = 'ACTIVA'
        GROUP BY c.id_curso, c.nombre, c.descripcion
        ORDER BY c.nombre ASC`
@@ -83,7 +83,7 @@ router.get('/cursos/disponibles', async (req, res) => {
     res.json(resultado.rows);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Error al obtener los cursos" });
+    res.status(500).json({ error: "Error al obtener los curso" });
   }
 });
 
