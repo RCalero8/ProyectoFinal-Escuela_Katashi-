@@ -1,0 +1,410 @@
+.pagos-section {
+  width: 100%;
+  background: #f9fafb;
+  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Banner método elegido ── */
+.pagos-banner {
+  width: 100%;
+  padding: 16px 48px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pagos-banner.tarjeta { background: #fff7ed; border-bottom: 1px solid #fed7aa; }
+.pagos-banner.metalico { background: #f0fdf4; border-bottom: 1px solid #bbf7d0; }
+
+.pagos-banner-emoji { font-size: 24px; }
+
+.pagos-banner-texto strong {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111111;
+  display: block;
+}
+
+.pagos-banner-texto span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ── Inner ── */
+.pagos-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 48px 64px;
+}
+
+/* ── Título sección ── */
+.pagos-titulo {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 24px;
+  font-weight: 700;
+  color: #b8860b;
+  margin: 0 0 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagos-subtitulo {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0 0 20px 0;
+}
+
+/* ── Stats ── */
+.pagos-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.pagos-stat {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pagos-stat-valor {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111111;
+}
+
+.pagos-stat-label {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ── Pagos pendientes ── */
+.pagos-pendientes {
+  margin-bottom: 32px;
+}
+
+.pagos-pendientes-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.pagos-badge-pendiente {
+  background: #fef9c3;
+  color: #ca8a04;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+.pagos-pendiente-card {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 10px;
+}
+
+.pagos-pendiente-nombre {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 4px 0;
+}
+
+.pagos-pendiente-desc {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0 0 12px 0;
+}
+
+.pagos-pendiente-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.pagos-btn-pagar {
+  background: #22c55e;
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.pagos-btn-pagar:hover { background: #16a34a; }
+
+.pagos-btn-cambiar {
+  background: transparent;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagos-btn-cambiar:hover { border-color: #6b7280; color: #374151; }
+
+/* ── Historial ── */
+.pagos-historial {
+  margin-bottom: 32px;
+}
+
+.pagos-tabla-wrap {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.pagos-tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pagos-tabla th {
+  background: #f9fafb;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  color: #6b7280;
+  padding: 10px 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.pagos-tabla td {
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #374151;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.pagos-tabla tr:last-child td { border-bottom: none; }
+
+.pagos-estado-pagado {
+  color: #16a34a;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pagos-estado-pendiente {
+  color: #ca8a04;
+  font-weight: 700;
+}
+
+.pagos-btn-descargar {
+  background: #cc0000;
+  color: #ffffff;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  transition: background 0.2s ease;
+}
+
+.pagos-btn-descargar:hover { background: #aa0000; }
+
+/* ── Métodos de pago (tarjeta) ── */
+.pagos-metodos { margin-bottom: 32px; }
+
+.pagos-tarjeta-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  background: #ffffff;
+}
+
+.pagos-tarjeta-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pagos-tarjeta-emoji { font-size: 22px; }
+
+.pagos-tarjeta-num {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111111;
+}
+
+.pagos-tarjeta-titular {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.pagos-tarjeta-acciones {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagos-badge-principal {
+  background: #dbeafe;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+.pagos-btn-link {
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.pagos-btn-link:hover { color: #cc0000; }
+
+.pagos-btn-anadir {
+  background: transparent;
+  border: 1px dashed #d1d5db;
+  color: #6b7280;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagos-btn-anadir:hover { border-color: #b8860b; color: #b8860b; }
+
+/* ── Método metálico info ── */
+.pagos-metalico-card {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 20px 24px;
+}
+
+.pagos-metalico-titulo {
+  font-family: 'Georgia', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #15803d;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagos-metalico-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pagos-metalico-lista li {
+  font-size: 13px;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pagos-metalico-lista li::before {
+  content: "•";
+  color: #22c55e;
+  font-weight: 700;
+}
+
+/* ── Facturación ── */
+.pagos-facturacion { margin-bottom: 32px; }
+
+.pagos-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.pagos-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pagos-form-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.pagos-form-input {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #111111;
+  background: #f9fafb;
+  outline: none;
+  transition: border-color 0.2s ease;
+  font-family: inherit;
+}
+
+.pagos-form-input:focus {
+  border-color: #b8860b;
+  background: #ffffff;
+}
+
+.pagos-form-nota {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0 0 16px 0;
+}
+
+.pagos-btn-guardar {
+  background: #cc0000;
+  color: #ffffff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: 'Georgia', serif;
+}
+
+.pagos-btn-guardar:hover { background: #aa0000; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pagos-inner { padding: 24px 16px 48px; }
+  .pagos-banner { padding: 14px 16px; }
+  .pagos-stats { grid-template-columns: 1fr; }
+  .pagos-form-grid { grid-template-columns: 1fr; }
+}
