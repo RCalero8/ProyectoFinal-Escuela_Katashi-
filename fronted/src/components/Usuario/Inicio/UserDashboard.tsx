@@ -25,7 +25,7 @@ const UserDashboard: React.FC = () => {
             title: 'Pagos',
             description: 'Consultar cuotas, historial y método de pago.',
             icon: '💳',
-            path: '/pagos'
+            path: '/usuario/pagos'
         }, 
         {
             id: 3,

@@ -22,6 +22,7 @@ import Mis_clases from "./pages/Usuario/Mis_Clases.tsx"
 import Noticias_usuario from "./pages/Usuario/Noticias_usuario.tsx";
 import Carrito from "./pages/Usuario/Carrito.tsx";
 import DetalleNoticia from "./components/Usuario/Noticias/NoticiaDetalle-usu.tsx";
+import Pagos from "./pages/Usuario/Pagos.tsx";
 const PanelAdmin = () => <div style={{padding: '100px'}}><h1>Panel de Administrador</h1></div>;
 
 // Componente de ruta protegida
@@ -99,6 +100,12 @@ function Layout() {
           <Route path="/usuario/contacto" element={
             <RutaProtegida tipo="CLIENTE">
               <Contacto/>
+            </RutaProtegida>
+          } />
+          
+          <Route path="/usuario/pagos" element={
+            <RutaProtegida tipo="CLIENTE">
+              <Pagos/>
             </RutaProtegida>
           } />
 
