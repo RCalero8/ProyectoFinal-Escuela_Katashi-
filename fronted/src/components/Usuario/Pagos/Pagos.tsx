@@ -121,7 +121,22 @@ const Pagos: React.FC = () => {
   };
 
   const esTarjeta = metodoPago === "Tarjeta";
-
+  // AÑADIR TARJETA
+  const [showAddCard, setShowAddCard] = useState(false);
+  const [nuevaTarjeta, setNuevaTarjeta] = useState({
+    numero: "",
+    titular: `${usuario.nombre} ${usuario.apellido}`,
+    fecha:"",
+    cvv:""
+  })
+  const handleAddCard = async (e: React.FormEvent) => {
+  e.preventDefault();
+  console.log("Datos de nueva tarjeta:", nuevaTarjeta);
+  
+  alert("✅ Solicitud de nueva tarjeta enviada correctamente");
+  setShowAddCard(false);
+  setNuevaTarjeta({ ...nuevaTarjeta, numero: "", fecha: "", cvv: "" });
+};
   if (loading) return <div className="pagos-section" style={{padding:48, textAlign:"center", color:"#6b7280"}}>Cargando...</div>;
 
   return (
@@ -248,7 +263,73 @@ const Pagos: React.FC = () => {
                   <span className="pagos-badge-principal">Principal</span>
                 </div>
               </div>
-              <button className="pagos-btn-anadir">+ Añadir tarjeta</button>
+              {!showAddCard ? (
+  <button 
+    className="pagos-btn-anadir" 
+    onClick={() => setShowAddCard(true)}
+  >
+    + Añadir tarjeta
+  </button>
+) : (
+  <div className="pagos-add-card-form" style={{
+    background: "#f9fafb", 
+    padding: "20px", 
+    borderRadius: "8px", 
+    border: "1px solid #e5e7eb",
+    marginTop: "15px"
+  }}>
+    <h4 style={{fontSize: "16px", marginBottom: "15px", color: "#374151"}}>Añadir Nueva Tarjeta</h4>
+    <form onSubmit={handleAddCard}>
+      <div className="pagos-form-grid">
+        <div className="pagos-form-field">
+          <label className="pagos-form-label">Número de Tarjeta</label>
+          <input 
+            className="pagos-form-input" 
+            placeholder="0000 0000 0000 0000"
+            value={nuevaTarjeta.numero}
+            onChange={e => setNuevaTarjeta({...nuevaTarjeta, numero: e.target.value})}
+            required
+          />
+        </div>
+        <div className="pagos-form-field">
+          <label className="pagos-form-label">Fecha de Caducidad</label>
+          <input 
+            className="pagos-form-input" 
+            placeholder="MM/AA"
+            value={nuevaTarjeta.fecha}
+            onChange={e => setNuevaTarjeta({...nuevaTarjeta, fecha: e.target.value})}
+            required
+          />
+        </div>
+        <div className="pagos-form-field">
+          <label className="pagos-form-label">CVV</label>
+          <input 
+            className="pagos-form-input" 
+            type="password"
+            placeholder="***"
+            maxLength={3}
+            value={nuevaTarjeta.cvv}
+            onChange={e => setNuevaTarjeta({...nuevaTarjeta, cvv: e.target.value})}
+            required
+          />
+        </div>
+      </div>
+      <div style={{display: "flex", gap: "10px", marginTop: "20px"}}>
+        <button type="submit" className="pagos-btn-guardar" style={{margin: 0, width: "auto"}}>
+          Guardar Tarjeta
+        </button>
+        <button 
+          type="button" 
+          className="pagos-btn-cambiar" 
+          onClick={() => setShowAddCard(false)}
+          style={{background: "#ef4444", color: "white"}}
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+)}
             </>
           ) : (
             <>
