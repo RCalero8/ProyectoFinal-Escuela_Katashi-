@@ -1,7 +1,7 @@
 import React from "react";
 import jsPDF from "jspdf";
 import "../../../style/Usuario/Federacion/Documentacion.css";
-nterface Documento {
+interface Documento {
   emoji: string;
   nombre: string;
   fecha: string;
