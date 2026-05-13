@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./DashboardAdmin.css";
+import "../../style/Admin/Inicio_admin.css";
+;
 
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 
