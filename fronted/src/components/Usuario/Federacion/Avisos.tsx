@@ -1,5 +1,5 @@
 import React from "react";
-import "../../";
+import "../../../style/Usuario/Federacion/Avisos.css";
 
 interface Federacion {
   f_renovacion: string;
