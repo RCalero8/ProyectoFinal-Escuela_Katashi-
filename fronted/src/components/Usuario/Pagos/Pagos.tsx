@@ -47,7 +47,7 @@ const Pagos: React.FC = () => {
   const pagosPendientes = pagos.filter(p => p.estado === 'PENDIENTE');
   const pagosPagados    = pagos.filter(p => p.estado === 'COMPLETADO');
   const ultimoPago      = pagosPagados[0];
-  const proximoPago     = pagosPendientes[0];
+  // const proximoPago  = pagosPendientes[0]; // unused, usamos getProximaFecha()
 
   // Próximo pago siempre el día 15 del mes siguiente
   const getProximaFecha = () => {

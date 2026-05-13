@@ -1,0 +1,96 @@
+.docfed-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 32px 48px;
+  box-sizing: border-box;
+  border-top: 1px solid #e5e7eb;
+}
+
+.docfed-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.docfed-titulo {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 24px;
+  font-weight: 700;
+  color: #b8860b;
+  margin: 0 0 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.docfed-subtitulo {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0 0 24px 0;
+}
+
+.docfed-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.docfed-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.docfed-card-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.docfed-card-emoji {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.docfed-card-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.docfed-card-nombre {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.docfed-card-fecha {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.docfed-btn {
+  width: 100%;
+  padding: 8px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.docfed-btn:hover {
+  border-color: #b8860b;
+  color: #b8860b;
+}
+
+@media (max-width: 768px) {
+  .docfed-section { padding: 24px 16px; }
+  .docfed-grid { grid-template-columns: 1fr; }
+}
