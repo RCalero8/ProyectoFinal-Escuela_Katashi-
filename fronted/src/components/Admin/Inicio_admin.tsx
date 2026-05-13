@@ -6,7 +6,6 @@ import "../../style/Admin/Inicio_admin.css";
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 
 const Inicio_admin: React.FC = () => {
-  const navigate = useNavigate();
   const usuario  = JSON.parse(localStorage.getItem("usuario") || "{}");
 
   const [stats, setStats] = useState({
