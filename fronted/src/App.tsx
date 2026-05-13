@@ -24,8 +24,9 @@ import Carrito from "./pages/Usuario/Carrito.tsx";
 import DetalleNoticia from "./components/Usuario/Noticias/NoticiaDetalle-usu.tsx";
 import Pagos from "./pages/Usuario/Pagos.tsx";
 import Federacion from "./pages/Usuario/Federacion.tsx"
-const PanelAdmin = () => <div style={{padding: '100px'}}><h1>Panel de Administrador</h1></div>;
 
+//Administración
+import InicioAdmin from "./pages/Admin/Inicio_admin.tsx";
 // Componente de ruta protegida
 const RutaProtegida = ({ tipo, children }: { tipo: string, children: React.ReactNode }) => {
   const userJson = localStorage.getItem('usuario');
@@ -116,9 +117,10 @@ function Layout() {
             </RutaProtegida>
           } />
 
+          {/*Administrador*/}
           <Route path="/admin" element={
             <RutaProtegida tipo="ADMINISTRADOR">
-              <PanelAdmin />
+              <InicioAdmin />
             </RutaProtegida>
           } />
 
