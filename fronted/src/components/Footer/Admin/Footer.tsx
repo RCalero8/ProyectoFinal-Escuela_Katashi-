@@ -13,3 +13,6 @@ const Footer: React.FC = () => {
         <a href="#">Soporte</a>
       </div>
     </footer>
+  );
+};
+export default Footer;
