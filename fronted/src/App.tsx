@@ -30,6 +30,9 @@ import InicioAdmin from "./pages/Admin/Inicio_admin.tsx";
 import AlumnosAdmin from "./pages/Admin/Alumnos_admin.tsx";
 import PagosAdmin from "./pages/Admin/Pagos_admin.tsx";
 import HorariosAdmin from "./pages/Admin/Horarios_admin.tsx";
+import AsistenciaAdmin from "./pages/Admin/Asistencia_admin.tsx";
+import TiendaAdmin from "./pages/Admin/Tienda_admin.tsx";
+import NoticiasAdmin from "./pages/Admin/Noticias_admin.tsx";
 
 // Componente de ruta protegida
 const RutaProtegida = ({ tipo, children }: { tipo: string, children: React.ReactNode }) => {
@@ -140,6 +143,21 @@ function Layout() {
           <Route path="/admin/horarios" element={
             <RutaProtegida tipo="ADMINISTRADOR">
               <HorariosAdmin />
+            </RutaProtegida>
+          } />
+          <Route path="/admin/asistencia" element={
+            <RutaProtegida tipo="ADMINISTRADOR">
+              <AsistenciaAdmin />
+            </RutaProtegida>
+          } />
+          <Route path="/admin/tienda" element={
+            <RutaProtegida tipo="ADMINISTRADOR">
+              <TiendaAdmin />
+            </RutaProtegida>
+          } />
+          <Route path="/admin/noticias" element={
+            <RutaProtegida tipo="ADMINISTRADOR">
+              <NoticiasAdmin />
             </RutaProtegida>
           } />
 
