@@ -30,7 +30,7 @@ import InicioAdmin from "./pages/Admin/Inicio_admin.tsx";
 import AlumnosAdmin from "./pages/Admin/Alumnos_admin.tsx";
 import PagosAdmin from "./pages/Admin/Pagos_admin.tsx";
 import HorariosAdmin from "./pages/Admin/Horarios_admin.tsx";
-import AsistenciaAdmin from "./pages/Admin/Asistencia_admin.tsx";
+import AsistenciaAdmin from "./pages/Admin/Asistencias_admin.tsx";
 import TiendaAdmin from "./pages/Admin/Tienda_admin.tsx";
 import NoticiasAdmin from "./pages/Admin/Noticias_admin.tsx";
 
