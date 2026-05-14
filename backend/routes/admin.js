@@ -1,8 +1,8 @@
-const express = requiere('express');
-const router = express.Router();
-const pool = requiere('../config/db');
+const express = require('express');
+const router  = express.Router();
+const pool    = require('../config/db');
 
-//---Alumnos---
+// ── ALUMNOS ──
 router.get('/alumnos', async (req, res) => {
   try {
     const r = await pool.query(
@@ -15,7 +15,7 @@ router.get('/alumnos', async (req, res) => {
     res.json(r.rows);
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al obtener alumnos" }); }
 });
- 
+
 router.put('/alumnos/:id', async (req, res) => {
   const { id } = req.params;
   const { nombre, apellido, dni, nivel } = req.body;
@@ -27,7 +27,8 @@ router.put('/alumnos/:id', async (req, res) => {
     res.json({ mensaje: "Alumno actualizado" });
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al actualizar alumno" }); }
 });
-//---Pagos---
+
+// ── PAGOS ──
 router.get('/pagos', async (req, res) => {
   try {
     const r = await pool.query(
@@ -40,7 +41,7 @@ router.get('/pagos', async (req, res) => {
     res.json(r.rows);
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al obtener pagos" }); }
 });
- 
+
 router.put('/pagos/:id', async (req, res) => {
   const { id } = req.params;
   const { estado } = req.body;
@@ -52,7 +53,8 @@ router.put('/pagos/:id', async (req, res) => {
     res.json({ mensaje: "Pago actualizado" });
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al actualizar pago" }); }
 });
-//---Horarios---
+
+// ── HORARIOS ──
 router.get('/horarios', async (req, res) => {
   try {
     const r = await pool.query(
@@ -69,7 +71,7 @@ router.get('/horarios', async (req, res) => {
     res.json(r.rows);
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al obtener horarios" }); }
 });
- 
+
 router.post('/horarios', async (req, res) => {
   const { dia, hora, tipo_clase, dojo, id_usuario, sensei } = req.body;
   try {
@@ -80,7 +82,7 @@ router.post('/horarios', async (req, res) => {
     res.status(201).json({ mensaje: "Horario creado" });
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al crear horario" }); }
 });
- 
+
 router.delete('/horarios/:id', async (req, res) => {
   const { id } = req.params;
   try {
@@ -88,8 +90,8 @@ router.delete('/horarios/:id', async (req, res) => {
     res.json({ mensaje: "Horario eliminado" });
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al eliminar horario" }); }
 });
- 
-//---Asistencia---
+
+// ── ASISTENCIA ──
 router.get('/asistencia/:id_horario/:fecha', async (req, res) => {
   const { id_horario, fecha } = req.params;
   try {
@@ -101,7 +103,7 @@ router.get('/asistencia/:id_horario/:fecha', async (req, res) => {
        WHERE h.id_horario = $1`, [id_horario]
     );
     // Para cada alumno ver si tiene asistencia ese día
-    const lista = await Promise.all(alumnos.rows.map(async (a: any) => {
+    const lista = await Promise.all(alumnos.rows.map(async (a) => {
       const asist = await pool.query(
         `SELECT id_asistencia, presente FROM asistencia WHERE id_usuario=$1 AND id_clase=$2 AND fecha=$3`,
         [a.id_usuario, id_horario, fecha]
@@ -115,7 +117,7 @@ router.get('/asistencia/:id_horario/:fecha', async (req, res) => {
     res.json(lista);
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al obtener asistencia" }); }
 });
- 
+
 router.post('/asistencia', async (req, res) => {
   const { id_usuario, id_horario, fecha, presente } = req.body;
   try {
@@ -128,15 +130,15 @@ router.post('/asistencia', async (req, res) => {
     res.json({ mensaje: "Asistencia guardada" });
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al guardar asistencia" }); }
 });
- 
-//---Noticias---
+
+// ── NOTICIAS ──
 router.get('/noticias', async (req, res) => {
   try {
     const r = await pool.query(`SELECT * FROM noticias ORDER BY fecha DESC`);
     res.json(r.rows);
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al obtener noticias" }); }
 });
- 
+
 router.post('/noticias', async (req, res) => {
   const { titulo, contenido, categoria, fecha, enlace } = req.body;
   try {
@@ -147,7 +149,7 @@ router.post('/noticias', async (req, res) => {
     res.status(201).json({ mensaje: "Noticia creada" });
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al crear noticia" }); }
 });
- 
+
 router.put('/noticias/:id', async (req, res) => {
   const { id } = req.params;
   const { titulo, contenido, categoria, fecha, enlace } = req.body;
@@ -159,7 +161,7 @@ router.put('/noticias/:id', async (req, res) => {
     res.json({ mensaje: "Noticia actualizada" });
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al actualizar noticia" }); }
 });
- 
+
 router.delete('/noticias/:id', async (req, res) => {
   const { id } = req.params;
   try {
@@ -167,15 +169,15 @@ router.delete('/noticias/:id', async (req, res) => {
     res.json({ mensaje: "Noticia eliminada" });
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al eliminar noticia" }); }
 });
- 
-//---Tienda---
+
+// ── TIENDA ──
 router.get('/tienda', async (req, res) => {
   try {
     const r = await pool.query(`SELECT * FROM material ORDER BY id_material ASC`);
     res.json(r.rows);
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al obtener productos" }); }
 });
- 
+
 router.post('/tienda', async (req, res) => {
   const { nombre, descripcion, precio, stock, Categoria, Imagen, Talla, Color } = req.body;
   try {
@@ -187,7 +189,7 @@ router.post('/tienda', async (req, res) => {
     res.status(201).json({ mensaje: "Producto creado" });
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al crear producto" }); }
 });
- 
+
 router.put('/tienda/:id', async (req, res) => {
   const { id } = req.params;
   const { nombre, descripcion, precio, stock, Categoria, Imagen, Talla, Color } = req.body;
@@ -200,7 +202,7 @@ router.put('/tienda/:id', async (req, res) => {
     res.json({ mensaje: "Producto actualizado" });
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al actualizar producto" }); }
 });
- 
+
 router.delete('/tienda/:id', async (req, res) => {
   const { id } = req.params;
   try {
@@ -208,5 +210,5 @@ router.delete('/tienda/:id', async (req, res) => {
     res.json({ mensaje: "Producto eliminado" });
   } catch (e) { console.error(e); res.status(500).json({ error: "Error al eliminar producto" }); }
 });
- 
+
 module.exports = router;
