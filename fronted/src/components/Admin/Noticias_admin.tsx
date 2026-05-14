@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./AdminTabla.css";
+import "../../style/Admin/Admintabla.css";
 
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 
@@ -14,7 +14,7 @@ interface Noticia {
 
 const vacia: Omit<Noticia,"id"> = { titulo:"", contenido:"", categoria:"General", fecha: new Date().toISOString().split("T")[0], enlace:"" };
 
-const AdminNoticias: React.FC = () => {
+const Noticias_admin: React.FC = () => {
   const [noticias, setNoticias]   = useState<Noticia[]>([]);
   const [modal, setModal]         = useState(false);
   const [editando, setEditando]   = useState<Noticia | null>(null);
@@ -134,4 +134,4 @@ const AdminNoticias: React.FC = () => {
   );
 };
 
-export default AdminNoticias;
+export default Noticias_admin;
