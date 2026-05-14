@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./AdminTabla.css";
+import "../../style/Admin/Admintabla.css";
 
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 const DIAS = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
@@ -20,7 +20,7 @@ interface NuevoHorario {
   dojo: string; id_usuario: string; sensei: string;
 }
 
-const AdminHorarios: React.FC = () => {
+const Horarios_admin: React.FC = () => {
   const [horarios, setHorarios] = useState<Horario[]>([]);
   const [loading, setLoading]   = useState(true);
   const [modal, setModal]       = useState(false);
@@ -138,4 +138,4 @@ const AdminHorarios: React.FC = () => {
   );
 };
 
-export default AdminHorarios;
+export default Horarios_admin;
