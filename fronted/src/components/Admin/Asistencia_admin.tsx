@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./AdminTabla.css";
+import "../../style/Admin/Admintabla.css";
 
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 
@@ -19,7 +19,7 @@ interface AlumnoAsistencia {
   presente: boolean | null;
 }
 
-const AdminAsistencia: React.FC = () => {
+const Asistencia_admin: React.FC = () => {
   const [horarios, setHorarios]   = useState<Horario[]>([]);
   const [seleccionado, setSeleccionado] = useState<number | null>(null);
   const [fecha, setFecha]         = useState(new Date().toISOString().split("T")[0]);
@@ -145,4 +145,4 @@ const AdminAsistencia: React.FC = () => {
   );
 };
 
-export default AdminAsistencia;
+export default Asistencia_admin;
