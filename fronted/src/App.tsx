@@ -28,6 +28,7 @@ import Federacion from "./pages/Usuario/Federacion.tsx"
 //Administración
 import InicioAdmin from "./pages/Admin/Inicio_admin.tsx";
 import AlumnosAdmin from "./pages/Admin/Alumnos_admin.tsx";
+import PagosAdmin from "./pages/Admin/Pagos_admin.tsx";
 
 // Componente de ruta protegida
 const RutaProtegida = ({ tipo, children }: { tipo: string, children: React.ReactNode }) => {
@@ -128,6 +129,11 @@ function Layout() {
           <Route path="/admin/alumnos" element={
             <RutaProtegida tipo="ADMINISTRADOR">
               <AlumnosAdmin />
+            </RutaProtegida>
+          } />
+          <Route path="/admin/pagos" element={
+            <RutaProtegida tipo="ADMINISTRADOR">
+              <PagosAdmin />
             </RutaProtegida>
           } />
 
