@@ -47,8 +47,8 @@ const Pagos_Admin: React.FC = () => {
     return matchFiltro && matchBusqueda;
   });
  
-  const totalPendiente  = pagos.filter(p => p.estado === "PENDIENTE").reduce((a, p) => a + Number(p.precio), 0);
-  const totalCompletado = pagos.filter(p => p.estado === "COMPLETADO").reduce((a, p) => a + Number(p.precio), 0);
+  const totalPendiente  = pagos.filter(p => p.estado.toUpperCase() === "PENDIENTE").reduce((a, p) => a + Number(p.precio), 0);
+  const totalCompletado = pagos.filter(p => p.estado.toUpperCase() === "COMPLETADO").reduce((a, p) => a + Number(p.precio), 0);
  
   return (
     <div className="admin-page">
