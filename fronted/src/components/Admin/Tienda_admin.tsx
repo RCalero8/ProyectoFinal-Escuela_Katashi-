@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./AdminTabla.css";
+import "../../style/Admin/Admintabla.css";
 
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 
@@ -20,7 +20,7 @@ const vacio: Omit<Producto,"id_material"> = {
   Categoria:"", Imagen:"", Talla:"", Color:""
 };
 
-const AdminTienda: React.FC = () => {
+const Tienda_admin: React.FC = () => {
   const [productos, setProductos] = useState<Producto[]>([]);
   const [modal, setModal]         = useState(false);
   const [editando, setEditando]   = useState<Producto | null>(null);
@@ -165,4 +165,4 @@ const AdminTienda: React.FC = () => {
   );
 };
 
-export default AdminTienda;
+export default Tienda_admin;
