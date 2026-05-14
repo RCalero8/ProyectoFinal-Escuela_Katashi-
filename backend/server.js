@@ -16,7 +16,7 @@ const rutasAsistencia = require ("./routes/asistencia");
 const rutasInscripciones = require ("./routes/incripsiones");
 const rutasPagos = require("./routes/pagos");
 const rutasFederacion = require("./routes/federacion");
-const rutasAdmin = requiere("./routes/admin");
+const rutasAdmin = require("./routes/admin");
 const app = express();
 
 // Configuración de CORS mejorada para Vercel
