@@ -41,11 +41,12 @@ const Pagos_Admin: React.FC = () => {
     return new Date(f).toLocaleDateString("es-ES");
   };
  
-  const filtrados = pagos.filter(p => {
-    const matchFiltro  = filtro === "TODOS" || p.estado === filtro;
-    const matchBusqueda = `${p.nombre} ${p.apellido}`.toLowerCase().includes(busqueda.toLowerCase());
-    return matchFiltro && matchBusqueda;
-  });
+const filtrados = pagos.filter(p => {
+  // Comparamos el estado del pago (en mayúsculas) con el valor del filtro
+  const matchFiltro = filtro === "TODOS" || p.estado?.toUpperCase() === filtro;
+  const matchBusqueda = `${p.nombre} ${p.apellido}`.toLowerCase().includes(busqueda.toLowerCase());
+  return matchFiltro && matchBusqueda;
+});
  
   const totalPendiente  = pagos.filter(p => p.estado.toUpperCase() === "PENDIENTE").reduce((a, p) => a + Number(p.precio), 0);
   const totalCompletado = pagos.filter(p => p.estado.toUpperCase() === "COMPLETADO").reduce((a, p) => a + Number(p.precio), 0);
