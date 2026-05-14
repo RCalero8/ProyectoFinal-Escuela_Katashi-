@@ -137,7 +137,7 @@ function Layout() {
               <PagosAdmin />
             </RutaProtegida>
           } />
-          <Route path="/admin/pagos" element={
+          <Route path="/admin/horarios" element={
             <RutaProtegida tipo="ADMINISTRADOR">
               <HorariosAdmin />
             </RutaProtegida>
