@@ -10,13 +10,13 @@ const rutasSenseis = require("./routes/senseis");
 const rutasTestimonios = require("./routes/testimonios");
 const rutasMaterial = require("./routes/material");
 const rutasAuth = require("./routes/auth"); 
-const rutasRegistro = require("./routes/registro");
 const rutasHorario = require("./routes/Horario");
 const rutasAsistencia = require ("./routes/asistencia");
 const rutasInscripciones = require ("./routes/incripsiones");
 const rutasPagos = require("./routes/pagos");
 const rutasFederacion = require("./routes/federacion");
 const rutasAdmin = require("./routes/admin");
+const rutasMatriculacion = require("./routes/matriculacion");
 const app = express();
 
 // Configuración de CORS mejorada para Vercel
@@ -31,14 +31,13 @@ app.use("/api/senseis", rutasSenseis);
 app.use("/api/testimonios", rutasTestimonios);
 app.use("/api/material", rutasMaterial);
 app.use("/api/auth", rutasAuth);
-app.use("/api/registro", rutasRegistro);
 app.use("/api/horario", rutasHorario);
 app.use("/api/asistencia", rutasAsistencia);
 app.use("/api/inscripciones", rutasInscripciones);
 app.use("/api/pagos", rutasPagos);
 app.use("/api/federacion", rutasFederacion);
 app.use("/api/admin", rutasAdmin);
-
+app.use("/api/matriculacion", rutasMatriculacion);
 // Ruta de prueba para saber si el backend responde
 app.get("/", (req, res) => {
   res.send("Servidor de la Escuela Katashi funcionando 🥋");
