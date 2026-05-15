@@ -7,6 +7,8 @@ import { Footer as FooterUsuario } from "./components/Footer/Usuario/Footer.tsx"
 
 import Login from "./pages/Login.tsx";
 import Registro from "./pages/Registro.tsx";
+import Matriculacion from "./pages/Matriculacion";
+
 import Inicio from "./pages/Invitado/Inicio.tsx";
 import Conocenos from "./pages/Invitado/Conocenos.tsx";
 import Clases from "./pages/Invitado/Clases.tsx";
@@ -63,6 +65,7 @@ function Layout() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<Registro />} />
+          <Route path="/matriculacion" element={<Matriculacion />} />
           <Route path="/noticias/:slug" element={<NoticiaDetalle />} />
           <Route path="/tienda/:id" element={<DetalleProducto />} />
 
