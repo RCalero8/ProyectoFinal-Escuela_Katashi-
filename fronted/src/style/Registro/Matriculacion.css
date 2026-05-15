@@ -1,0 +1,313 @@
+.matriculacion-section {
+  width: 100%;
+  background: #f9fafb;
+  min-height: 100vh;
+  padding: 0 0 64px 0;
+  box-sizing: border-box;
+}
+
+/* Hero */
+.matriculacion-hero {
+  width: 100%;
+  background: linear-gradient(135deg, #111827, #1f2937);
+  padding: 40px 48px;
+  box-sizing: border-box;
+  text-align: center;
+  border-bottom: 3px solid #cc0000;
+}
+
+.matriculacion-hero img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+.matriculacion-hero h1 {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 28px;
+  font-weight: 700;
+  color: #b8860b;
+  margin: 0 0 6px 0;
+}
+
+.matriculacion-hero p {
+  font-size: 14px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* Inner */
+.matriculacion-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+/* Selector mayor/menor */
+.matriculacion-selector {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.matriculacion-selector h3 {
+  font-family: 'Georgia', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 14px 0;
+}
+
+.matriculacion-radio-group {
+  display: flex;
+  gap: 16px;
+}
+
+.matriculacion-radio-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.matriculacion-radio-btn input { display: none; }
+
+.matriculacion-radio-btn.seleccionado {
+  border-color: #cc0000;
+  background: #fff5f5;
+  color: #cc0000;
+}
+
+/* Sección */
+.matriculacion-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.matriculacion-card-header {
+  background: #f9fafb;
+  padding: 14px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.matriculacion-card-titulo {
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.matriculacion-card-body {
+  padding: 20px;
+}
+
+/* Campos */
+.matriculacion-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.matriculacion-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.matriculacion-field.full { grid-column: 1 / -1; }
+
+.matriculacion-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.matriculacion-input,
+.matriculacion-select {
+  padding: 9px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #111111;
+  outline: none;
+  transition: border-color 0.2s ease;
+  font-family: inherit;
+  background: #ffffff;
+}
+
+.matriculacion-input:focus,
+.matriculacion-select:focus { border-color: #b8860b; }
+
+/* Contrato */
+.matriculacion-contrato {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 16px;
+  background: #f9fafb;
+  font-size: 12px;
+  color: #374151;
+  line-height: 1.8;
+}
+
+.matriculacion-contrato p { margin: 0 0 10px 0; }
+.matriculacion-contrato strong { color: #111111; }
+
+/* Autorización imágenes */
+.matriculacion-autorizacion {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.matriculacion-autorizacion label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #374151;
+  cursor: pointer;
+}
+
+/* Firma */
+.matriculacion-firma-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.matriculacion-canvas {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  cursor: crosshair;
+  touch-action: none;
+  width: 100%;
+  max-width: 500px;
+}
+
+.matriculacion-btn-limpiar {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Fecha */
+.matriculacion-fecha {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #374151;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.matriculacion-fecha input {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 13px;
+  outline: none;
+}
+
+/* Método pago */
+.matriculacion-pago-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.matriculacion-pago-btn {
+  padding: 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.matriculacion-pago-btn.seleccionado {
+  border-color: #cc0000;
+  background: #fff5f5;
+}
+
+.matriculacion-pago-btn span:first-child { font-size: 24px; }
+.matriculacion-pago-btn span:last-child {
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+}
+
+/* Botón enviar */
+.matriculacion-btn-enviar {
+  width: 100%;
+  padding: 14px;
+  background: #cc0000;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: 'Georgia', serif;
+  margin-top: 8px;
+}
+
+.matriculacion-btn-enviar:hover { background: #aa0000; }
+.matriculacion-btn-enviar:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Cuenta */
+.matriculacion-cuenta {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.matriculacion-cuenta h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 14px 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .matriculacion-hero { padding: 32px 20px; }
+  .matriculacion-inner { padding: 20px 16px; }
+  .matriculacion-form-grid { grid-template-columns: 1fr; }
+  .matriculacion-pago-options { grid-template-columns: 1fr; }
+  .matriculacion-radio-group { flex-direction: column; }
+}
