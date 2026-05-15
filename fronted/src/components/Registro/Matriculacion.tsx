@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import "../../style/Registro/Registroform.css";
+import "../../style/Registro/Matriculacion.css";
 
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 
