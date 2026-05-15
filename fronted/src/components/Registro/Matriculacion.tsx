@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import "./Matriculacion.css";
+import "../../style/Registro/Registroform.css";
 
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 
@@ -27,7 +26,6 @@ Duodécima. Está terminantemente prohibida la grabación, reproducción o publi
 `;
 
 const Matriculacion: React.FC = () => {
-  const navigate  = useNavigate();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const [esMayor, setEsMayor]       = useState<boolean | null>(null);
