@@ -16,6 +16,7 @@ const rutasInscripciones = require ("./routes/incripsiones");
 const rutasPagos = require("./routes/pagos");
 const rutasFederacion = require("./routes/federacion");
 const rutasAdmin = require("./routes/admin");
+const rutasRegistro = require("./routes/registro");
 const rutasMatriculacion = require("./routes/matriculacion");
 const app = express();
 
@@ -37,6 +38,7 @@ app.use("/api/inscripciones", rutasInscripciones);
 app.use("/api/pagos", rutasPagos);
 app.use("/api/federacion", rutasFederacion);
 app.use("/api/admin", rutasAdmin);
+app.use("/api/registro", rutasRegistro);
 app.use("/api/matriculacion", rutasMatriculacion);
 // Ruta de prueba para saber si el backend responde
 app.get("/", (req, res) => {
