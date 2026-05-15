@@ -1,11 +1,11 @@
 import {Header} from "../components/Header/Header";
 import {Footer} from "../components/Footer/Footer";
-import Matriculacion from "../components/Registro/Matriculacion";
+import Matricula from "../components/Registro/Matriculacion";
 
 const Matriculacion = () => (
   <>
     <Header/>
-    <Matriculacion />
+    <Matricula />
     <Footer/>
   </>
 );
