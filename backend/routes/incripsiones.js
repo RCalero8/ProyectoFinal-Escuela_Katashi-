@@ -54,11 +54,21 @@ router.post('/', async (req, res) => {
     if (existe.rows.length > 0)
       return res.status(409).json({ error: "Ya estás inscrito en esta clase" });
 
+    // Buscar id_alumno del usuario automáticamente
+    const alumnoRes = await pool.query(
+      `SELECT id_alumno FROM alumno WHERE id_usuario = $1 LIMIT 1`,
+      [id_usuario]
+    );
+    const id_alumno_real = alumnoRes.rows[0]?.id_alumno || null;
+
+    if (!id_alumno_real)
+      return res.status(404).json({ error: "No se encontró el alumno asociado a este usuario" });
+
     const resultado = await pool.query(
       `INSERT INTO inscripcion (id_usuario, id_curso, id_alumno, estado)
        VALUES ($1, $2, $3, 'ACTIVA')
        RETURNING codigo`,
-      [id_usuario, id_curso, id_alumno || null]
+      [id_usuario, id_curso, id_alumno_real]
     );
     res.status(201).json({ mensaje: "Inscripción realizada correctamente", codigo: resultado.rows[0].codigo });
   } catch (error) {
