@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import "../../style/Registro/Matriculacion.css";
 
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
@@ -7,11 +6,11 @@ const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
 const CLAUSULAS = `
 Primera. Que es deseo de ambas partes firmar el presente acuerdo.
 
-Segunda. Que conoce los fines y las directrices de SHURI-TE y está de acuerdo con ellos y con los medios utilizados para llevar la actividad de Karate.
+Segunda. Que conoce los fines y las directrices de KATASHI y está de acuerdo con ellos y con los medios utilizados para llevar la actividad de Karate.
 
-Tercera. Que se compromete a realizarla con responsabilidad y regularidad; avisando a SHURI-TE con la antelación suficiente en el caso de que surgiera alguna dificultad imprevista.
+Tercera. Que se compromete a realizarla con responsabilidad y regularidad; avisando a KATASHI con la antelación suficiente en el caso de que surgiera alguna dificultad imprevista.
 
-Cuarta. Que podrá cesar la actividad cuando lo desee, debiendo ponerlo en conocimiento de SHURI-TE con 1 mes de antelación, debiendo satisfacer todas las cuotas pendientes.
+Cuarta. Que podrá cesar la actividad cuando lo desee, debiendo ponerlo en conocimiento de KATASHI con 1 mes de antelación, debiendo satisfacer todas las cuotas pendientes.
 
 Quinta. Que igualmente, acepta que, en el supuesto de que sus servicios no sean satisfactorios, esta podrá prescindir de los mismos notificándolo con 1 mes de antelación.
 
@@ -19,7 +18,7 @@ Sexta. El curso inicia el día 14 del mes de septiembre de 2026 y finaliza el me
 
 Séptima. Los entrenamientos serán PRESENCIALES y se realizarán en modalidad DEPORTE FEDERADO, por lo que todos los alumnos DEBERÁN ESTAR OBLIGATORIAMENTE FEDERADOS.
 
-Octava. Existirán los siguientes uniformes: UNIFORME OFICIAL SHURI-TE (chaqueta, pantalón y cinturón) y UNIFORME DE VERANO. No estará permitido el uso de materiales no facilitados por SHURI-TE.
+Octava. Existirán los siguientes uniformes: UNIFORME OFICIAL KATASHI (chaqueta, pantalón y cinturón) y UNIFORME DE VERANO. No estará permitido el uso de materiales no facilitados por KATASHI.
 
 Undécima. Los pagos se realizarán dentro de los 5 primeros días de cada mes, siendo el método de pago DOMICILIACIÓN/TRANSFERENCIA BANCARIA o PRESENCIAL.
 
@@ -27,7 +26,6 @@ Duodécima. Está terminantemente prohibida la grabación, reproducción o publi
 `;
 
 const Matriculacion: React.FC = () => {
-  const navigate  = useNavigate();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const [esMayor, setEsMayor]       = useState<boolean | null>(null);
