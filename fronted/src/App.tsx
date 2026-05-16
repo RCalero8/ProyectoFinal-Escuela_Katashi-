@@ -43,7 +43,7 @@ const RutaProtegida = ({ tipo, children }: { tipo: string, children: React.React
   return usuario?.tipo_usuario === tipo ? children : <Navigate to="/login" replace />;
 };
 
-const RUTAS_SIN_HEADER = ["/admin", "/login", "/registro"];
+const RUTAS_SIN_HEADER = ["/admin", "/login", "/registro", "/matriculacion"];
 
 function Layout() {
   const location = useLocation();
