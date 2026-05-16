@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../style/Registro/Matriculacion.css";
 
 const API_URL = "https://proyectofinal-escuela-katashi.onrender.com";
@@ -26,11 +27,13 @@ Duodécima. Está terminantemente prohibida la grabación, reproducción o publi
 `;
 
 const Matriculacion: React.FC = () => {
+  const navigate  = useNavigate();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const [esMayor, setEsMayor]       = useState<boolean | null>(null);
   const [metodoPago, setMetodoPago] = useState<"Tarjeta" | "Metálico" | "">("");
   const [autoriza, setAutoriza]     = useState<string>("");
+  const [tarjeta, setTarjeta]       = useState({ titular: "", numero: "", caducidad: "", cvv: "" });
   const [enviando, setEnviando]     = useState(false);
 
   // Datos alumno
@@ -310,6 +313,52 @@ const Matriculacion: React.FC = () => {
                       <span>Presencial / Metálico</span>
                     </div>
                   </div>
+
+                  {/* Formulario tarjeta */}
+                  {metodoPago === "Tarjeta" && (
+                    <div className="matriculacion-tarjeta-form">
+                      <p className="matriculacion-tarjeta-titulo">💳 Datos de la tarjeta</p>
+                      <div className="matriculacion-form-grid">
+                        <div className="matriculacion-field full">
+                          <label className="matriculacion-label">Nombre del titular</label>
+                          <input className="matriculacion-input" placeholder="Juan Pérez García"
+                            value={tarjeta.titular} onChange={e => setTarjeta({...tarjeta, titular: e.target.value})} required />
+                        </div>
+                        <div className="matriculacion-field full">
+                          <label className="matriculacion-label">Número de tarjeta</label>
+                          <input className="matriculacion-input" placeholder="1234 5678 9012 3456"
+                            maxLength={19}
+                            value={tarjeta.numero}
+                            onChange={e => {
+                              const val = e.target.value.replace(/\D/g,"").slice(0,16);
+                              const fmt = val.match(/.{1,4}/g)?.join(" ") || val;
+                              setTarjeta({...tarjeta, numero: fmt});
+                            }} required />
+                        </div>
+                        <div className="matriculacion-field">
+                          <label className="matriculacion-label">Fecha de caducidad</label>
+                          <input className="matriculacion-input" placeholder="MM/AA"
+                            maxLength={5}
+                            value={tarjeta.caducidad}
+                            onChange={e => {
+                              const val = e.target.value.replace(/\D/g,"").slice(0,4);
+                              const fmt = val.length > 2 ? val.slice(0,2)+"/"+val.slice(2) : val;
+                              setTarjeta({...tarjeta, caducidad: fmt});
+                            }} required />
+                        </div>
+                        <div className="matriculacion-field">
+                          <label className="matriculacion-label">CVV</label>
+                          <input className="matriculacion-input" placeholder="123" type="password"
+                            maxLength={3}
+                            value={tarjeta.cvv}
+                            onChange={e => setTarjeta({...tarjeta, cvv: e.target.value.replace(/\D/g,"").slice(0,3)})} required />
+                        </div>
+                      </div>
+                      <p className="matriculacion-tarjeta-aviso">
+                        🔒 Tus datos están protegidos. No almacenamos el número completo de tu tarjeta.
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
 
