@@ -43,13 +43,14 @@ const Pagos_Admin: React.FC = () => {
  
 const filtrados = pagos.filter(p => {
   // Comparamos el estado del pago (en mayúsculas) con el valor del filtro
-  const matchFiltro = filtro === "TODOS" || p.estado?.toUpperCase() === filtro;
+  const estadoNorm = p.estado?.toUpperCase() === 'PAGADO' ? 'COMPLETADO' : p.estado?.toUpperCase();
+  const matchFiltro = filtro === "TODOS" || estadoNorm === filtro;
   const matchBusqueda = `${p.nombre} ${p.apellido}`.toLowerCase().includes(busqueda.toLowerCase());
   return matchFiltro && matchBusqueda;
 });
  
   const totalPendiente  = pagos.filter(p => p.estado.toUpperCase() === "PENDIENTE").reduce((a, p) => a + Number(p.precio), 0);
-  const totalCompletado = pagos.filter(p => p.estado.toUpperCase() === "COMPLETADO").reduce((a, p) => a + Number(p.precio), 0);
+  const totalCompletado = pagos.filter(p => ['COMPLETADO','PAGADO'].includes(p.estado.toUpperCase())).reduce((a, p) => a + Number(p.precio), 0);
  
   return (
     <div className="admin-page">
@@ -105,18 +106,18 @@ const filtrados = pagos.filter(p => {
                   <td>{Number(p.precio).toFixed(2)}€</td>
                   <td>{formatFecha(p.f_pago)}</td>
                   <td>
-                    <span className={`admin-badge ${p.estado === 'COMPLETADO' ? 'verde' : 'amarillo'}`}>
-                      {p.estado === 'COMPLETADO' ? '✅ Pagado' : '⏳ Pendiente'}
+                    <span className={`admin-badge ${['COMPLETADO','PAGADO'].includes(p.estado.toUpperCase()) ? 'verde' : 'amarillo'}`}>
+                      {['COMPLETADO','PAGADO'].includes(p.estado.toUpperCase()) ? '✅ Pagado' : '⏳ Pendiente'}
                     </span>
                   </td>
                   <td>
-                    {p.estado === 'PENDIENTE' && (
+                    {p.estado.toUpperCase() === 'PENDIENTE' && (
                       <button className="admin-btn-accion"
                         onClick={() => cambiarEstado(p.id_pago, 'COMPLETADO')}>
                         ✅ Marcar pagado
                       </button>
                     )}
-                    {p.estado === 'COMPLETADO' && (
+                    {['COMPLETADO','PAGADO'].includes(p.estado.toUpperCase()) && (
                       <button className="admin-btn-edit"
                         onClick={() => cambiarEstado(p.id_pago, 'PENDIENTE')}>
                         ↩ Revertir
@@ -134,4 +135,3 @@ const filtrados = pagos.filter(p => {
 };
  
 export default Pagos_Admin;
-  
